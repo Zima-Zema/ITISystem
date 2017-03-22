@@ -20,7 +20,8 @@ namespace ITISystem.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-       
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

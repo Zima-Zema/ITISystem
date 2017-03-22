@@ -48,6 +48,14 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -144,12 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -206,10 +208,25 @@
     <Compile Include="Migrations\201703220802048_InitialCreation.Designer.cs">
       <DependentUpon>201703220802048_InitialCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703221338110_AddStudentandDepartment.cs" />
+    <Compile Include="Migrations\201703221338110_AddStudentandDepartment.Designer.cs">
+      <DependentUpon>201703221338110_AddStudentandDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703221344162_AddStudentandDepartment2.cs" />
+    <Compile Include="Migrations\201703221344162_AddStudentandDepartment2.Designer.cs">
+      <DependentUpon>201703221344162_AddStudentandDepartment2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703221447004_DepartmentNameIndex.cs" />
+    <Compile Include="Migrations\201703221447004_DepartmentNameIndex.Designer.cs">
+      <DependentUpon>201703221447004_DepartmentNameIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\FullAddress.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -299,6 +316,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703220802048_InitialCreation.resx">
       <DependentUpon>201703220802048_InitialCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221338110_AddStudentandDepartment.resx">
+      <DependentUpon>201703221338110_AddStudentandDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221344162_AddStudentandDepartment2.resx">
+      <DependentUpon>201703221344162_AddStudentandDepartment2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221447004_DepartmentNameIndex.resx">
+      <DependentUpon>201703221447004_DepartmentNameIndex.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
