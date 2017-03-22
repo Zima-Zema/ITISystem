@@ -24,7 +24,7 @@ namespace ITISystem
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-Darkly.css",
                       "~/Content/site.css"));
         }
     }
