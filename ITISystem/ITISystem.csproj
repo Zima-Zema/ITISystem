@@ -220,11 +220,18 @@
     <Compile Include="Migrations\201703221447004_DepartmentNameIndex.Designer.cs">
       <DependentUpon>201703221447004_DepartmentNameIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703221536473_CourseAndInstructor.cs" />
+    <Compile Include="Migrations\201703221536473_CourseAndInstructor.Designer.cs">
+      <DependentUpon>201703221536473_CourseAndInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Dept_Crs_Instr.cs" />
     <Compile Include="Models\FullAddress.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -325,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221447004_DepartmentNameIndex.resx">
       <DependentUpon>201703221447004_DepartmentNameIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221536473_CourseAndInstructor.resx">
+      <DependentUpon>201703221536473_CourseAndInstructor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

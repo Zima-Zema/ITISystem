@@ -12,6 +12,7 @@ namespace ITISystem.Models
         public Department()
         {
             Students = new List<Student>();
+            Instructors = new List<Instructor>();
         }
         [Key]
         public int Department_Id { get; set; }
@@ -22,5 +23,6 @@ namespace ITISystem.Models
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
         public int Capacity { get; set; }
         public virtual List<Student> Students { get; set; }
+        public virtual List<Instructor> Instructors { get; set; }
     }
 }

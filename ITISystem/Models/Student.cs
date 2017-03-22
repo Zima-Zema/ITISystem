@@ -44,7 +44,5 @@ namespace ITISystem.Models
         [ForeignKey("Department")]
         public int? Department_Key { get; set; }
         public virtual Department Department { get; set; }
-
-
     }
 }

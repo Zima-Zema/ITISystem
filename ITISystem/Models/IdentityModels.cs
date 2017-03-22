@@ -22,6 +22,9 @@ namespace ITISystem.Models
     {
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Instructor> Instructors { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
