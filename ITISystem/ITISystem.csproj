@@ -236,11 +236,16 @@
     <Compile Include="Migrations\201703251608486_Std_Crs_Instr.Designer.cs">
       <DependentUpon>201703251608486_Std_Crs_Instr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703251703098_addExamWithCrs.cs" />
+    <Compile Include="Migrations\201703251703098_addExamWithCrs.Designer.cs">
+      <DependentUpon>201703251703098_addExamWithCrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Dept_Crs_Instr.cs" />
+    <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\FullAddress.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Instructor.cs" />
@@ -354,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703251608486_Std_Crs_Instr.resx">
       <DependentUpon>201703251608486_Std_Crs_Instr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703251703098_addExamWithCrs.resx">
+      <DependentUpon>201703251703098_addExamWithCrs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,6 +18,7 @@ namespace ITISystem.Models
         {
             CrsDeptInstr = new List<Dept_Crs_Instr>();
             Std_Crs_Instr = new List<Models.Std_Crs_Instr>();
+            Exams = new List<Exam>();
         }
         [Key]
         public int Course_Id { get; set; }
@@ -43,5 +44,6 @@ namespace ITISystem.Models
         public int Duration { get; set; }
         public virtual List<Dept_Crs_Instr> CrsDeptInstr { set; get; }
         public virtual List<Std_Crs_Instr> Std_Crs_Instr { set; get; }
+        public virtual List<Exam> Exams { set; get; }
     }
 }
