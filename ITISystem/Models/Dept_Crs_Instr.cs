@@ -11,10 +11,14 @@ namespace ITISystem.Models
     {
         [Key][Column(Order =1)][ForeignKey("Departments")]
         public int? Department_key { get; set; }
+        //
         [Key][Column(Order = 2)][ForeignKey("Courses")]
         public int? Course_key { get; set; }
+        //
         [Key][Column(Order = 3)][ForeignKey("Instructors")]
         public int? Instructor_key { get; set; }
+        //
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
         public int Full_evaluation{ get; set; }
 
         public virtual Department Departments { get; set; }

@@ -17,8 +17,14 @@ namespace ITISystem.Models
         //
         [Key][Column(Order = 3)][ForeignKey("Instructors")]
         public int? Instructor_key { get; set; }
+        //
+        [Range(0, 600, ErrorMessage = "Please enter valid Number")]
         public int Instr_evaluation { get; set; }
+        //
+        [Range(0, 600, ErrorMessage = "Please enter valid Number")]
         public int Crs_evaluation { get; set; }
+        //
+        [Range(0, 600, ErrorMessage = "Please enter valid Number")]
         public int Labs_Grade { get; set; }
 
         public virtual Student Students { get; set; }

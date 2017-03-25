@@ -27,6 +27,7 @@ namespace ITISystem.Models
         public virtual DbSet<Dept_Crs_Instr> DeptS_CrS_InstrS { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
+       // public virtual DbSet<Std_Exam_Ques> StdSExamSQueS { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

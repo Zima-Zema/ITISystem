@@ -12,6 +12,8 @@ namespace ITISystem.Models
         public Exam()
         {
             Questions = new List<Question>();
+            Std_Exam_Ques = new List<Models.Std_Exam_Quest>();
+            Std_Exams = new List<Std_Exam>();
         }
         [Key]
         public int Exam_id { get; set; }
@@ -32,5 +34,7 @@ namespace ITISystem.Models
         public int Course_key { get; set; }
         public virtual Course Courses { get; set; }
         public virtual List<Question> Questions { get; set; }
+        public virtual List<Std_Exam_Quest> Std_Exam_Ques { get; set; }
+        public virtual List<Std_Exam> Std_Exams { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace ITISystem.Models
         public Question()
         {
             Exams = new List<Exam>();
+           Std_Exam_Ques = new List<Models.Std_Exam_Quest>();
         }
         [Key]
         public int Question_id { get; set; }
@@ -22,19 +23,19 @@ namespace ITISystem.Models
         public string Body { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        public char Answer_A { get; set; }
+        public string Answer_A { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        public char Answer_B { get; set; }
+        public string Answer_B { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        public char Answer_C { get; set; }
+        public string Answer_C { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        public char Answer_D { get; set; }
+        public string Answer_D { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        public char Answer_Model { get; set; }
+        public string Answer_Model { get; set; }
         //
         [Required][Range(0, 50, ErrorMessage = "Please enter valid Number")]
         public double Grade { get; set; }
@@ -43,5 +44,6 @@ namespace ITISystem.Models
         public int Course_key { get; set; }
         public virtual Course Courses { get; set; }
         public virtual List<Exam> Exams { get; set; }
+        public virtual List<Std_Exam_Quest> Std_Exam_Ques { get; set; }
     }
 }
