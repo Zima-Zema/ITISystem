@@ -240,6 +240,14 @@
     <Compile Include="Migrations\201703251703098_addExamWithCrs.Designer.cs">
       <DependentUpon>201703251703098_addExamWithCrs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703251730575_addQuestionWithCrs.cs" />
+    <Compile Include="Migrations\201703251730575_addQuestionWithCrs.Designer.cs">
+      <DependentUpon>201703251730575_addQuestionWithCrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703251736012_addQuestionExam.cs" />
+    <Compile Include="Migrations\201703251736012_addQuestionExam.Designer.cs">
+      <DependentUpon>201703251736012_addQuestionExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -250,6 +258,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Std_Crs_Instr.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -362,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703251703098_addExamWithCrs.resx">
       <DependentUpon>201703251703098_addExamWithCrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703251730575_addQuestionWithCrs.resx">
+      <DependentUpon>201703251730575_addQuestionWithCrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703251736012_addQuestionExam.resx">
+      <DependentUpon>201703251736012_addQuestionExam.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

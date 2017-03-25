@@ -9,6 +9,10 @@ namespace ITISystem.Models
 {
     public class Exam
     {
+        public Exam()
+        {
+            Questions = new List<Question>();
+        }
         [Key]
         public int Exam_id { get; set; }
         //
@@ -27,5 +31,6 @@ namespace ITISystem.Models
         [ForeignKey("Courses")]
         public int Course_key { get; set; }
         public virtual Course Courses { get; set; }
+        public virtual List<Question> Questions { get; set; }
     }
 }
