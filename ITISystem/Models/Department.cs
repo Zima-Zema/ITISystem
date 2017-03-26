@@ -27,23 +27,10 @@ namespace ITISystem.Models
         [ForeignKey("instructor_mang")]
         public int? manger_key { get; set; }
         public virtual Instructor instructor_mang { get; set; }
+        [InverseProperty("Departments")]
         public virtual List<Instructor> Instructors { get; set; }
 
         public virtual List<Dept_Crs_Instr> DeptCrsInstr { set; get; }
 
-
-        // [ForeignKey("Instructors")]
-        // public int? instr_key { get; set; }
-        /*
-         //[ForeignKey("Instructor")]
-       // public int manger_key { get; set; }
-        //[InverseProperty("Department_mang")]
-            [InverseProperty("Department_Mang")]
-           // 1 - to - many
-     //   [InverseProperty("Department_Key")]
-           //
-             //1 - to - 1
-     //   [InverseProperty("Department_Mang")]
-         */
     }
 }

@@ -42,6 +42,7 @@ namespace ITISystem.Models
         public Work_Status Work_Status { get; set; }
         [ForeignKey("Departments")]
         public int Department_Key { get; set; }
+
         public virtual Department Departments { get; set; }
 
         public virtual List<Dept_Crs_Instr> InstrDeptCrs { set; get; }
