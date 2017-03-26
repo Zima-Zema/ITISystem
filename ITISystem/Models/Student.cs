@@ -9,6 +9,12 @@ namespace ITISystem.Models
 {
     public class Student
     {
+        public Student()
+        {
+            Std_Crs_Instr = new List<Models.Std_Crs_Instr>();
+            Std_Exam_Ques = new List<Models.Std_Exam_Quest>();
+            Std_Exams = new List<Std_Exam>();
+        }
         [Key]
         public int Student_Id { get; set; }
         [Required]
@@ -44,5 +50,9 @@ namespace ITISystem.Models
         [ForeignKey("Department")]
         public int? Department_Key { get; set; }
         public virtual Department Department { get; set; }
+
+        public virtual List<Std_Crs_Instr> Std_Crs_Instr { get; set; }
+        public virtual List<Std_Exam_Quest> Std_Exam_Ques { get; set; }
+        public virtual List<Std_Exam> Std_Exams { get; set; }
     }
 }
