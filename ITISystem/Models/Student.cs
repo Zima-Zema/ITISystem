@@ -23,7 +23,7 @@ namespace ITISystem.Models
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string LastName { get; set; }
         [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
-        [RegularExpression("")]
+        [RegularExpression("dd/mm/yyyy")]
         public DateTime BirthDate { get; set; }
         [Required]
         [DataType(DataType.EmailAddress, ErrorMessage = "Enter Valid Email")]
@@ -50,6 +50,7 @@ namespace ITISystem.Models
         [ForeignKey("Department")]
         public int? Department_Key { get; set; }
         public virtual Department Department { get; set; }
+        public virtual premission Premissions { get; set; }
 
         public virtual List<Std_Crs_Instr> Std_Crs_Instr { get; set; }
         public virtual List<Std_Exam_Quest> Std_Exam_Ques { get; set; }

@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201703251953527_ADD_Std_Exam.Designer.cs">
       <DependentUpon>201703251953527_ADD_Std_Exam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703260533065_permissionUpdate.cs" />
+    <Compile Include="Migrations\201703260533065_permissionUpdate.Designer.cs">
+      <DependentUpon>201703260533065_permissionUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
@@ -274,6 +278,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Permisions.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Std_Crs_Instr.cs" />
     <Compile Include="Models\Std_Exam.cs" />
@@ -407,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703251953527_ADD_Std_Exam.resx">
       <DependentUpon>201703251953527_ADD_Std_Exam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260533065_permissionUpdate.resx">
+      <DependentUpon>201703260533065_permissionUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
