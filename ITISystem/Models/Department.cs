@@ -23,6 +23,12 @@ namespace ITISystem.Models
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
         public int Capacity { get; set; }
         public virtual List<Student> Students { get; set; }
+       
         public virtual List<Instructor> Instructors { get; set; }
+        [ForeignKey("Instructors")]
+       // public int Manger_Key { get; set; }
+
+        public virtual Instructor Manger { get; set; }
+        //public virtual Instructor 
     }
 }

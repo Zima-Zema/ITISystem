@@ -7,5 +7,6 @@ namespace ITISystem.Models
 {
     public class Dept_Crs_Instr
     {
+
     }
 }
