@@ -270,6 +270,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Dept_Crs_Instr.cs" />
@@ -278,6 +279,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Permisions.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Std_Crs_Instr.cs" />
     <Compile Include="Models\Std_Exam.cs" />
