@@ -35,8 +35,7 @@ namespace ITISystem.Migrations
                     })
                 .PrimaryKey(t => t.Instructor_Id)
                 .ForeignKey("dbo.Departments", t => t.Department_Key)
-                .Index(t => t.Department_Key);
-            
+                .Index(t => t.Department_Key);         
         }
         
         public override void Down()

@@ -7,12 +7,12 @@ namespace ITISystem.Migrations
     {
         public override void Up()
         {
-            //DropColumn("dbo.Departments", "instr_key");
+          //  DropColumn("dbo.Departments", "instr_key");
         }
         
         public override void Down()
         {
-            //AddColumn("dbo.Departments", "instr_key", c => c.Int());
+            AddColumn("dbo.Departments", "instr_key", c => c.Int());
         }
     }
 }
