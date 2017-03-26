@@ -264,8 +264,17 @@
     <Compile Include="Migrations\201703251953527_ADD_Std_Exam.Designer.cs">
       <DependentUpon>201703251953527_ADD_Std_Exam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703260822537_Attendance_std.cs" />
+    <Compile Include="Migrations\201703260822537_Attendance_std.Designer.cs">
+      <DependentUpon>201703260822537_Attendance_std.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703260857081_Update_inst_deparatment.cs" />
+    <Compile Include="Migrations\201703260857081_Update_inst_deparatment.Designer.cs">
+      <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Dept_Crs_Instr.cs" />
@@ -407,6 +416,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703251953527_ADD_Std_Exam.resx">
       <DependentUpon>201703251953527_ADD_Std_Exam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260822537_Attendance_std.resx">
+      <DependentUpon>201703260822537_Attendance_std.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260857081_Update_inst_deparatment.resx">
+      <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
