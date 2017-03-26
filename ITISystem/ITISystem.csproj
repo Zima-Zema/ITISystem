@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -287,6 +288,22 @@
     <Compile Include="Migrations\201703261002578_Fix5.cs" />
     <Compile Include="Migrations\201703261002578_Fix5.Designer.cs">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261238191_FixDepartment.cs" />
+    <Compile Include="Migrations\201703261238191_FixDepartment.Designer.cs">
+      <DependentUpon>201703261238191_FixDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261239494_FixDepartment2.cs" />
+    <Compile Include="Migrations\201703261239494_FixDepartment2.Designer.cs">
+      <DependentUpon>201703261239494_FixDepartment2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261245018_FixDepartment3.cs" />
+    <Compile Include="Migrations\201703261245018_FixDepartment3.Designer.cs">
+      <DependentUpon>201703261245018_FixDepartment3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261246305_FixDepartment4.cs" />
+    <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
+      <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -383,6 +400,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -454,6 +472,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261002578_Fix5.resx">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261238191_FixDepartment.resx">
+      <DependentUpon>201703261238191_FixDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261239494_FixDepartment2.resx">
+      <DependentUpon>201703261239494_FixDepartment2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261245018_FixDepartment3.resx">
+      <DependentUpon>201703261245018_FixDepartment3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
+      <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
