@@ -13,7 +13,7 @@ namespace ITISystem.Migrations
             DropIndex("dbo.Std_Exam_Ques", new[] { "Student_key" });
             DropIndex("dbo.Std_Exam_Ques", new[] { "Exam_key" });
             DropIndex("dbo.Std_Exam_Ques", new[] { "Question_key" });
-            //DropTable("dbo.Std_Exam_Ques");
+           // DropTable("dbo.Std_Exam_Ques");
         }
         
         public override void Down()

@@ -27,7 +27,7 @@ namespace ITISystem.Models
         [ForeignKey("instructor_mang")]
         public int? manger_key { get; set; }
         public virtual Instructor instructor_mang { get; set; }
-        [InverseProperty("Departments")]
+        [InverseProperty("Department")]
         public virtual List<Instructor> Instructors { get; set; }
 
         public virtual List<Dept_Crs_Instr> DeptCrsInstr { set; get; }
