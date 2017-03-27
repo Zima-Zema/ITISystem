@@ -1,0 +1,61 @@
+﻿@using ITISystem.Models;
+@model Course
+@using (Ajax.BeginForm("EditCourse", "Course", new AjaxOptions()
+{
+    UpdateTargetId = "div1",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "Post",
+    OnSuccess = "myfun2()"
+
+}))
+{
+    <div class="form-horizontal">
+        <h2>Course</h2>
+        @Html.HiddenFor(c=>c.Course_Id) 
+        <div class="form-group">
+            @Html.LabelFor(model=>model.Name,htmlAttributes:new {@class="control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Name, new { HtmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lec_Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Lec_Duration, new { HtmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Lec_Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lab_Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Lab_Duration, new { HtmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Lab_Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Status",
+                    new SelectList(Enum.GetValues(typeof(CourseStatus))),
+                    "Select Status",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(c => c.Duration, new { HtmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(c => c.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offest">
+                <input type="submit"value="Update" class="btn btn-primary" /> 
+            </div>
+        </div>
+       
+
+        </div>
+}
