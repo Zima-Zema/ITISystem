@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201703221536473_CourseAndInstructor.designer.cs">
       <DependentUpon>201703221536473_CourseAndInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703221658426_Update1.cs" />
+    <Compile Include="Migrations\201703221658426_Update1.Designer.cs">
+      <DependentUpon>201703221658426_Update1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703221708330_relationBetweenInsrtDprt.cs" />
     <Compile Include="Migrations\201703221708330_relationBetweenInsrtDprt.Designer.cs">
       <DependentUpon>201703221708330_relationBetweenInsrtDprt.cs</DependentUpon>
@@ -287,6 +291,14 @@
     <Compile Include="Migrations\201703260857081_Update_inst_deparatment.Designer.cs">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703260945412_Fix4.cs" />
+    <Compile Include="Migrations\201703260945412_Fix4.Designer.cs">
+      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703260953417_test.cs" />
+    <Compile Include="Migrations\201703260953417_test.Designer.cs">
+      <DependentUpon>201703260953417_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703261002578_Fix5.cs" />
     <Compile Include="Migrations\201703261002578_Fix5.Designer.cs">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
@@ -306,6 +318,30 @@
     <Compile Include="Migrations\201703261246305_FixDepartment4.cs" />
     <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261356516_FixInst_and_Stud.cs" />
+    <Compile Include="Migrations\201703261356516_FixInst_and_Stud.Designer.cs">
+      <DependentUpon>201703261356516_FixInst_and_Stud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261936210_FixValidation.cs" />
+    <Compile Include="Migrations\201703261936210_FixValidation.Designer.cs">
+      <DependentUpon>201703261936210_FixValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271602147_update_phone.cs" />
+    <Compile Include="Migrations\201703271602147_update_phone.Designer.cs">
+      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271923486_update_inDB.cs" />
+    <Compile Include="Migrations\201703271923486_update_inDB.Designer.cs">
+      <DependentUpon>201703271923486_update_inDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272001332_update_phone2.cs" />
+    <Compile Include="Migrations\201703272001332_update_phone2.Designer.cs">
+      <DependentUpon>201703272001332_update_phone2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272102125_update_DB2.cs" />
+    <Compile Include="Migrations\201703272102125_update_DB2.Designer.cs">
+      <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -406,6 +442,8 @@
     <Content Include="Views\Course\Addcourse.cshtml" />
     <Content Include="Views\Course\EditCourse.cshtml" />
     <Content Include="Views\Course\DeleteCourse.cshtml" />
+    <Content Include="Views\Student\Create_Student.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221536473_CourseAndInstructor.resx">
       <DependentUpon>201703221536473_CourseAndInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221658426_Update1.resx">
+      <DependentUpon>201703221658426_Update1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221708330_relationBetweenInsrtDprt.resx">
       <DependentUpon>201703221708330_relationBetweenInsrtDprt.cs</DependentUpon>
@@ -475,6 +516,12 @@
     <EmbeddedResource Include="Migrations\201703260857081_Update_inst_deparatment.resx">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260945412_Fix4.resx">
+      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260953417_test.resx">
+      <DependentUpon>201703260953417_test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261002578_Fix5.resx">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,6 +536,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261356516_FixInst_and_Stud.resx">
+      <DependentUpon>201703261356516_FixInst_and_Stud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261936210_FixValidation.resx">
+      <DependentUpon>201703261936210_FixValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271602147_update_phone.resx">
+      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271923486_update_inDB.resx">
+      <DependentUpon>201703271923486_update_inDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272001332_update_phone2.resx">
+      <DependentUpon>201703272001332_update_phone2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272102125_update_DB2.resx">
+      <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
