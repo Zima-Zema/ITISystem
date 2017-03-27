@@ -94,19 +94,21 @@
         @Html.ValidationMessageFor(a => a.Address.Country)
     </div>
     <div class="col-lg-12">
-        @Html.LabelFor(a => a.Address.Street, new { @class = "form-group" })
+       @Html.LabelFor(a => a.Address.Street, new { @class = "form-group" })
+     @*    @Html.DisplayFor(model => model.Address.Street, new { @class = "form-group" })*@
     </div>
     <div class="col-lg-12">
-        @Html.TextBoxFor(a => a.Address.Street, new { @class = "form-group" })
+     @*   @Html.TextBoxFor(a => a.Address.Street, new { @class = "form-group" })*@
+        @Html.EditorFor(model=>model.Address.Street, new { @class = "form-group" })
       @*  @Html.ValidationMessageFor(a => a.Address.Street)*@
     </div>
     @***@
     <div class="col-lg-12">
-        @Html.LabelFor(a => a.Department_Key, "Department_Id", new { @class = "form-group" })
+    @*    @Html.LabelFor(a => a.Department_Key, "Department_Id", new { @class = "form-group" })*@
+        @Html.DisplayFor(model=>model.Department_Key)       
     </div>
     <div class="col-lg-12">
         @Html.DropDownListFor( a => a.Department_Key, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
-        
       @*  @Html.ValidationMessageFor(a => a.Department_Key)*@
      </div>
     <br />

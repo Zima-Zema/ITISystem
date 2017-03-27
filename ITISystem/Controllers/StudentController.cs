@@ -5,6 +5,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace ITISystem.Controllers
 {
@@ -14,7 +15,9 @@ namespace ITISystem.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            var models = iti.Students;
+            var models = iti.Students.Include(ss => ss.Department);
+            
+
             //iti.Students.Select(s=>s.Department_Key);
             //(from s in iti.Students select new Student() {FirstName=s.FirstName,LastName=s.LastName,BirthDate=s.BirthDate,Email=s.Email,UserName=s.UserName,Password=s.Password,Attend_Balance=s.Attend_Balance,Telephone=s.Telephone,Address=s.Address,Department_Key=s.Department_Key }).ToList();
             /*(from s in iti.Students
@@ -31,9 +34,9 @@ namespace ITISystem.Controllers
         [HttpPost]
         public ActionResult Create_Student(Student std)
         {
-           //int? selected_dept= std.Department_Key;
-           //string cap= iti.Departments.Where(d => d.Department_Id == selected_dept).Select(d => d.Capacity).ToString();
-           //string count_std = iti.Students.Count().ToString();
+            //int? selected_dept= std.Department_Key;
+            //string cap= iti.Departments.Where(d => d.Department_Id == selected_dept).Select(d => d.Capacity).ToString();
+            //string count_std = iti.Students.Count().ToString();
 
             //if (ModelState.IsValid)
             //{
@@ -55,7 +58,7 @@ namespace ITISystem.Controllers
 
                         throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
                     }
-         //   }
+            //}
             //else
             //{
             //    ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");

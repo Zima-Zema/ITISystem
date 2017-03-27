@@ -40,17 +40,17 @@ namespace ITISystem.Models
         //
         [Required]
         [DataType(DataType.Password, ErrorMessage = "Please Enter Strong Password ")]
-      // [RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
+      //[RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
         public string Password { get; set; }
         //
         [Range(0, 600, ErrorMessage = "Please enter valid Number")]
         [Required]
         public int Attend_Balance { get; set; }
-        //
-        //[DataType(DataType.PhoneNumber, ErrorMessage = "Enter Valid Phone")]
-        // [DataType(DataType.PhoneNumber)]  //212-666-1234
-     //   [RegularExpression(@"^[2-9]\d{2}-\d{3}-\d{4}$", ErrorMessage = "Not a valid Phone number")]
-        public int Telephone { get; set; }
+        //   
+      //   [DataType(DataType.PhoneNumber)]  //212-666-1234
+                                                                                        //[RegularExpression(@"^[0-9]\d{2}-\d{3}-\d{4}$", ErrorMessage = "Not a valid Phone number")]
+        [Phone]
+        public string Telephone { get; set; }
         //
         public FullAddress Address { get; set; }
         //

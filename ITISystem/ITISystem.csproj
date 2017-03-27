@@ -202,6 +202,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -285,6 +286,14 @@
     <Compile Include="Migrations\201703260857081_Update_inst_deparatment.Designer.cs">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703260945412_Fix4.cs" />
+    <Compile Include="Migrations\201703260945412_Fix4.Designer.cs">
+      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703260953417_test.cs" />
+    <Compile Include="Migrations\201703260953417_test.Designer.cs">
+      <DependentUpon>201703260953417_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703261002578_Fix5.cs" />
     <Compile Include="Migrations\201703261002578_Fix5.Designer.cs">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
@@ -304,6 +313,10 @@
     <Compile Include="Migrations\201703261246305_FixDepartment4.cs" />
     <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271602147_update_phone.cs" />
+    <Compile Include="Migrations\201703271602147_update_phone.Designer.cs">
+      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -401,6 +414,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Student\Create_Student.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -470,6 +485,12 @@
     <EmbeddedResource Include="Migrations\201703260857081_Update_inst_deparatment.resx">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260945412_Fix4.resx">
+      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260953417_test.resx">
+      <DependentUpon>201703260953417_test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261002578_Fix5.resx">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
     </EmbeddedResource>
@@ -484,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271602147_update_phone.resx">
+      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
