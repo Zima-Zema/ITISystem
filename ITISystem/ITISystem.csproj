@@ -305,6 +305,14 @@
     <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703261356516_FixInst_and_Stud.cs" />
+    <Compile Include="Migrations\201703261356516_FixInst_and_Stud.Designer.cs">
+      <DependentUpon>201703261356516_FixInst_and_Stud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703261936210_FixValidation.cs" />
+    <Compile Include="Migrations\201703261936210_FixValidation.Designer.cs">
+      <DependentUpon>201703261936210_FixValidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -401,6 +409,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -484,6 +493,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261356516_FixInst_and_Stud.resx">
+      <DependentUpon>201703261356516_FixInst_and_Stud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261936210_FixValidation.resx">
+      <DependentUpon>201703261936210_FixValidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
