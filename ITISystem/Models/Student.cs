@@ -18,7 +18,7 @@ namespace ITISystem.Models
         }
         [Key]
         public int Student_Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="*")]
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string FirstName { get; set; }
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
@@ -29,28 +29,28 @@ namespace ITISystem.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
-        [Required]
+        [Required(ErrorMessage ="*")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Enter Valid Email")]
         [EmailAddress]    
         public string Email { get; set; }
         //
-        [Required]
+        [Required(ErrorMessage ="*")]
         [Index(IsUnique = true)]
         public string UserName { get; set; }
         //
-        [Required]
+        [Required(ErrorMessage ="*")]
         [DataType(DataType.Password, ErrorMessage = "Please Enter Strong Password ")]
-      //[RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
+      // [RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
         public string Password { get; set; }
         //
         [Range(0, 600, ErrorMessage = "Please enter valid Number")]
-        [Required]
+        [Required(ErrorMessage ="*")]
         public int Attend_Balance { get; set; }
-        //   
-      //   [DataType(DataType.PhoneNumber)]  //212-666-1234
-                                                                                        //[RegularExpression(@"^[0-9]\d{2}-\d{3}-\d{4}$", ErrorMessage = "Not a valid Phone number")]
-        [Phone]
-        public string Telephone { get; set; }
+        //
+        //
+        [Required(ErrorMessage ="*")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Enter Valid Phone")]
+        public int Telephone { get; set; }
         //
         public FullAddress Address { get; set; }
         //
@@ -59,6 +59,7 @@ namespace ITISystem.Models
         //
         public virtual Department Department { get; set; }
         //
+        [Required(ErrorMessage ="*")]
         public virtual Attendance Attendances { get; set; }
         //
         public virtual List<Std_Crs_Instr> Std_Crs_Instr { get; set; }

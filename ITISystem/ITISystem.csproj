@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -286,14 +287,6 @@
     <Compile Include="Migrations\201703260857081_Update_inst_deparatment.Designer.cs">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703260945412_Fix4.cs" />
-    <Compile Include="Migrations\201703260945412_Fix4.Designer.cs">
-      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703260953417_test.cs" />
-    <Compile Include="Migrations\201703260953417_test.Designer.cs">
-      <DependentUpon>201703260953417_test.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201703261002578_Fix5.cs" />
     <Compile Include="Migrations\201703261002578_Fix5.Designer.cs">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
@@ -313,10 +306,6 @@
     <Compile Include="Migrations\201703261246305_FixDepartment4.cs" />
     <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703271602147_update_phone.cs" />
-    <Compile Include="Migrations\201703271602147_update_phone.Designer.cs">
-      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -359,16 +348,15 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-2.2.4-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.2.4.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -414,8 +402,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
-    <Content Include="Views\Student\Create_Student.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Course\Addcourse.cshtml" />
+    <Content Include="Views\Course\EditCourse.cshtml" />
+    <Content Include="Views\Course\DeleteCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -485,12 +475,6 @@
     <EmbeddedResource Include="Migrations\201703260857081_Update_inst_deparatment.resx">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703260945412_Fix4.resx">
-      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703260953417_test.resx">
-      <DependentUpon>201703260953417_test.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261002578_Fix5.resx">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,9 +489,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703271602147_update_phone.resx">
-      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,6 +18,11 @@ namespace ITISystem
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Department",
+                url: "Department/{controller}/{action}/{id}",
+                defaults: new { controller = "Department", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }
