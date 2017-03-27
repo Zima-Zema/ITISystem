@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ITISystem.Models
 {
@@ -22,8 +23,11 @@ namespace ITISystem.Models
         public string FirstName { get; set; }
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string LastName { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
-        [RegularExpression("")]
+        //[DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
+        //[RegularExpression("dd/mm/yyyy")]
+        // public DateTime BirthDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
         [Required]
         [DataType(DataType.EmailAddress, ErrorMessage = "Enter Valid Email")]
@@ -36,16 +40,16 @@ namespace ITISystem.Models
         //
         [Required]
         [DataType(DataType.Password, ErrorMessage = "Please Enter Strong Password ")]
-        [RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
+      // [RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
         public string Password { get; set; }
         //
         [Range(0, 600, ErrorMessage = "Please enter valid Number")]
         [Required]
         public int Attend_Balance { get; set; }
         //
-        //
-        [Range(7, 11, ErrorMessage = "Please enter valid Phone")]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Enter Valid Phone")]
+        //[DataType(DataType.PhoneNumber, ErrorMessage = "Enter Valid Phone")]
+        // [DataType(DataType.PhoneNumber)]  //212-666-1234
+     //   [RegularExpression(@"^[2-9]\d{2}-\d{3}-\d{4}$", ErrorMessage = "Not a valid Phone number")]
         public int Telephone { get; set; }
         //
         public FullAddress Address { get; set; }
@@ -55,7 +59,6 @@ namespace ITISystem.Models
         //
         public virtual Department Department { get; set; }
         //
-        [Required]
         public virtual Attendance Attendances { get; set; }
         //
         public virtual List<Std_Crs_Instr> Std_Crs_Instr { get; set; }

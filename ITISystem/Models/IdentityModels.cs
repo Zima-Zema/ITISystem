@@ -29,7 +29,7 @@ namespace ITISystem.Models
         public virtual DbSet<Permisions> Premissions { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Attendance> Attendances { get; set; }
-        // public virtual DbSet<Std_Exam_Ques> StdSExamSQueS { get; set; }
+        //public virtual DbSet<Std_Exam_Ques> StdSExamSQueS { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
