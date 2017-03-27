@@ -1,0 +1,51 @@
+﻿@using ITISystem.Models;
+@model IEnumerable< ITISystem.Models.Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Index</h2>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>BirthDate</th>
+            <th>Email</th><th>User Name</th><th>Password</th><th>Attendance Balance</th>
+            <th>Telephone</th><th>Street</th><th>City</th><th>Country</th><th>Department</th>
+            </tr>
+        </thead>
+
+        @foreach (var models in Model)
+            {
+            <tr>
+                <td>@models.Student_Id</td>
+                <td>@models.FirstName</td>
+                <td>@models.LastName</td>
+                <td>@models.BirthDate</td>
+                <td>@models.Email</td>
+                <td>@models.UserName</td>
+                <td>@models.Password</td>
+                <td>@models.Attend_Balance</td>
+                <td>@models.Telephone</td>
+                <td>@models.Address.Street</td>
+                <td>@models.Address.City</td>
+                <td>@models.Address.Country</td>
+                <td>@models.Department_Key</td>
+                <td>
+                    @Html.ActionLink("Edit", "edit", "OP", new { id = models.Student_Id }, new { @class = "btn btn-success" })
+                </td>
+                <td>
+                    @Html.ActionLink("Remove", "delete", "OP", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "details", "OP", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-default" })
+</div>
+
