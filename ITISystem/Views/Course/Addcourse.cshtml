@@ -1,0 +1,59 @@
+﻿@using ITISystem.Models;
+@model Course
+
+
+@{
+    ViewBag.Title = "Addcourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+    <head>
+       
+  
+    </head>
+    <body>
+        <br />
+        <br/>
+        <br/>
+     <form method="post" action="/Course/Addcourse" novalidate="novalidate">
+     <div calss="form-group">
+      @Html.DisplayNameFor(c => c.Name)
+      @Html.EditorFor(c => c.Name, new { HtmlAttributes = new { @class = "form-control" } })
+      @Html.ValidationMessageFor(c => c.Name, "", new { @class = "text-danger" })
+
+     </div>
+         <div calss="form-group">
+             @Html.DisplayNameFor(c => c.Lec_Duration)
+             @Html.EditorFor(c => c.Lec_Duration, new { HtmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(c => c.Lec_Duration, "", new { @class = "text-danger" })
+
+         </div>
+         <div calss="form-group">
+             @Html.DisplayNameFor(c => c.Lab_Duration)
+             @Html.EditorFor(c => c.Lab_Duration, new { HtmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(c => c.Lab_Duration, "", new { @class = "text-danger" })
+
+         </div>
+         <div calss="form-group">
+             @Html.DisplayNameFor(c => c.Status)
+                @Html.DropDownList("Status",
+                    new SelectList(Enum.GetValues(typeof(CourseStatus))),
+                    "Select Status",
+                    new { @class = "form-control" })
+
+
+             @Html.ValidationMessageFor(c => c.Status)
+
+         </div>
+         <div calss="form-group">
+             @Html.DisplayNameFor(c => c.Duration)
+             @Html.EditorFor(c => c.Duration, new { HtmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(c => c.Duration, "", new { @class = "text-danger" })
+
+         </div>
+         <input type="submit" value="Add_Course"/>
+     </form>
+    </body>
+</html>
+

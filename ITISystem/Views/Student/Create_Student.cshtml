@@ -1,0 +1,121 @@
+﻿@using ITISystem.Models;
+@model Student
+@{
+    ViewBag.Title = "Create_Std";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get_Student</h2>
+@using (Html.BeginForm("Create_Student", "Student", FormMethod.Post,"novalidate"))
+{
+    <div class="col-lg-12">
+        @Html.HiddenFor(a => a.Student_Id, new { @class = "form-group" })
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.FirstName, new { @class = "form-group" })
+        
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.FirstName, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.FirstName)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.LastName, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.LastName, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.LastName)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.BirthDate, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+     @*   @Html.TextBoxFor(a => a.BirthDate, new { @class = "form-group" })*@
+       @*@Html.TextBoxFor(a => a.BirthDate, new { Value = Model.BirthDate.ToString("MM-dd-yyyy"), id = "MySuperId" });*@
+        @Html.EditorFor(a => a.BirthDate, new { @type = "date" }) 
+      @*  @Html.ValidationMessageFor(a => a.BirthDate)*@
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.Email, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.Email, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.Email)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.UserName, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.UserName, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.UserName)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.Password, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.Password, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.Password)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.Attend_Balance, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.Attend_Balance, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.Attend_Balance)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.Telephone, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.Telephone, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.Telephone)
+    </div>
+
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.Address.City, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.Address.City, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.Address.City)
+    </div>
+    <div class="col-lg-12">
+        @Html.LabelFor(a => a.Address.Country, new { @class = "form-group" })
+    </div>
+    <div class="col-lg-12">
+        @Html.TextBoxFor(a => a.Address.Country, new { @class = "form-group" })
+        @Html.ValidationMessageFor(a => a.Address.Country)
+    </div>
+    <div class="col-lg-12">
+       @Html.LabelFor(a => a.Address.Street, new { @class = "form-group" })
+     @*    @Html.DisplayFor(model => model.Address.Street, new { @class = "form-group" })*@
+    </div>
+    <div class="col-lg-12">
+     @*   @Html.TextBoxFor(a => a.Address.Street, new { @class = "form-group" })*@
+        @Html.EditorFor(model=>model.Address.Street, new { @class = "form-group" })
+      @*  @Html.ValidationMessageFor(a => a.Address.Street)*@
+    </div>
+    @***@
+    <div class="col-lg-12">
+    @*    @Html.LabelFor(a => a.Department_Key, "Department_Id", new { @class = "form-group" })*@
+        @Html.DisplayFor(model=>model.Department_Key)       
+    </div>
+    <div class="col-lg-12">
+        @Html.DropDownListFor( a => a.Department_Key, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
+      @*  @Html.ValidationMessageFor(a => a.Department_Key)*@
+     </div>
+    <br />
+    <br />
+    <input type="submit" value="Save" class="btn btn-success col-md-3 " />
+}
+
+
+
+
