@@ -23,7 +23,7 @@ namespace ITISystem.Models
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string LastName { get; set; }
         [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
-        [RegularExpression("")]
+        [RegularExpression("dd/mm/yyyy")]
         public DateTime BirthDate { get; set; }
         [Required]
         [DataType(DataType.EmailAddress, ErrorMessage = "Enter Valid Email")]
