@@ -70,5 +70,24 @@ namespace ITISystem.Controllers
                 return View(std);
             }
         }
+        //Department
+        [HttpGet]
+        public ActionResult Mange_NoDepts()
+        {
+            ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
+            var std_no= iti.Students.Where(s => s.Department_Key == null).ToList();
+            SelectList stds = new SelectList(std_no, "Student_id", "FirstName");
+            //
+            ViewData["stds"] = stds;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Mange_NoDepts(Student std)
+        {
+            //ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
+            if (std.FirstName != null)
+            { }
+            return RedirectToAction("index");
+        }
     }
 }

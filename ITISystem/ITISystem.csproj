@@ -202,6 +202,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Instructor1Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -343,6 +344,14 @@
     <Compile Include="Migrations\201703272102125_update_DB2.Designer.cs">
       <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703272350485_update_student_priviledges.cs" />
+    <Compile Include="Migrations\201703272350485_update_student_priviledges.Designer.cs">
+      <DependentUpon>201703272350485_update_student_priviledges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703281620574_mange_std_dprt.cs" />
+    <Compile Include="Migrations\201703281620574_mange_std_dprt.Designer.cs">
+      <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -444,6 +453,9 @@
     <Content Include="Views\Course\DeleteCourse.cshtml" />
     <Content Include="Views\Student\Create_Student.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Mange_NoDepts.cshtml" />
+    <Content Include="Views\Instructor1\createInstructor.cshtml" />
+    <Content Include="Views\Instructor1\getAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -554,6 +566,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703272102125_update_DB2.resx">
       <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272350485_update_student_priviledges.resx">
+      <DependentUpon>201703272350485_update_student_priviledges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703281620574_mange_std_dprt.resx">
+      <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
