@@ -23,7 +23,8 @@ namespace ITISystem.Controllers
         public ActionResult Edit(int id)
         {
             var depts = iti.Departments.Include(dd => dd.instructor_mang).Where(s => s.Department_Id == id).Single();
-            var ins = iti.Instructors.ToList();
+            var ins = iti.Instructor.ToList();
+                //.Instructors.ToList();
             ViewBag.ins = new SelectList(ins, "Instructor_Id", "Name", depts.manger_key);
             return PartialView(depts);
         }

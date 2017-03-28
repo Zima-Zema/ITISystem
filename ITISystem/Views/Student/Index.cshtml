@@ -32,7 +32,15 @@
                 <td>@models.Address.Street</td>
                 <td>@models.Address.City</td>
                 <td>@models.Address.Country</td>
-                <td>@models.Department_Key</td>
+                @if (models.Department_Key != null)
+                {
+               <td>@models.Department.Name</td>
+                }
+                else
+                {
+                    <td>No Department</td>
+                }
+             @*   <td>@models.Department_Key</td>*@
                 <td>
                     @Html.ActionLink("Edit", "edit", "OP", new { id = models.Student_Id }, new { @class = "btn btn-success" })
                 </td>
@@ -47,5 +55,6 @@
 
     </table>
     @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Mange Department", "Mange_NoDepts", "Student", null, new { @class = "btn btn-default" })
 </div>
 
