@@ -352,6 +352,14 @@
     <Compile Include="Migrations\201703281620574_mange_std_dprt.Designer.cs">
       <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703290846565_instructoredit.cs" />
+    <Compile Include="Migrations\201703290846565_instructoredit.Designer.cs">
+      <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291305062_updateInstructor.cs" />
+    <Compile Include="Migrations\201703291305062_updateInstructor.Designer.cs">
+      <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -456,6 +464,7 @@
     <Content Include="Views\Student\Mange_NoDepts.cshtml" />
     <Content Include="Views\Instructor1\createInstructor.cshtml" />
     <Content Include="Views\Instructor1\getAll.cshtml" />
+    <Content Include="Views\Instructor1\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -572,6 +581,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703281620574_mange_std_dprt.resx">
       <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703290846565_instructoredit.resx">
+      <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
+      <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
