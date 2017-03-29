@@ -1,38 +1,32 @@
-﻿@model IEnumerable<ITISystem.Models.Student>
+﻿@model ITISystem.ViewModel.StudentViewModel
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>First Name</th>
-            <th>Last Name</th>
-            <th>BirthDate</th>
-            <th>Email</th>
-            <th>User Name</th>
-            <th>Password</th>
-            <th>Attendance Balance</th>
-            <th>Telephone</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>Country</th>
+            <th>Last Name</th>@*<th>BirthDate</th>*@
+            @*<th>Email</th>*@@*<th>User Name</th>*@<!--<th>Password</th>-->@*<th>Attendance Balance</th>*@
+            @*<th>Telephone</th>*@@*<th>Street</th><th>City</th><th>Country</th>*@
             <th>Department</th>
+            <th>Operations</th>
         </tr>
     </thead>
 
-    @foreach (var models in Model)
+    @foreach (var models in Model.StudentList)
             {
         <tr>
 
             <td>@models.FirstName</td>
             <td>@models.LastName</td>
-            <td>@models.BirthDate</td>
-            <td>@models.Email</td>
-            <td>@models.UserName</td>
-            <td>@models.Password</td>
-            <td>@models.Attend_Balance</td>
-            <td>@models.Telephone</td>
-            <td>@models.Address.Street</td>
-            <td>@models.Address.City</td>
-            <td>@models.Address.Country</td>
-            <td>@models.Department_Key</td>
+            @*<td>@models.BirthDate</td>
+                <td>@models.Email</td>*@
+            @*<td>@models.UserName</td>*@
+            @*<td>@models.Password</td>*@
+            @*<td>@models.Attend_Balance</td>
+                <td>@models.Telephone</td>
+                <td>@models.Address.Street</td>
+                <td>@models.Address.City</td>
+                <td>@models.Address.Country</td>*@
+            <td>@models.Department.Name</td>
             <td>
                 @Ajax.ActionLink("Edit", "edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
@@ -41,9 +35,17 @@
                    HttpMethod = "Get",
                    OnSuccess = "myfun2()"
 
-               }, new { @class = "btn btn-success" }) |
+               }, new { @class = "btn btn-danger" })|
                 @*@Html.ActionLink("Edit", "edit", "OP", new { id = models.Student_Id }, new { @class = "btn btn-success" })*@
-                @Html.ActionLink("Remove", "delete", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" }) |
+                @*@Html.ActionLink("Remove", "delete","Student", new { Id = models.Student_Id }, new { @class = "btn btn-danger" })*@
+                @Ajax.ActionLink("Delete", "delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
+               {
+                   UpdateTargetId = "div3",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun2()"
+
+               }, new { @class = "btn btn-success" })|
                 @Html.ActionLink("Details", "details", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
             </td>
         </tr>
