@@ -74,20 +74,56 @@ namespace ITISystem.Controllers
         [HttpGet]
         public ActionResult Mange_NoDepts()
         {
-            ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
-            var std_no= iti.Students.Where(s => s.Department_Key == null).ToList();
-            SelectList stds = new SelectList(std_no, "Student_id", "FirstName");
-            //
-            ViewData["stds"] = stds;
-            return View();
+            try
+            {
+                ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
+                var std_no = iti.Students.Where(s => s.Department_Key == null).ToList();
+                ViewBag.stds = new SelectList(std_no, "Student_Id", "FirstName");
+                //
+                // ViewData["stds"] = stds;
+                return View();
+            }
+            catch { return RedirectToAction("index"); }
         }
         [HttpPost]
-        public ActionResult Mange_NoDepts(Student std)
+        public ActionResult Mange_NoDepts(Student std,Department dpt,bool chk)
         {
-            //ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
-            if (std.FirstName != null)
-            { }
-            return RedirectToAction("index");
+            if(chk==true)
+            {
+                //int? selected_dept = std.Department_Key;
+                var std_dpt = std.Department_Key;
+                int cap = iti.Departments.Single(d => d.Department_Id == std_dpt).Capacity;
+                int count_std = iti.Students.Where(s => s.Department_Key == std_dpt).Count();
+                if (count_std <= cap)
+                {
+                    //var stdddd = std.Student_Id;
+                    var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
+                    ss.Department_Key = std_dpt;
+                    iti.SaveChanges();
+                    return RedirectToAction("index");
+                }
+                else if (count_std > cap)
+                {
+                    var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
+                    ss.Department_Key = null;
+                    iti.SaveChanges();
+                    return RedirectToAction("index");
+                }
+                else {
+                    return View();
+                }
+            }
+            else {
+                try
+                {
+                    return View();
+                }
+                catch
+                {
+                    return RedirectToAction("index");
+                }
+                }
+            
         }
         //course
         [HttpGet]

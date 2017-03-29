@@ -352,6 +352,10 @@
     <Compile Include="Migrations\201703281620574_mange_std_dprt.Designer.cs">
       <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703282102099_stds_crss_instrs.cs" />
+    <Compile Include="Migrations\201703282102099_stds_crss_instrs.Designer.cs">
+      <DependentUpon>201703282102099_stds_crss_instrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703290846565_instructoredit.cs" />
     <Compile Include="Migrations\201703290846565_instructoredit.Designer.cs">
       <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
@@ -472,6 +476,8 @@
     <Content Include="Views\Student\details.cshtml" />
     <Content Include="Views\Student\evaluation.cshtml" />
     <Content Include="Views\Instructor1\Edit.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -588,6 +594,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703281620574_mange_std_dprt.resx">
       <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703282102099_stds_crss_instrs.resx">
+      <DependentUpon>201703282102099_stds_crss_instrs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703290846565_instructoredit.resx">
       <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
