@@ -4,33 +4,32 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <h2>Index</h2>
-
 <div>
     <table class="table table-bordered">
         <thead>
-            <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>BirthDate</th>
-            <th>Email</th><th>User Name</th><th>Password</th><th>Attendance Balance</th>
-            <th>Telephone</th><th>Street</th><th>City</th><th>Country</th><th>Department</th>
+            <tr>
+                <th>Full Name</th><th>BirthDate</th><th>Email</th><th>Telephone</th><th>Department</th>
             </tr>
         </thead>
-
         @foreach (var models in Model)
             {
             <tr>
-                <td>@models.FirstName</td>
-                <td>@models.LastName</td>
-                <td>@models.BirthDate</td>
-                <td>@models.Email</td>
-                <td>@models.UserName</td>
-                <td>@models.Password</td>
-                <td>@models.Attend_Balance</td>
-                <td>@models.Telephone</td>
-                <td>@models.Address.Street</td>
-                <td>@models.Address.City</td>
-                <td>@models.Address.Country</td>
+                <td>
+                @*    @Html.ActionLink()*@
+                @Html.ActionLink(@models.FirstName+" "+@models.LastName, "details", new { id = models.Student_Id })
+                    @*, new { @class = "btn btn-default" }*@
+                  </td>
+            @*    <td>@models.LastName</td>*@
+              @*  <td>@models.BirthDate</td>*@
+            @*    <td>@models.Email</td>*@
+              @*  <td>@models.UserName</td>*@
+            @*    <td>@models.Password</td>*@
+             @*   <td>@models.Attend_Balance</td>*@
+          @*      <td>@models.Telephone</td>*@
+             @*   <td>@models.Address.Street</td>*@
+             @*   <td>@models.Address.City</td>*@
+             @*   <td>@models.Address.Country</td>*@
                 @if (models.Department_Key != null)
                 {
                <td>@models.Department.Name</td>
@@ -41,10 +40,10 @@
                 }
              @*   <td>@models.Department_Key</td>*@
                 <td>
-                    @Html.ActionLink("Edit", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Edit", "", "Student", new { id = models.Student_Id }, new { @class = "btn btn-success" })
                 </td>
                 <td>
-                    @Html.ActionLink("Remove", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Remove", "", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
                 </td>
                 <td>
                     @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
@@ -55,5 +54,9 @@
     </table>
     @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-default" })
     @Html.ActionLink("Mange Department", "Mange_NoDepts", "Student", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Evaluation", "evaluation", "Student", null, new { @class = "btn btn-default" })
+</div>
+<div>
+
 </div>
 
