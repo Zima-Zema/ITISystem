@@ -1,0 +1,87 @@
+﻿
+@using ITISystem.Models;
+@model Instructor
+
+
+@{
+    //ViewBag.Title = "getAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Ajax.BeginForm("Remove", "Instructor1", new AjaxOptions()
+{
+    UpdateTargetId = "div1",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "Post",
+    OnSuccess = "myfun3()"
+}))
+
+{
+    <br/>
+    <br />
+    @Html.ActionLink("Back To The List", "getAll")
+
+           <div class="form-horizontal">
+                    <h2 class="col-xs-offset-2">Are You Sure to Remove This Instructor??</h2>
+                    <hr/>
+                    @Html.HiddenFor(c => c.Instructor_Id)
+
+                </div>
+
+                <div class="form-group col-md-10">
+                    @Html.LabelFor(model => model.Name, "Name :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(c => c.Name)
+                </div>
+
+
+
+
+
+            <div class="form-group col-md-10">
+                @Html.LabelFor(model => model.BirthDate, "BirthDate :", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayFor(c => c.BirthDate)
+
+            </div>
+            <div class="form-group col-md-10">
+                @Html.LabelFor(model => model.Degree, "Degree :", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayFor(c => c.Degree)
+
+            </div>
+
+                <div class="form-group col-md-10 ">
+                    @Html.LabelFor(model => model.Graduation_Year, "Graduation_Year :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(c => c.Graduation_Year)
+                </div>
+
+                <div class="form-group col-md-10 ">
+                    @Html.LabelFor(model => model.Work_Status, "Work_Status :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(c => c.Work_Status)
+
+                </div>
+                <div class="form-group col-md-10 ">
+                    @Html.LabelFor(model => model.Department.Name, "Department :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DisplayFor(c => c.Department.Name)
+
+                </div>
+         
+
+                <div class="form-group col-md-10 col-xs-offset-4">
+                   
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                </div>
+              
+
+}
+
+
+
+
+
+
+
+
+                   
+
+
+
