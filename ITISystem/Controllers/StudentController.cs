@@ -89,5 +89,24 @@ namespace ITISystem.Controllers
             { }
             return RedirectToAction("index");
         }
+        //course
+        [HttpGet]
+        public ActionResult crs_grade(int id)
+        {
+            try
+            {
+                var std_id = iti.StdS_CrS_InstrS.Where(s => s.Student_key == id).ToList();
+                return View(std_id);
+            }
+            catch
+            {
+                return RedirectToAction("index");
+            }
+}
+        //[HttpPost]
+        public ActionResult crss_grade()
+        {
+            return RedirectToAction("index");
+        }
     }
 }
