@@ -1,0 +1,55 @@
+﻿@using ITISystem.Models;
+@model Student
+@{
+    ViewBag.Title = "details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Details</h2>
+<div>
+    @Html.Label("Full Name")
+    <div class="form-control">
+        @Model.FirstName @Model.LastName
+    </div>
+</div>
+<div>
+    @Html.Label("BirthDate")
+    <div class="form-control">@Model.BirthDate</div>    
+</div>
+<div>
+    @Html.Label("Email")
+    <div class="form-control">@Model.Email</div>  
+</div>
+<div>
+    @Html.Label("UserName")
+    <div class="form-control">@Model.UserName</div>  
+</div>
+<div>
+    @Html.Label("Attend_Balance")
+    <div class="form-control">@Model.Attend_Balance</div>  
+</div>
+<div>
+    @Html.Label("Telephone")
+    <div class="form-control">@Model.Telephone</div>  
+</div>
+<div>
+    @Html.Label("Country")
+    <div class="form-control">@Model.Address.Country</div>  
+</div>
+<div>
+    @Html.Label("City")
+    <div class="form-control">@Model.Address.City</div>  
+</div>
+<div>
+    @Html.Label("Street")
+    <div class="form-control">@Model.Address.Street</div>  
+</div>
+<div>
+    @Html.Label("Department")
+    <div class="form-control">@Model.Department.Name</div>  
+</div>
+<div>
+    @Html.ActionLink("GO Back", "Go_Back", "Student")
+
+</div>
+

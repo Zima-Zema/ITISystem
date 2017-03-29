@@ -202,6 +202,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Instructor1Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,6 +227,10 @@
     <Compile Include="Migrations\201703221536473_CourseAndInstructor.cs" />
     <Compile Include="Migrations\201703221536473_CourseAndInstructor.designer.cs">
       <DependentUpon>201703221536473_CourseAndInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703221658426_Update1.cs" />
+    <Compile Include="Migrations\201703221658426_Update1.Designer.cs">
+      <DependentUpon>201703221658426_Update1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703221708330_relationBetweenInsrtDprt.cs" />
     <Compile Include="Migrations\201703221708330_relationBetweenInsrtDprt.Designer.cs">
@@ -287,6 +292,14 @@
     <Compile Include="Migrations\201703260857081_Update_inst_deparatment.Designer.cs">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703260945412_Fix4.cs" />
+    <Compile Include="Migrations\201703260945412_Fix4.Designer.cs">
+      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703260953417_test.cs" />
+    <Compile Include="Migrations\201703260953417_test.Designer.cs">
+      <DependentUpon>201703260953417_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703261002578_Fix5.cs" />
     <Compile Include="Migrations\201703261002578_Fix5.Designer.cs">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
@@ -307,13 +320,49 @@
     <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703291248462_editcrs.cs" />
-    <Compile Include="Migrations\201703291248462_editcrs.Designer.cs">
-      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    <Compile Include="Migrations\201703261356516_FixInst_and_Stud.cs" />
+    <Compile Include="Migrations\201703261356516_FixInst_and_Stud.Designer.cs">
+      <DependentUpon>201703261356516_FixInst_and_Stud.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703291516011_ddd.cs" />
-    <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
-      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    <Compile Include="Migrations\201703261936210_FixValidation.cs" />
+    <Compile Include="Migrations\201703261936210_FixValidation.Designer.cs">
+      <DependentUpon>201703261936210_FixValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271602147_update_phone.cs" />
+    <Compile Include="Migrations\201703271602147_update_phone.Designer.cs">
+      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271923486_update_inDB.cs" />
+    <Compile Include="Migrations\201703271923486_update_inDB.Designer.cs">
+      <DependentUpon>201703271923486_update_inDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272001332_update_phone2.cs" />
+    <Compile Include="Migrations\201703272001332_update_phone2.Designer.cs">
+      <DependentUpon>201703272001332_update_phone2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272102125_update_DB2.cs" />
+    <Compile Include="Migrations\201703272102125_update_DB2.Designer.cs">
+      <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272350485_update_student_priviledges.cs" />
+    <Compile Include="Migrations\201703272350485_update_student_priviledges.Designer.cs">
+      <DependentUpon>201703272350485_update_student_priviledges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703281620574_mange_std_dprt.cs" />
+    <Compile Include="Migrations\201703281620574_mange_std_dprt.Designer.cs">
+      <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703290846565_instructoredit.cs" />
+    <Compile Include="Migrations\201703290846565_instructoredit.Designer.cs">
+      <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291305062_updateInstructor.cs" />
+    <Compile Include="Migrations\201703291305062_updateInstructor.Designer.cs">
+      <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291622180_f_Edit.cs" />
+    <Compile Include="Migrations\201703291622180_f_Edit.Designer.cs">
+      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -416,10 +465,13 @@
     <Content Include="Views\Course\DeleteCourse.cshtml" />
     <Content Include="Views\Student\Create_Student.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\Course\crs_dept.cshtml" />
-    <Content Include="Views\Course\Courses.cshtml" />
-    <Content Include="Views\Course\crs_ins.cshtml" />
-    <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Student\Mange_NoDepts.cshtml" />
+    <Content Include="Views\Instructor1\createInstructor.cshtml" />
+    <Content Include="Views\Instructor1\getAll.cshtml" />
+    <Content Include="Views\Student\crs_grade.cshtml" />
+    <Content Include="Views\Student\details.cshtml" />
+    <Content Include="Views\Student\evaluation.cshtml" />
+    <Content Include="Views\Instructor1\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221536473_CourseAndInstructor.resx">
       <DependentUpon>201703221536473_CourseAndInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221658426_Update1.resx">
+      <DependentUpon>201703221658426_Update1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221708330_relationBetweenInsrtDprt.resx">
       <DependentUpon>201703221708330_relationBetweenInsrtDprt.cs</DependentUpon>
@@ -489,6 +544,12 @@
     <EmbeddedResource Include="Migrations\201703260857081_Update_inst_deparatment.resx">
       <DependentUpon>201703260857081_Update_inst_deparatment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260945412_Fix4.resx">
+      <DependentUpon>201703260945412_Fix4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703260953417_test.resx">
+      <DependentUpon>201703260953417_test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261002578_Fix5.resx">
       <DependentUpon>201703261002578_Fix5.cs</DependentUpon>
     </EmbeddedResource>
@@ -504,11 +565,38 @@
     <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703291248462_editcrs.resx">
-      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703261356516_FixInst_and_Stud.resx">
+      <DependentUpon>201703261356516_FixInst_and_Stud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703291516011_ddd.resx">
-      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703261936210_FixValidation.resx">
+      <DependentUpon>201703261936210_FixValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271602147_update_phone.resx">
+      <DependentUpon>201703271602147_update_phone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271923486_update_inDB.resx">
+      <DependentUpon>201703271923486_update_inDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272001332_update_phone2.resx">
+      <DependentUpon>201703272001332_update_phone2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272102125_update_DB2.resx">
+      <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272350485_update_student_priviledges.resx">
+      <DependentUpon>201703272350485_update_student_priviledges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703281620574_mange_std_dprt.resx">
+      <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703290846565_instructoredit.resx">
+      <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
+      <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291622180_f_Edit.resx">
+      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
