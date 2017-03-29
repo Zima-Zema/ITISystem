@@ -18,7 +18,7 @@ namespace ITISystem.Migrations
             DropForeignKey("dbo.Instructors", "Department_Department_Id", "dbo.Departments");
             DropIndex("dbo.Instructors", new[] { "Department_Department_Id" });
             DropColumn("dbo.Instructors", "Department_Department_Id");
-            AddForeignKey("dbo.Instructors", "Department_Key", "dbo.Departments", "Department_Id", cascadeDelete: true);
+            AddForeignKey("dbo.Instructors", "Department_Key", "dbo.Departments", "Department_Id", cascadeDelete: false);
         }
     }
 }
