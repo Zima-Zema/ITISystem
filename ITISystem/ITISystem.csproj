@@ -307,6 +307,14 @@
     <Compile Include="Migrations\201703261246305_FixDepartment4.Designer.cs">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703291248462_editcrs.cs" />
+    <Compile Include="Migrations\201703291248462_editcrs.Designer.cs">
+      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291516011_ddd.cs" />
+    <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -406,6 +414,12 @@
     <Content Include="Views\Course\Addcourse.cshtml" />
     <Content Include="Views\Course\EditCourse.cshtml" />
     <Content Include="Views\Course\DeleteCourse.cshtml" />
+    <Content Include="Views\Student\Create_Student.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Course\crs_dept.cshtml" />
+    <Content Include="Views\Course\Courses.cshtml" />
+    <Content Include="Views\Course\crs_ins.cshtml" />
+    <Content Include="Views\Course\ins_courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -489,6 +503,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261246305_FixDepartment4.resx">
       <DependentUpon>201703261246305_FixDepartment4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291248462_editcrs.resx">
+      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291516011_ddd.resx">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
