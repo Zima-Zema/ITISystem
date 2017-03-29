@@ -20,7 +20,6 @@
         @foreach (var models in Model)
             {
             <tr>
-                <td>@models.Student_Id</td>
                 <td>@models.FirstName</td>
                 <td>@models.LastName</td>
                 <td>@models.BirthDate</td>
@@ -42,13 +41,13 @@
                 }
              @*   <td>@models.Department_Key</td>*@
                 <td>
-                    @Html.ActionLink("Edit", "edit", "OP", new { id = models.Student_Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Edit", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-success" })
                 </td>
                 <td>
-                    @Html.ActionLink("Remove", "delete", "OP", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Remove", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "details", "OP", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }

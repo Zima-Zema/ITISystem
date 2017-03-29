@@ -352,6 +352,10 @@
     <Compile Include="Migrations\201703281620574_mange_std_dprt.Designer.cs">
       <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703282102099_stds_crss_instrs.cs" />
+    <Compile Include="Migrations\201703282102099_stds_crss_instrs.Designer.cs">
+      <DependentUpon>201703282102099_stds_crss_instrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -456,6 +460,7 @@
     <Content Include="Views\Student\Mange_NoDepts.cshtml" />
     <Content Include="Views\Instructor1\createInstructor.cshtml" />
     <Content Include="Views\Instructor1\getAll.cshtml" />
+    <Content Include="Views\Student\crs_grade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -572,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703281620574_mange_std_dprt.resx">
       <DependentUpon>201703281620574_mange_std_dprt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703282102099_stds_crss_instrs.resx">
+      <DependentUpon>201703282102099_stds_crss_instrs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

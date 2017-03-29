@@ -1,0 +1,49 @@
+﻿@using ITISystem.Models;
+@*@model Std_Crs_Instr*@
+@model IEnumerable<ITISystem.Models.Std_Crs_Instr>
+@{
+    ViewBag.Title = "crs_grade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Course Details For Student</h2>
+<div>
+    @foreach (var mod in Model)
+    {
+        @Html.Label(mod.Students.FirstName + " " + mod.Students.LastName, new { @class = "form-control" })
+        break;
+    }
+    @Html.Label("List Of Courses")
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>Course Name</th><th>lab Grade</th><th>Exam Grade</th><th>Total Grade</th></tr>
+        </thead>
+        @foreach (var models in Model)
+        {
+            <tr>
+                <td>
+                    @Html.Label(models.Courses.Name, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.Label(models.Labs_Grade.ToString(), new { @class = "form-control" })
+                </td>
+                <td>
+
+                    @Html.Label(models.Students.Std_Exams.Where(se => se.Exams.Course_key == models.Course_key).Select(se => se.Exam_grade).FirstOrDefault().ToString(), new { @class = "form-control" })
+                </td>
+                <td>
+                    @{
+                        int labs = models.Labs_Grade;
+                        int exam = models.Students.Std_Exams.Select(se => se.Exam_grade).FirstOrDefault();
+                        int total = labs + exam;
+                    }
+                    @Html.Label(total.ToString(), new { @class = "form-control" })
+                </td>
+            </tr>
+                        }
+    </table>
+    <div>
+       @Html.ActionLink("GO Back", "crss_grade", "Student")
+      @*  <input type="submit" value="GO Back" />*@
+    </div>
+</div>
+
