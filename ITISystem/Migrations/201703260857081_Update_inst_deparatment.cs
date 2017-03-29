@@ -28,7 +28,7 @@ namespace ITISystem.Migrations
             CreateIndex("dbo.Instructors", "Department_Department_Id");
             CreateIndex("dbo.Instructors", "Department_Key");
             AddForeignKey("dbo.Instructors", "Department_Department_Id", "dbo.Departments", "Department_Id");
-            AddForeignKey("dbo.Instructors", "Department_Key", "dbo.Departments", "Department_Id", cascadeDelete: true);
+            AddForeignKey("dbo.Instructors", "Department_Key", "dbo.Departments", "Department_Id", cascadeDelete: false);
         }
     }
 }

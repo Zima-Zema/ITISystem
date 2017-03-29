@@ -102,9 +102,18 @@ namespace ITISystem.Controllers
             {
                 return RedirectToAction("index");
             }
-}
-        //[HttpPost]
-        public ActionResult crss_grade()
+       }
+        public ActionResult details(int id)
+        {
+            var std_id = iti.Students.Single(s => s.Student_Id == id);
+            return View(std_id);
+        }
+        public ActionResult evaluation()
+        {
+            ViewBag.crs = new SelectList(iti.Courses, "Course_id", "Name");
+            return View();
+        }
+        public ActionResult Go_Back()
         {
             return RedirectToAction("index");
         }

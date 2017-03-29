@@ -14,7 +14,7 @@ namespace ITISystem.Migrations
             RenameColumn(table: "dbo.Instructors", name: "Department_Department_Id", newName: "Department_Key");
             AlterColumn("dbo.Instructors", "Department_Key", c => c.Int(nullable: false));
             CreateIndex("dbo.Instructors", "Department_Key");
-            AddForeignKey("dbo.Instructors", "Department_Key", "dbo.Departments", "Department_Id", cascadeDelete: true);
+            AddForeignKey("dbo.Instructors", "Department_Key", "dbo.Departments", "Department_Id", cascadeDelete: false);
         }
         
         public override void Down()

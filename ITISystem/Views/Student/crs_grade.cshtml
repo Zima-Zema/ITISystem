@@ -27,7 +27,6 @@
                     @Html.Label(models.Labs_Grade.ToString(), new { @class = "form-control" })
                 </td>
                 <td>
-
                     @Html.Label(models.Students.Std_Exams.Where(se => se.Exams.Course_key == models.Course_key).Select(se => se.Exam_grade).FirstOrDefault().ToString(), new { @class = "form-control" })
                 </td>
                 <td>
@@ -39,10 +38,10 @@
                     @Html.Label(total.ToString(), new { @class = "form-control" })
                 </td>
             </tr>
-                        }
+            }
     </table>
     <div>
-       @Html.ActionLink("GO Back", "crss_grade", "Student")
+       @Html.ActionLink("GO Back", "Go_Back", "Student")
       @*  <input type="submit" value="GO Back" />*@
     </div>
 </div>

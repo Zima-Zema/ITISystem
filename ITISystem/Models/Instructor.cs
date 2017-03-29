@@ -41,7 +41,7 @@ namespace ITISystem.Models
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
         public Work_Status Work_Status { get; set; }
         [ForeignKey("Department")]
-        public int Department_Key { get; set; }
+        public int? Department_Key { get; set; }
 
         public virtual Department Department { get; set; }
 

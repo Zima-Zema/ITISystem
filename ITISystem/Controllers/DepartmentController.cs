@@ -54,7 +54,7 @@ namespace ITISystem.Controllers
         [HttpPost]
         public ActionResult Delete(Department dept)
         {
-            var depart = iti.Departments.SingleOrDefault(s => s.Department_Id == dept.Department_Id);
+            var depart = iti.Departments.Include(m=>m.Instructors).Include(m=>m.Students).SingleOrDefault(s => s.Department_Id == dept.Department_Id);
             iti.Departments.Remove(depart);
             iti.SaveChanges();
             var depts = iti.Departments.Include(dd => dd.instructor_mang).ToList();
