@@ -364,9 +364,9 @@
     <Compile Include="Migrations\201703291305062_updateInstructor.Designer.cs">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703291622180_f_Edit.cs" />
-    <Compile Include="Migrations\201703291622180_f_Edit.Designer.cs">
-      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
+    <Compile Include="Migrations\201703291931404_removeInstructorandUI.cs" />
+    <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
+      <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -472,12 +472,16 @@
     <Content Include="Views\Student\Mange_NoDepts.cshtml" />
     <Content Include="Views\Instructor1\createInstructor.cshtml" />
     <Content Include="Views\Instructor1\getAll.cshtml" />
+    <Content Include="Views\Instructor1\Edit.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Student\crs_grade.cshtml" />
     <Content Include="Views\Student\details.cshtml" />
     <Content Include="Views\Student\evaluation.cshtml" />
     <Content Include="Views\Instructor1\Edit.cshtml" />
     <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Instructor1\Remove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -604,8 +608,8 @@
     <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703291622180_f_Edit.resx">
-      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
+      <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

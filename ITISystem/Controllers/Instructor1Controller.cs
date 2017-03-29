@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity.Validation;
 using System.Data.Entity;
 
+
 namespace ITISystem.Controllers
 {
     public class Instructor1Controller : Controller
@@ -20,7 +21,6 @@ namespace ITISystem.Controllers
 
         public ActionResult getAll()
         {
-            // var models = iti.Instructor.Include(s => s.);
             var models = iti.Instructor.Include(ss=>ss.Department);
             return View(models);
         }
@@ -76,20 +76,24 @@ namespace ITISystem.Controllers
             return RedirectToAction("getAll", iti.Instructor);
 
         }
-        //[HttpGet]
-        //public ActionResult Remove(int id)
-        //{
-           
+        [HttpGet]
+        public ActionResult Remove(int id)
+        {
+            Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == id);
 
-        //}
+            return PartialView(ins);
 
-        //[HttpPost]
-        //public ActionResult Remove(int id)
-        //{
-        //    Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == id);
+        }
 
-        //    return PartialView(ins);
-        //}
+        [HttpPost]
+        public ActionResult Remove(int id,Instructor inst)
+        {
+            Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == inst.Instructor_Id);
+            iti.Instructor.Remove(ins);
+            iti.SaveChanges();
+            return RedirectToAction("getAll",iti.Instructor);
+            
+        }
 
 
 
