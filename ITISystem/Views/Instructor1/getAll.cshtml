@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<ITISystem.Models.Instructor>
+
 @{
-    ViewBag.Title = "getAll";
+    //ViewBag.Title = "getAll";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +11,7 @@
     <br />
 
     <br />
-    <h2>All Instructor</h2>
+    <h2 class="col-lg-offset-4">All Instructor</h2>
     <br />
 
     <br />
@@ -34,7 +35,7 @@
                 @Html.DisplayNameFor(model => model.Work_Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Department_Key)
+               Department
             </th>
 
         </tr>
@@ -47,20 +48,34 @@
                 <td>@Html.DisplayFor(modelItem => item.Degree)</td>
                 <td>@Html.DisplayFor(modelItem => item.Graduation_Year)</td>
                 <td>@Html.DisplayFor(modelItem => item.Work_Status)</td>
-                @*<td>
-                    @Ajax.ActionLink("Edit", "Edit", Instructor1, new { id = item.Instructor_Id }, new AjaxOptions()
-               {
-                   UpdateTargetId = "div3",
-                   InsertionMode.Replace
-               })
-                </td>*@
+                @if (item.Department_Key != null)
+                {
+                    <td>@item.Department.Name</td>
+                }
+                else
+                {
+                    <td>No Department</td>
+                }
+                
 
-                @*<td>@Ajax.ActionLink("Edit", "Edit",Instructor1,new{id=item.Instructor_Id },new AjaxOptions(){
-                    UpdateTargetId="div3", InsertionMode.Replace
-                    InsertionMode=
-                    })
-                </td>*@
-              
+               <td>
+                    @Ajax.ActionLink("Edit", "Edit", "Instructor1", new { id = item.Instructor_Id }, new AjaxOptions()
+               {
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun2()"
+               })
+                </td>
+
+                <td>
+                    @Ajax.ActionLink("Remove", "Remove", "Instructor1", new { id = item.Instructor_Id }, new AjaxOptions()
+               {
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun3()"
+               })
+                </td>
+
             </tr>
         }
 
@@ -91,6 +106,16 @@
 
         }*@
 
+
     </div>
 
 </div>
+<script>
+        function myfun2()
+        {
+            $("#div2").modal("toggle");
+        }
+        function myfun3() {
+            $("#div3").modal("toggle");
+        }
+</script>
