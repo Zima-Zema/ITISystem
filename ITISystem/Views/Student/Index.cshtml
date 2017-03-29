@@ -8,10 +8,10 @@
 
 <h2>Index</h2>
 
-<div>
+<div id="div1">
     <table class="table table-bordered">
         <thead>
-            <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>BirthDate</th>
+            <tr><th>First Name</th><th>Last Name</th><th>BirthDate</th>
             <th>Email</th><th>User Name</th><th>Password</th><th>Attendance Balance</th>
             <th>Telephone</th><th>Street</th><th>City</th><th>Country</th><th>Department</th>
             </tr>
@@ -20,7 +20,7 @@
         @foreach (var models in Model)
             {
             <tr>
-                <td>@models.Student_Id</td>
+                
                 <td>@models.FirstName</td>
                 <td>@models.LastName</td>
                 <td>@models.BirthDate</td>
@@ -34,18 +34,169 @@
                 <td>@models.Address.Country</td>
                 <td>@models.Department_Key</td>
                 <td>
-                    @Html.ActionLink("Edit", "edit", "OP", new { id = models.Student_Id }, new { @class = "btn btn-success" })
-                </td>
-                <td>
-                    @Html.ActionLink("Remove", "delete", "OP", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "details", "OP", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
+                    @Ajax.ActionLink("Edit", "edit","Student", new { Id = models.Student_Id },new AjaxOptions() {
+                   UpdateTargetId="div3",
+                   InsertionMode=InsertionMode.Replace,
+                   HttpMethod="Get",
+                   OnSuccess="myfun2()"
+
+               },new { @class = "btn btn-success" }) |
+                        @*@Html.ActionLink("Edit", "edit", "OP", new { id = models.Student_Id }, new { @class = "btn btn-success" })*@     
+                    @*@Html.ActionLink("Remove", "delete","Student", new { Id = models.Student_Id }, new { @class = "btn btn-danger" })*@
+                    @Ajax.ActionLink("Delete", "delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
+                   {
+                       UpdateTargetId = "div3",
+                       InsertionMode = InsertionMode.Replace,
+                       HttpMethod = "Get",
+                       OnSuccess = "myfun2()"
+
+                   }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "details", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }
 
     </table>
-    @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-default" })
+   @*@Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-default" })*@
 </div>
+<div id="div3" class="modal">
+
+</div>
+
+<div>
+    <input type="button" value="ADD" class="btn btn-primary" data-toggle="modal" data-target="#div2" />
+</div>
+<div id="div2" class="modal">
+    
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Student</h2>
+            </div>
+            <div class="modal-body">
+                @using (Ajax.BeginForm("Create_Student", "Student", new AjaxOptions()
+                {
+                    UpdateTargetId = "div1",
+                    InsertionMode = InsertionMode.Replace,
+                    OnSuccess = "myfun()",
+                    HttpMethod = "Post"
+
+
+                }))
+                {
+                   
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("FirstName", null)
+                            </div>
+                        
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </div>
+                            <div class="col-lg-12">
+                               @Html.TextBox("LastName", null)
+                            </div>
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.BirthDate)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("BirthDate", null)
+                            </div>
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Email)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("Email", null)
+                            </div>
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("UserName", null)
+                            </div>
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Password)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("Password", null)
+                            </div>
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Attend_Balance)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("Attend_Balance", null)
+                            </div>
+                       
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Telephone)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("Phone", null)
+                            </div>
+                       
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Address.Street)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("Street", null)
+                            </div>
+                        
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Address.City)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("City", null)
+                            </div>
+                       
+                            <div class="col-lg-12">
+                                @Html.DisplayNameFor(model => model.Address.Country)
+                            </div>
+                            <div class="col-lg-12">
+                                @Html.TextBox("Country", null)
+                            </div>
+                        
+                            @*<div class="col-lg-12">
+                                @Html.LabelFor(a => a.Department_Key, "Department_Id", new { @class = "form-group" })
+                             @Html.DisplayNameFor(model => model.Department)
+                                
+                            </div>
+                           
+                            <div class="col-lg-12">
+                               
+                                @Html.DropDownListFor(a => a.Department_Key, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
+                            </div>*@
+                                          
+                            <div >
+                                <input type="submit" value="Save" class="btn btn-success col-md-3" />
+                            </div>
+                      
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="close" data-dissmiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+   
+</div>
+@section Scripts{
+<script>
+    function myfun() {
+        $("#div2").modal("toggle");
+    }
+    function myfun2() {
+        $("#div3").modal("toggle");
+    }
+</script>
+}
 

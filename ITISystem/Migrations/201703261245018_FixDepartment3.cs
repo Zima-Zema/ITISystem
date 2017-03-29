@@ -9,7 +9,7 @@ namespace ITISystem.Migrations
         {
             DropForeignKey("dbo.Departments", "manger_key", "dbo.Instructors");
             DropIndex("dbo.Departments", new[] { "manger_key" });
-            DropColumn("dbo.Departments", "manger_key");
+            //DropColumn("dbo.Departments", "manger_key");
         }
         
         public override void Down()
