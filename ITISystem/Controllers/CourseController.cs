@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ITISystem.Models;
+using ITISystem.ViewModel;
 
 namespace ITISystem.Controllers
 {
@@ -142,6 +143,35 @@ namespace ITISystem.Controllers
         }
 
 
+        //D
+        [HttpGet]
+        public ActionResult AssignInstructor()
+        {
+            try
+            {
+                ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
+                ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
+                ViewBag.inst = new SelectList(iti.Instructor, "Instructor_Id", "Name");
+
+ 
+                return View();
+            }
+
+            catch { return RedirectToAction("Index"); }
+        }
+
+        [HttpPost]
+        public ActionResult AssignInstructor(Department dept,Instructor inst,Course course)
+        {
+            try
+            {
+                var std_dpt = dept.Department_Id;
+
+                return View();
+            }
+
+            catch { return RedirectToAction("Index"); }
+        }
     }
 
 

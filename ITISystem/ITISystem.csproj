@@ -372,6 +372,18 @@
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703300851278_Fix_Student_Edit.cs" />
+    <Compile Include="Migrations\201703300851278_Fix_Student_Edit.Designer.cs">
+      <DependentUpon>201703300851278_Fix_Student_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703300947290_Delete_Student.cs" />
+    <Compile Include="Migrations\201703300947290_Delete_Student.Designer.cs">
+      <DependentUpon>201703300947290_Delete_Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301419180_AssignInstructor.cs" />
+    <Compile Include="Migrations\201703301419180_AssignInstructor.Designer.cs">
+      <DependentUpon>201703301419180_AssignInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -495,8 +507,13 @@
     <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Instructor1\Remove.cshtml" />
-    <Content Include="Views\Student\delete.cshtml" />
     <Content Include="Views\Student\edit.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Course\Courses.cshtml" />
+    <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Course\crs_dept.cshtml" />
+    <Content Include="Views\Course\crs_ins.cshtml" />
+    <Content Include="Views\Course\AssignInstructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -629,6 +646,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300851278_Fix_Student_Edit.resx">
+      <DependentUpon>201703300851278_Fix_Student_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300947290_Delete_Student.resx">
+      <DependentUpon>201703300947290_Delete_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301419180_AssignInstructor.resx">
+      <DependentUpon>201703301419180_AssignInstructor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />

@@ -1,0 +1,33 @@
+﻿@using ITISystem.Models;
+@model Dept_Crs_Instr
+@{
+    ViewBag.Title = "AssignInstructor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AssignInstructor</h2>
+@using (Html.BeginForm("AssignInstructor", "Course", FormMethod.Post, "novalidate"))
+{
+<div class="col-lg-12">
+    @Html.LabelFor(a => a.Department_key, "Department", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Department_key, ViewBag.dpts as SelectList,"Select Department", new { @class = "btn btn-default" })
+</div>
+    <br /><br /><br /><br />
+
+
+<div class="col-lg-12">
+    @Html.LabelFor(a => a.Course_key, "Course", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Course_key, ViewBag.course as SelectList,"Select Course", new { @class = "btn btn-default" })
+</div>
+<br /><br /><br /><br />
+<div class="col-lg-12">
+    @Html.LabelFor(a => a.Instructor_key, "Instructor", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList,"select Instructor", new { @class = "btn btn-default" })
+</div>
+<br /><br /><br /><br />
+<div>
+    <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
+}
+
+

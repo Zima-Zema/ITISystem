@@ -40,7 +40,7 @@ namespace ITISystem.Controllers
                 try
                 {
                     iti.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -57,7 +57,7 @@ namespace ITISystem.Controllers
                 std.Department_Key = null;
                 iti.Students.Add(std);
                 iti.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
             else if (email_check == true)
             {
@@ -84,7 +84,7 @@ namespace ITISystem.Controllers
                 // ViewData["stds"] = stds;
                 return View();
             }
-            catch { return RedirectToAction("index"); }
+            catch { return RedirectToAction("Index"); }
         }
         [HttpPost]
         public ActionResult Mange_NoDepts(Student std,Department dpt,bool chk)
@@ -101,14 +101,14 @@ namespace ITISystem.Controllers
                     var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
                     ss.Department_Key = std_dpt;
                     iti.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 else if (count_std > cap)
                 {
                     var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
                     ss.Department_Key = null;
                     iti.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 else {
                     return View();
@@ -121,7 +121,7 @@ namespace ITISystem.Controllers
                 }
                 catch
                 {
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 }
             
@@ -137,7 +137,7 @@ namespace ITISystem.Controllers
             }
             catch
             {
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
        }
         public ActionResult details(int id)
@@ -152,11 +152,11 @@ namespace ITISystem.Controllers
         }
         public ActionResult Go_Back()
         {
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult edit(int Id)
+        public ActionResult Edit(int Id)
         {
 
 
@@ -168,11 +168,11 @@ namespace ITISystem.Controllers
 
 
             };
-            return View(viewModel2);
+            return PartialView(viewModel2);
         }
 
         [HttpPost]
-        public ActionResult edit(ViewModel.StudentViewModel st)
+        public ActionResult Edit(ViewModel.StudentViewModel st)
         {
 
             Student std_new = st.Student;
@@ -191,6 +191,21 @@ namespace ITISystem.Controllers
             std_old.Department_Key = std_new.Department_Key;
             iti.SaveChanges();
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+            Student std = iti.Students.SingleOrDefault(a => a.Student_Id == Id);
+            return PartialView(std);
+        }
+        [HttpPost]
+        public ActionResult Delete(int Id,Student std)
+        {
+            var removeStd = iti.Students.SingleOrDefault(s => s.Student_Id == Id);
+            iti.Students.Remove(removeStd);
+            iti.SaveChanges();
             return RedirectToAction("Index");
         }
     }
