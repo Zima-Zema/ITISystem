@@ -127,7 +127,7 @@ namespace ITISystem.Controllers
         public ActionResult crs_ins()
 
         {
-            ViewBag.dpts = new SelectList(iti.Instructors, "Instructor_Id", "Name", 2);
+            ViewBag.dpts = new SelectList(iti.Instructor, "Instructor_Id", "Name", 2);
 
 
             return View();
