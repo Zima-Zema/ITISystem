@@ -66,6 +66,9 @@
         console.log(s)
     })
     </script>
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

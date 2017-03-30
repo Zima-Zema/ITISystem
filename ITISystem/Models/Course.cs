@@ -47,5 +47,7 @@ namespace ITISystem.Models
         public virtual List<Std_Crs_Instr> Std_Crs_Instr { set; get; }
         public virtual List<Exam> Exams { set; get; }
         public virtual List<Question> Questions { set; get; }
+        public virtual List<Department> Departments { get; set; }
+        public virtual List<Instructor> Instructors { get; set; }
     }
 }

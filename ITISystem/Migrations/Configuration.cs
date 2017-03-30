@@ -9,7 +9,7 @@ namespace ITISystem.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ITISystem.Models.ApplicationDbContext context)
