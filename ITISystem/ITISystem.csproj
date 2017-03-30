@@ -396,6 +396,10 @@
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.cs" />
+    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
+      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -421,6 +425,10 @@
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-ITISystem-20170322093412.mdf" />
+    <Content Include="App_Data\aspnet-ITISystem-20170322093412_log.ldf">
+      <DependentUpon>aspnet-ITISystem-20170322093412.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-Darkly.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -525,9 +533,10 @@
     <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\Courses.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
+    <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
@@ -675,6 +684,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301216298_InstructorFinishedCourse.resx">
+      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />
