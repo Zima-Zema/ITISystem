@@ -1,14 +1,24 @@
-﻿@using ITISystem.Models;
+﻿@Styles.Render("~/Content/css")
+@using ITISystem.Models;
 @model Std_Crs_Instr
 @{
     ViewBag.Title = "evaluation";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 <h2>Evaluation</h2>
 <div>
+    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-primary" })
+</div>
+<div>
     @Html.DropDownListFor(a => a.Course_key, ViewBag.crs as SelectList, new { @class = "btn btn-primary" })
 </div>
+<div>
+    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList, new { @class = "btn btn-primary" })
+</div>
+
+
 <div>
     @Html.Label("Course Evaluation",new { @class= "form-control text-danger bg-primary" })
 </div>
@@ -18,19 +28,19 @@
 </div>
 <div>
     @Html.Label("The Content Of The Course")
-
+    <input id="slider" class="slider" type="text" data-slider-handle="custom"/>
 </div>
 <div>
     @Html.Label("The Content Of The Course")
-
+    <input id="slider1" class="slider" type="text" data-slider-handle="custom" />
 </div>
 <div>
     @Html.Label("The Content Of The Course")
-
+    <input id="slider2" class="slider" type="text" data-slider-handle="custom" />
 </div>
 <div>
     @Html.Label("Avarge Evaluation")
-
+    
 </div>
 <div>
     @Html.ActionLink("Finish", "", "Student", new { @class = "btn btn-success" })
@@ -39,4 +49,7 @@
 
 
 </div>
+
+
+
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using ITISystem.ViewModel;
 
 namespace ITISystem.Controllers
 {
@@ -74,20 +75,58 @@ namespace ITISystem.Controllers
         [HttpGet]
         public ActionResult Mange_NoDepts()
         {
-            ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
-            var std_no= iti.Students.Where(s => s.Department_Key == null).ToList();
-            SelectList stds = new SelectList(std_no, "Student_id", "FirstName");
-            //
-            ViewData["stds"] = stds;
-            return View();
+            try
+            {
+                ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
+                var std_no = iti.Students.Where(s => s.Department_Key == null).ToList();
+               // string FullName = "FirstName" + " " + "LastName";
+                ViewBag.stds = new SelectList(std_no, "Student_Id", "FirstName");
+               // ViewBag.stdl = new SelectList(std_no, "Student_Id", "LastName");
+                //
+                // ViewData["stds"] = stds;
+                return View();
+            }
+            catch { return RedirectToAction("index"); }
         }
         [HttpPost]
-        public ActionResult Mange_NoDepts(Student std)
+        public ActionResult Mange_NoDepts(Student std,Department dpt,bool chk)
         {
-            //ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
-            if (std.FirstName != null)
-            { }
-            return RedirectToAction("index");
+            if(chk==true)
+            {
+                //int? selected_dept = std.Department_Key;
+                var std_dpt = std.Department_Key;
+                int cap = iti.Departments.Single(d => d.Department_Id == std_dpt).Capacity;
+                int count_std = iti.Students.Where(s => s.Department_Key == std_dpt).Count();
+                if (count_std <= cap)
+                {
+                    //var stdddd = std.Student_Id;
+                    var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
+                    ss.Department_Key = std_dpt;
+                    iti.SaveChanges();
+                    return RedirectToAction("index");
+                }
+                else if (count_std > cap)
+                {
+                    var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
+                    ss.Department_Key = null;
+                    iti.SaveChanges();
+                    return RedirectToAction("index");
+                }
+                else {
+                    return View(std);
+                }
+            }
+            else {
+                //try
+                //{                
+                    return RedirectToAction("index");
+                    //return View(std);
+                //}
+                //catch
+                //{
+                //    return RedirectToAction("index");
+                //}
+                }         
         }
         //course
         [HttpGet]
@@ -108,14 +147,62 @@ namespace ITISystem.Controllers
             var std_id = iti.Students.Single(s => s.Student_Id == id);
             return View(std_id);
         }
+        [HttpGet]
         public ActionResult evaluation()
         {
+            ViewBag.stds = new SelectList(iti.Students, "Student_Id", "FirstName");
+           // var crs_std=iti.StdS_CrS_InstrS.Where()
             ViewBag.crs = new SelectList(iti.Courses, "Course_id", "Name");
+            ViewBag.inst = new SelectList(iti.Instructor, "Instructor_Id", "Name");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult evaluation(Course crs)
+        {
             return View();
         }
         public ActionResult Go_Back()
         {
             return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        public ActionResult edit(int Id)
+        {
+
+
+            var viewModel2 = new StudentViewModel()
+            {
+                DepartmentList = iti.Departments.ToList(),
+                StudentList = iti.Students.ToList(),
+                Student = iti.Students.SingleOrDefault(a => a.Student_Id == Id)
+
+
+            };
+            return View(viewModel2);
+        }
+
+        [HttpPost]
+        public ActionResult edit(ViewModel.StudentViewModel st)
+        {
+
+            Student std_new = st.Student;
+            Student std_old = iti.Students.SingleOrDefault(a => a.Student_Id == std_new.Student_Id);
+            std_old.FirstName = std_new.FirstName;
+            std_old.LastName = std_new.LastName;
+            std_old.Password = std_new.Password;
+            std_old.BirthDate = std_new.BirthDate;
+            std_old.Email = std_new.Email;
+            std_old.UserName = std_new.UserName;
+            std_old.Attend_Balance = std_new.Attend_Balance;
+            std_old.Telephone = std_new.Telephone;
+            std_old.Address.City = std_new.Address.City;
+            std_old.Address.Country = std_new.Address.Country;
+            std_old.Address.Street = std_new.Address.Street;
+            std_old.Department_Key = std_new.Department_Key;
+            iti.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

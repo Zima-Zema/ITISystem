@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity.Validation;
 using System.Data.Entity;
 
+
 namespace ITISystem.Controllers
 {
     public class Instructor1Controller : Controller
@@ -20,15 +21,14 @@ namespace ITISystem.Controllers
 
         public ActionResult getAll()
         {
-            // var models = iti.Instructor.Include(s => s.);
-            var models = iti.Instructor.Include(ss=>ss.Department);
+            var models = iti.Instructor.Include(ss => ss.Department);
             return View(models);
         }
         [HttpGet]
         public ActionResult createInstructor()
         {
             ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
-            
+
             return View();
 
         }
@@ -63,7 +63,7 @@ namespace ITISystem.Controllers
         public ActionResult Edit(Instructor ins)
         {
 
-           var Oldins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == ins.Instructor_Id);
+            var Oldins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == ins.Instructor_Id);
             Oldins.Name = ins.Name;
             Oldins.BirthDate = ins.BirthDate;
             Oldins.Degree = ins.Degree;
@@ -76,21 +76,39 @@ namespace ITISystem.Controllers
             return RedirectToAction("getAll", iti.Instructor);
 
         }
-        //[HttpGet]
-        //public ActionResult Remove(int id)
-        //{
-           
+        [HttpGet]
+        public ActionResult Remove(int id)
+        {
+            Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == id);
 
-        //}
+            return PartialView(ins);
 
-        //[HttpPost]
-        //public ActionResult Remove(int id)
-        //{
-        //    Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == id);
+        }
 
-        //    return PartialView(ins);
-        //}
+        [HttpPost]
+        public ActionResult Remove(int id, Instructor inst)
+        {
+            Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == inst.Instructor_Id);
+            iti.Instructor.Remove(ins);
+            iti.SaveChanges();
+            return RedirectToAction("getAll", iti.Instructor);
 
+        }
+        [HttpGet]
+        public ActionResult Instructor_Courses()
+        {
+            ViewBag.ins = new SelectList(iti.Instructor, "Instructor_id", "Name");
+            return View();
+
+        }
+
+        public ActionResult Finished_Courses(int id)
+        {
+            var courseList = iti.StdS_CrS_InstrS.Where(i => i.Instructor_key == id).Select(i => i.Courses).ToList();
+            var finish = courseList.Where(c => c.Status == CourseStatus.Finish).ToList();
+            return View(finish);
+
+        }
 
 
     }

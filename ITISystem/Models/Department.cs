@@ -32,5 +32,7 @@ namespace ITISystem.Models
 
         public virtual List<Dept_Crs_Instr> DeptCrsInstr { set; get; }
 
+        public virtual List<Course> Courses { get; set; }
+        
     }
 }

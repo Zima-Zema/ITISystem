@@ -64,25 +64,28 @@
     </table>
 
 </div>
-<div class="modal fade">
+@*<div class="modal fade">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div id="divedit" >
-
+        <div class="modal-content">*@
+            <div class="modal" id="divedit" >
+                @*@Html.Partial("Edit",Model);*@
             </div>
-        </div>
+        @*</div>
     </div>
-    </div>
+    </div>*@
 <div id="divdelete">
 
 </div>
 <script>
-    function fyn() {
+    function fun() {
         $("#divedit").modal("toggle");
     }
 </script>
 <script>
-    function fyn() {
+    function fun2() {
         $("#divdelete").modal("toggle");
     }
 </script>
+<script src="~/Scripts/jquery-2.2.4.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>

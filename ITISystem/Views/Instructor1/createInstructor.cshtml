@@ -4,92 +4,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<html>
-<head>
-</head>
-<body>
+<h2 class="col-lg-offset-4">New Instructor</h2>
+<form method="post" action="createInstructor" novalidate="novalidate" class="form-horizontal col-md-offset-1">
+
+    @Html.ValidationSummary(true, "Enter All Required Info")
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BirthDate)
+        @Html.TextBoxFor(model => model.BirthDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Degree)
+        @Html.TextBoxFor(model => model.Degree, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
+
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Graduation_Year)
+        @Html.TextBoxFor(model => model.Graduation_Year, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Graduation_Year, "", new { @class = "text-danger" })
+
+
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Work_Status)
+        @*@Html.EditorFor(model => model.Work_Status, new { htmlAttributes = new { @class = "form-control col-lg-offset-2" } })*@
+        @Html.EnumDropDownListFor(model => model.Work_Status, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Work_Status, "", new { @class = "text-danger" })
+
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Department_Key, "Department")
+        @Html.DropDownListFor(a => a.Department_Key, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
+
+    </div>
 
     <br />
     <br />
 
-    <br />
-    
-    @Html.ActionLink("Back", "getAll")
-    <h2 class="col-lg-offset-4">New Instructor</h2>
+    <div class="col-lg-offset-4 ">
+        <input type="submit" value="Create" class="btn btn-success" />
+    </div>
 
-    <br />
-    <br />
+   
 
-   <form method="post" action="createInstructor" novalidate="novalidate">
-
-
-        <div class="form-group">
-
-
-            @Html.DisplayNameFor(model => model.Name)
-            @Html.EditorFor(model => model.Name,new { HtmlAttribute= new { @class = "form-control col-lg-offset-4" } })
-            @Html.ValidationMessageFor(model => model.Name,"",new { @class="text-danger"})
-
-
-        </div>
-      
-           <div class="form-group">
-               @Html.DisplayNameFor(model => model.BirthDate)
-               @Html.EditorFor(model => model.BirthDate, new { HtmlAttribute = new { @class = "form-control col-lg-8" } })
-               @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
-
-
-           </div>
-
-           <div class="form-group">
-
-               @Html.DisplayNameFor(model => model.Degree)
-               @Html.EditorFor(model => model.Degree, new { HtmlAttribute = new { @class = "form-control col-lg-8" } })
-               @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
-
-
-           </div>
-
-           <div class="form-group">
-               @Html.DisplayNameFor(model => model.Graduation_Year)
-               @Html.EditorFor(model => model.Graduation_Year, new { HtmlAttribute = new { @class = "form-control col-lg-8" } })
-               @Html.ValidationMessageFor(model => model.Graduation_Year, "", new { @class = "text-danger" })
-
-
-           </div>
-
-
-
-           <div class="form-group">
-               @Html.DisplayNameFor(model => model.Work_Status)
-               @Html.EditorFor(model => model.Work_Status, new { HtmlAttribute = new { @class = "form-control col-lg-8" } })
-               @Html.ValidationMessageFor(model => model.Work_Status, "", new { @class = "text-danger" })
-
-
-           </div>
-           <div class="form-group">
-               @Html.DisplayNameFor(model => model.Department_Key)
-               @Html.DropDownListFor(a => a.Department_Key, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
-
-             
-
-
-           </div>
-
-           <div class="col-lg-5 col-lg-offset-4 "btn btn-primary">
-               <input type="submit" value="ADD"/>
-               
-
-
-           </div>
 
 
 
 </form>
-</body>
-</html>
+@Html.ActionLink("Back to list", "getAll")
 
-
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
 
 
