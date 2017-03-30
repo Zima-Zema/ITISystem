@@ -360,13 +360,33 @@
     <Compile Include="Migrations\201703290846565_instructoredit.Designer.cs">
       <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703291248462_editcrs.cs" />
+    <Compile Include="Migrations\201703291248462_editcrs.Designer.cs">
+      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703291305062_updateInstructor.cs" />
     <Compile Include="Migrations\201703291305062_updateInstructor.Designer.cs">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703291506247_testt.cs" />
+    <Compile Include="Migrations\201703291506247_testt.Designer.cs">
+      <DependentUpon>201703291506247_testt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291516011_ddd.cs" />
+    <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291622180_f_Edit.cs" />
+    <Compile Include="Migrations\201703291622180_f_Edit.Designer.cs">
+      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.cs" />
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.cs" />
+    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
+      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -477,6 +497,14 @@
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Student\crs_grade.cshtml" />
     <Content Include="Views\Instructor1\Remove.cshtml" />
+    <Content Include="Views\Student\details.cshtml" />
+    <Content Include="Views\Student\evaluation.cshtml" />
+    <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
+    <Content Include="Views\Course\Courses.cshtml" />
+    <Content Include="Views\Course\crs_dept.cshtml" />
+    <Content Include="Views\Course\crs_ins.cshtml" />
+    <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -600,11 +628,26 @@
     <EmbeddedResource Include="Migrations\201703290846565_instructoredit.resx">
       <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291248462_editcrs.resx">
+      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291506247_testt.resx">
+      <DependentUpon>201703291506247_testt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291516011_ddd.resx">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291622180_f_Edit.resx">
+      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301216298_InstructorFinishedCourse.resx">
+      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
