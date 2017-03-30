@@ -44,7 +44,8 @@
         {
 
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.Name)</td>*@
+                <td>@Html.ActionLink(item.Name.ToString(), "Finished_Courses",new { id= item.Instructor_Id })</td>
                 <td>@Html.DisplayFor(modelItem => item.BirthDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.Degree)</td>
                 <td>@Html.DisplayFor(modelItem => item.Graduation_Year)</td>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ITISystem.Models.Course>
+
+@{
+    ViewBag.Title = "Finished_Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="col-xs-offset-4">Finished_Courses</h2>
+<br/>
+<br />
+
+<br />
+
+
+
+    @foreach (var item in Model )
+    {
+        <table class="table table-bordered table-hover col-lg-4">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lec_Duration)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Lab_Duration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Duration)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+            </tr>
+            <tr>
+
+                @if (item.Course_Id != null)
+                {
+                   
+
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+
+              
+                <td>@Html.DisplayFor(modelItem => item.Lec_Duration)</td>
+               
+                <td>@Html.DisplayFor(modelItem => item.Lab_Duration)</td>
+                
+                <td>@Html.DisplayFor(modelItem => item.Duration)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+
+                }
+                else
+                {
+                    <td>No Finised Courses</td>
+                }
+        </table>
+    }
+
