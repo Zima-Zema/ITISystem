@@ -2,7 +2,7 @@
 
 @using (Ajax.BeginForm("Edit","Department",new AjaxOptions() { InsertionMode=InsertionMode.Replace,UpdateTargetId= "divtable" ,HttpMethod="Post",OnSuccess="fun()"}))
 {
-    @Html.AntiForgeryToken()
+    @*@Html.AntiForgeryToken()*@
     
     <div class="form-horizontal modal-content">
         <div class="modal-header">
@@ -33,7 +33,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.instructor_mang.Name, "manger_Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.manger_key, ViewBag.ins as SelectList)
+                    @Html.DropDownListFor(model => model.manger_key, ViewBag.ins as SelectList, new { @class = "btn btn-primary" })
                     @Html.ValidationMessageFor(model => model.instructor_mang.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
