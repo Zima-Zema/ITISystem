@@ -19,7 +19,7 @@ namespace ITISystem.Models
         public int? Instructor_key { get; set; }
         //
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
-        public int Full_evaluation{ get; set; }
+        public int? Full_evaluation{ get; set; }
 
         public virtual Department Departments { get; set; }
         public virtual Course Courses { get; set; }

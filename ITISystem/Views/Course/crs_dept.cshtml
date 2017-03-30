@@ -1,47 +1,97 @@
-﻿@using ITISystem.Models;
-@model Department
+﻿@model IEnumerable<ITISystem.Models.Department>
+
 @{
     ViewBag.Title = "crs_dept";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row form-group">
+
+   
+  
+    <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+    <div class="row form-group">
     <div class="col-md-12">
-     <div class="input-group">
-         <form method="post" action="/Course/Courses">
+        <div class="input-group">
 
-             <br />
-             <br />
-             <br />
-             <br />
 
-             @Html.DropDownListFor(a => a.Department_Id, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
-             
-             <div id="div1">
 
-             </div>
-         
-             <div class="form-group">
-                 <div class="col-md-offest">
-                     <input type="submit" value="Add Course to this Department" class="btn btn-primary" />
-                 </div>
-             </div>
-             </form>
-</div>
+            <select id="ddlDept" class="dropdown-header">
+                <option>select dept</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Department_Id">@item.Name</option>
+                }
+            </select>
+
+        </div>
+
     </div>
 
-</div>
-@section scripts
-{
-    <script>
-        $(function () {
-            $("#Department_Id").change(function (event) {
-                //alert($(this).val());
-                $("#div1").load("/course/Courses/" + $(this).val());
-              
-                    
-            })
+    @*@Ajax.ActionLink("asd", "crs_dept", null, new AjaxOptions()
+         {
+             UpdateTargetId = "",
+             InsertionMode = InsertionMode.Replace,
+         }, new { @class = "btn" })*@
+    <div id="table1">
+        <table class="table table-bordered" id="tb1">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Select Course</th>
+                </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
 
-        })
-    </script>
+        <div id="div1" class="col-md-10">
+
+        </div>
+    </div>
+</div>
+@section scripts{
+<script>
+        var asd;
+        var x;
+        $(function () {
+            $("#ddlDept").on('change', function () {
+                $("#body").empty();
+
+                $.ajax({
+                    cashe: false,
+                    type: "Post",
+                    url: "crs_dept/" + $("#ddlDept").val(),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (res) {
+                        alert(res)
+                        asd = JSON.parse(res);
+                        for (var i = 0; i < asd.length; i++) {
+                            $("#body").append("<tr><td>" + asd[i].Name + "</td><td><input type='checkbox' name='text' onchange='myFunction(this);' value=" + asd[i].Course_Id + " /></td></tr>")
+                        }
+                    }
+                })
+            });
+
+
+        });
+        function myFunction(elem) {
+            if (elem.checked) {
+                x = elem;
+                var Course_Id = x.value;
+                var Department_Id = $("#ddlDept").val();
+                $("#div1").load('/Course/AddCoursesToDept?Department_Id=' + Department_Id + '&Course_Id=' + Course_Id);
+            }
+        }
+</script>
+
 }
+
+
+
+    
+   

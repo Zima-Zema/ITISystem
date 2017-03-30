@@ -360,6 +360,10 @@
     <Compile Include="Migrations\201703291305062_updateInstructor.Designer.cs">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703291516011_ddd.cs" />
+    <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703291622180_f_Edit.cs" />
     <Compile Include="Migrations\201703291622180_f_Edit.Designer.cs">
       <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
@@ -472,6 +476,11 @@
     <Content Include="Views\Student\details.cshtml" />
     <Content Include="Views\Student\evaluation.cshtml" />
     <Content Include="Views\Instructor1\Edit.cshtml" />
+    <Content Include="Views\Course\crs_dept.cshtml" />
+    <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Course\crs_ins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -594,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291516011_ddd.resx">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291622180_f_Edit.resx">
       <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
