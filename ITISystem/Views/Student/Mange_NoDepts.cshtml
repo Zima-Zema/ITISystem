@@ -5,10 +5,7 @@
     ViewBag.Title = "Mange_NoDepts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Manage Departments</h2>
-
-
         @using (Html.BeginForm("Mange_NoDepts", "Student", FormMethod.Post, "novalidate"))
         {
             <div class="col-lg-12">
@@ -23,6 +20,9 @@
             <div>
               @*  @Html.ListBoxFor(a => a.FirstName, (SelectList)ViewData["stds"], new { @class = "btn btn-default" })*@
                 @Html.DropDownListFor(a => a.Student_Id, ViewBag.stds as SelectList, new { @class = "btn btn-default" })          
+             </div>
+             <div>
+                 @Html.Label("Enroll Student To Department")
              </div>
             <div>
              @*  <input type="checkbox" id="chk" name="chk"/>*@

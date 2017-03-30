@@ -78,7 +78,9 @@ namespace ITISystem.Controllers
             {
                 ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
                 var std_no = iti.Students.Where(s => s.Department_Key == null).ToList();
+               // string FullName = "FirstName" + " " + "LastName";
                 ViewBag.stds = new SelectList(std_no, "Student_Id", "FirstName");
+               // ViewBag.stdl = new SelectList(std_no, "Student_Id", "LastName");
                 //
                 // ViewData["stds"] = stds;
                 return View();
@@ -110,20 +112,20 @@ namespace ITISystem.Controllers
                     return RedirectToAction("index");
                 }
                 else {
-                    return View();
+                    return View(std);
                 }
             }
             else {
-                try
-                {
-                    return View();
-                }
-                catch
-                {
+                //try
+                //{                
                     return RedirectToAction("index");
-                }
-                }
-            
+                    //return View(std);
+                //}
+                //catch
+                //{
+                //    return RedirectToAction("index");
+                //}
+                }         
         }
         //course
         [HttpGet]
@@ -144,9 +146,18 @@ namespace ITISystem.Controllers
             var std_id = iti.Students.Single(s => s.Student_Id == id);
             return View(std_id);
         }
+        [HttpGet]
         public ActionResult evaluation()
         {
+            ViewBag.stds = new SelectList(iti.Students, "Student_Id", "FirstName");
+           // var crs_std=iti.StdS_CrS_InstrS.Where()
             ViewBag.crs = new SelectList(iti.Courses, "Course_id", "Name");
+            ViewBag.inst = new SelectList(iti.Instructor, "Instructor_Id", "Name");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult evaluation(Course crs)
+        {
             return View();
         }
         public ActionResult Go_Back()

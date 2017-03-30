@@ -6,7 +6,15 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link href="~/Content/bootstrap-slider.css" rel="stylesheet" />
+    <style>
+        .slider-handle.custom::before {
+            line-height: 20px;
+            font-size: 20px;
+            content: '\2605';
+            color: #ffd800;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -41,7 +49,23 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/jquery.validate.min.js");
     @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js");
-
+    @Scripts.Render("~/Scripts/bootstrap-slider.js");
+    <script>
+        $(".slider").slider({ step: 1, min: 1, max: 5 });
+       
+        //$(".slider").each(function () {
+        //    sum += parseInt(this.value)
+        //});
+        var s = 0;
+        $(".slider").change(function () {
+            var sum = 0;
+            $("input[class *= 'slider']").each(function () {
+                sum += +$(this).val();
+            });
+            s = sum;
+        console.log(s)
+    })
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
