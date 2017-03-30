@@ -441,11 +441,8 @@
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-ITISystem-20170322093412.mdf" />
-    <Content Include="App_Data\aspnet-ITISystem-20170322093412_log.ldf">
-      <DependentUpon>aspnet-ITISystem-20170322093412.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-Darkly.css" />
+    <Content Include="Content\bootstrap-slider.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -471,6 +468,7 @@
     <Content Include="obj\Debug\ITISystem.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ITISystem.dll" />
     <Content Include="obj\Debug\ITISystem.pdb" />
+    <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
@@ -540,7 +538,6 @@
     <Content Include="Views\Student\details.cshtml" />
     <Content Include="Views\Student\evaluation.cshtml" />
     <Content Include="Views\Instructor1\Edit.cshtml" />
-    <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
     <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
@@ -551,13 +548,14 @@
     <Content Include="Views\Student\delete.cshtml" />
     <Content Include="Views\Student\edit.cshtml" />
     <Content Include="Views\Course\crs_ins.cshtml" />
-    <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\Courses.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
     <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
     <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
+    <Content Include="Views\Course\crs_dept.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
