@@ -392,9 +392,17 @@
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703300725367_f_edit2.cs" />
+    <Compile Include="Migrations\201703300725367_f_edit2.Designer.cs">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703300755139_last.cs" />
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.cs" />
+    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
+      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.cs" />
     <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.Designer.cs">
@@ -434,6 +442,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-Darkly.css" />
+    <Content Include="Content\bootstrap-slider.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -537,6 +546,8 @@
     <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\Courses.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
+    <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -685,8 +696,14 @@
     <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300725367_f_edit2.resx">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301216298_InstructorFinishedCourse.resx">
+      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
       <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>

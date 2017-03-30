@@ -165,27 +165,20 @@ namespace ITISystem.Controllers
         {
             return RedirectToAction("index");
         }
-
         [HttpGet]
         public ActionResult edit(int Id)
         {
-
-
             var viewModel2 = new StudentViewModel()
             {
                 DepartmentList = iti.Departments.ToList(),
                 StudentList = iti.Students.ToList(),
                 Student = iti.Students.SingleOrDefault(a => a.Student_Id == Id)
-
-
             };
             return View(viewModel2);
         }
-
         [HttpPost]
         public ActionResult edit(ViewModel.StudentViewModel st)
         {
-
             Student std_new = st.Student;
             Student std_old = iti.Students.SingleOrDefault(a => a.Student_Id == std_new.Student_Id);
             std_old.FirstName = std_new.FirstName;
@@ -201,7 +194,6 @@ namespace ITISystem.Controllers
             std_old.Address.Street = std_new.Address.Street;
             std_old.Department_Key = std_new.Department_Key;
             iti.SaveChanges();
-
             return RedirectToAction("Index");
         }
     }
