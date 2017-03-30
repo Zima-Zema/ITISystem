@@ -40,7 +40,7 @@ namespace ITISystem.Controllers
                 try
                 {
                     iti.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -57,7 +57,7 @@ namespace ITISystem.Controllers
                 std.Department_Key = null;
                 iti.Students.Add(std);
                 iti.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
             else if (email_check == true)
             {
@@ -79,14 +79,12 @@ namespace ITISystem.Controllers
             {
                 ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
                 var std_no = iti.Students.Where(s => s.Department_Key == null).ToList();
-               // string FullName = "FirstName" + " " + "LastName";
                 ViewBag.stds = new SelectList(std_no, "Student_Id", "FirstName");
-               // ViewBag.stdl = new SelectList(std_no, "Student_Id", "LastName");
                 //
                 // ViewData["stds"] = stds;
                 return View();
             }
-            catch { return RedirectToAction("index"); }
+            catch { return RedirectToAction("Index"); }
         }
         [HttpPost]
         public ActionResult Mange_NoDepts(Student std,Department dpt,bool chk)
@@ -103,14 +101,14 @@ namespace ITISystem.Controllers
                     var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
                     ss.Department_Key = std_dpt;
                     iti.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 else if (count_std > cap)
                 {
                     var ss = iti.Students.Single(s => s.Student_Id == std.Student_Id);
                     ss.Department_Key = null;
                     iti.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
                 else {
                     return View(std);
@@ -139,7 +137,7 @@ namespace ITISystem.Controllers
             }
             catch
             {
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
        }
         public ActionResult details(int id)
@@ -163,29 +161,22 @@ namespace ITISystem.Controllers
         }
         public ActionResult Go_Back()
         {
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
-
         [HttpGet]
-        public ActionResult edit(int Id)
+        public ActionResult Edit(int Id)
         {
-
-
             var viewModel2 = new StudentViewModel()
             {
                 DepartmentList = iti.Departments.ToList(),
                 StudentList = iti.Students.ToList(),
                 Student = iti.Students.SingleOrDefault(a => a.Student_Id == Id)
-
-
             };
-            return View(viewModel2);
+            return PartialView(viewModel2);
         }
-
         [HttpPost]
-        public ActionResult edit(ViewModel.StudentViewModel st)
+        public ActionResult Edit(ViewModel.StudentViewModel st)
         {
-
             Student std_new = st.Student;
             Student std_old = iti.Students.SingleOrDefault(a => a.Student_Id == std_new.Student_Id);
             std_old.FirstName = std_new.FirstName;
@@ -201,7 +192,21 @@ namespace ITISystem.Controllers
             std_old.Address.Street = std_new.Address.Street;
             std_old.Department_Key = std_new.Department_Key;
             iti.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+            Student std = iti.Students.SingleOrDefault(a => a.Student_Id == Id);
+            return PartialView(std);
+        }
+        [HttpPost]
+        public ActionResult Delete(int Id,Student std)
+        {
+            var removeStd = iti.Students.SingleOrDefault(s => s.Student_Id == Id);
+            iti.Students.Remove(removeStd);
+            iti.SaveChanges();
             return RedirectToAction("Index");
         }
     }

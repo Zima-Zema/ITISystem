@@ -384,10 +384,6 @@
     <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
       <DependentUpon>201703291516011_ddd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703291516011_ddd.cs" />
-    <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
-      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201703291622180_f_Edit.cs" />
     <Compile Include="Migrations\201703291622180_f_Edit.Designer.cs">
       <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
@@ -411,10 +407,6 @@
     <Compile Include="Migrations\201703301528447_FloatFull_evaluation.cs" />
     <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
       <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.cs" />
-    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
-      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -468,7 +460,6 @@
     <Content Include="obj\Debug\ITISystem.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ITISystem.dll" />
     <Content Include="obj\Debug\ITISystem.pdb" />
-    <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
@@ -538,21 +529,18 @@
     <Content Include="Views\Student\details.cshtml" />
     <Content Include="Views\Student\evaluation.cshtml" />
     <Content Include="Views\Instructor1\Edit.cshtml" />
-    <Content Include="Views\Course\ins_courses.cshtml" />
-    <Content Include="Views\Department\Delete.cshtml" />
-    <Content Include="Views\Department\Edit.cshtml" />
-    <Content Include="Views\Course\crs_ins.cshtml" />
     <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Instructor1\Remove.cshtml" />
-    <Content Include="Views\Student\delete.cshtml" />
     <Content Include="Views\Student\edit.cshtml" />
-    <Content Include="Views\Course\crs_ins.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Course\Courses.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
-    <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
     <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
+    <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
     <Content Include="Views\Course\crs_dept.cshtml" />
+    <Content Include="Views\Course\crs_ins.cshtml" />
+    <Content Include="Views\Course\AssignInstructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -689,9 +677,6 @@
     <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703291516011_ddd.resx">
-      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291506247_testt.resx">
       <DependentUpon>201703291506247_testt.cs</DependentUpon>
     </EmbeddedResource>
@@ -706,9 +691,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703301216298_InstructorFinishedCourse.resx">
-      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
       <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
