@@ -10,7 +10,10 @@
 }))
 {
     <div class="form-horizontal">
-        <h2>Course</h2>
+        @if (ViewData["message"] != null)
+        {
+            @Html.Label("you can't delete this course", new { @class = " text-danger" });
+        }
         @Html.HiddenFor(c => c.Course_Id)
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })

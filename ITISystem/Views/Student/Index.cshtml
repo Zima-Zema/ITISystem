@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Index</h2>
-<div>
+<div id="div1">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -40,7 +40,7 @@
                 }
              @*   <td>@models.Department_Key</td>*@
                 <td>
-                    @Ajax.ActionLink("Edit", "edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
+                    @Ajax.ActionLink("Edit", "Edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                  {
                      UpdateTargetId = "div3",
                      InsertionMode = InsertionMode.Replace,
@@ -51,7 +51,15 @@
                     @*@Html.ActionLink("Edit", "", "Student", new { id = models.Student_Id }, new { @class = "btn btn-success" })*@
                 </td>
                 <td>
-                    @Html.ActionLink("Remove", "", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" })
+                    @Ajax.ActionLink("Remove", "Delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
+                    {
+                        UpdateTargetId = "div3",
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "Get",
+                        OnSuccess = "myfun2()"
+
+                    }, new { @class = "btn btn-danger" })
+                    @*@Html.ActionLink("Remove", "Delete", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" })*@
                 </td>
                 <td>
                     @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
@@ -64,7 +72,16 @@
     @Html.ActionLink("Mange Department", "Mange_NoDepts", "Student", null, new { @class = "btn btn-default" })
     @Html.ActionLink("Evaluation", "evaluation", "Student", null, new { @class = "btn btn-default" })
 </div>
-<div>
+<div id="div3" class="modal">
 
 </div>
+@section Scripts{
+     
+    <script>
+ 
+    function myfun2() {
+        $("#div3").modal("toggle");
+    }
+    </script>
+}
 
