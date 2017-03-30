@@ -22,31 +22,34 @@ namespace ITISystem.Models
         [Key]
         public int Instructor_Id { get; set; }
         //
-        [Required]
+        [Required][Display(Name ="Full Name")]
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string Name { get; set; }
         //
-        [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
+        [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")][Display(Name ="Birth Date")]
         public DateTime BirthDate { get; set; }
         //
-        [Required]
+        [Required][Display(Name ="Degree")]
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string Degree { get; set; }
         //
         [Required]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
+        [Range(1955, 2016)][Display(Name = "Graduation Year")]
+
         public int Graduation_Year { get; set; }
         //
-        [Required]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Number")]
+        [Required][Display(Name ="Work Status")]
+        [Range(0, 1, ErrorMessage = "Please enter valid Number")]
         public Work_Status Work_Status { get; set; }
-        [ForeignKey("Department")]
+        [ForeignKey("Department")][Display(Name ="Department")]
         public int? Department_Key { get; set; }
 
         public virtual Department Department { get; set; }
 
         public virtual List<Dept_Crs_Instr> InstrDeptCrs { set; get; }
         public virtual List<Std_Crs_Instr> Std_Crs_Instr { set; get; }
+
+        public virtual List<Course> Courses { get; set; }
 
     }
 }

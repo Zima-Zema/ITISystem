@@ -396,6 +396,18 @@
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.cs" />
+    <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.Designer.cs">
+      <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301526418_NullableFull_evaluation.cs" />
+    <Compile Include="Migrations\201703301526418_NullableFull_evaluation.Designer.cs">
+      <DependentUpon>201703301526418_NullableFull_evaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301528447_FloatFull_evaluation.cs" />
+    <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
+      <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.cs" />
     <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
       <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
@@ -687,6 +699,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301216298_InstructorFinishedCourse.resx">
       <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
+      <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301526418_NullableFull_evaluation.resx">
+      <DependentUpon>201703301526418_NullableFull_evaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301528447_FloatFull_evaluation.resx">
+      <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />
