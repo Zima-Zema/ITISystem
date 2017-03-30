@@ -59,15 +59,16 @@
                        InsertionMode=InsertionMode.Replace,
                        HttpMethod="Get",
                        OnSuccess="myfun2()"
-                   })
+                   }, new { @class = "btn btn-danger" })
                         |
                         @Ajax.ActionLink("Delete", "DeleteCourse", "Course", new { Id = item.Course_Id }, new AjaxOptions()
-                      {
-                          UpdateTargetId = "div3",
-                          InsertionMode = InsertionMode.Replace,
-                          HttpMethod = "Get",
-                          OnSuccess = "myfun3()"
-                      })
+                   {
+                       UpdateTargetId = "div3",
+                       InsertionMode = InsertionMode.Replace,
+                       HttpMethod = "Get",
+                       OnSuccess = "myfun3()"
+                   }, new {@class="btn btn-success" }
+                      )
                         
                        @*@Ajax.ActionLink("Delete","DeleteCourse", "Course", new { Id = item.Course_Id })*@
                        

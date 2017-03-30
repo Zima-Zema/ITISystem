@@ -19,10 +19,15 @@
         <br/>
         <br/>
      <form method="post" action="/Course/Addcourse" novalidate="novalidate">
+       
      <div calss="form-group">
       @Html.LabelFor(c => c.Name,new {@class="col-md-2 control-label" })
          <div class="col-md-10">
              @Html.EditorFor(c => c.Name, new { HtmlAttributes = new { @class = "form-control" } })
+             @if (ViewData["message"] != null)
+             {
+                 @Html.Label("this course is exist", new { @class = " text-danger" });
+             }
              @Html.ValidationMessageFor(c => c.Name, "", new { @class = "text-danger" })
          </div>
      </div>
