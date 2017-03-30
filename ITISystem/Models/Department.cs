@@ -16,7 +16,7 @@ namespace ITISystem.Models
             DeptCrsInstr = new List<Dept_Crs_Instr>();
         }
         [Key]
-        public int Department_Id { get; set; }
+        public int? Department_Id { get; set; }
         [Required][DataType(DataType.Text,ErrorMessage = "Please enter valid Name")]
         [Index(IsUnique =true)][MaxLength(50)]
         public string Name { get; set; }

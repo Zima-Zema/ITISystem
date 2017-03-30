@@ -22,14 +22,16 @@ namespace ITISystem.Models
     {
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Instructor> Instructors { get; set; }
+        public virtual DbSet<Instructor> Instructor { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Dept_Crs_Instr> DeptS_CrS_InstrS { get; set; }
+        public virtual DbSet<Std_Crs_Instr> StdS_CrS_InstrS { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<Permisions> Premissions { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Attendance> Attendances { get; set; }
-        //public virtual DbSet<Std_Exam_Ques> StdSExamSQueS { get; set; }
+        public virtual DbSet<Std_Exam> StdS_ExamS { get; set; }
+        public virtual DbSet<Std_Exam_Quest> StdS_ExamS_QuestS { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
