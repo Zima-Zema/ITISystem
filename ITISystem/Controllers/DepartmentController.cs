@@ -61,6 +61,27 @@ namespace ITISystem.Controllers
 
             return View("Index", depts);
         }
-
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var ins = iti.Instructor.ToList();
+            //.Instructors.ToList();
+            ViewBag.ins = new SelectList(ins, "Instructor_Id", "Name", 1);
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult Create(Department dept)
+        {
+            iti.Departments.Add(dept);
+            iti.SaveChanges();
+            var deptss = iti.Departments.Include(dd => dd.instructor_mang).ToList();
+            return View("Index", deptss);
+        }
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var depts = iti.Departments.Include(dd => dd.instructor_mang).Where(s => s.Department_Id == id).Single();
+            return PartialView(depts);
+        }
     }
 }

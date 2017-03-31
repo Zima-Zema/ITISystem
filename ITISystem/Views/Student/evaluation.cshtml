@@ -6,49 +6,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     
 }
-
 <h2>Evaluation</h2>
 <div>
-    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-primary" })
-</div>
-<div>
-    @Html.DropDownListFor(a => a.Course_key, ViewBag.crs as SelectList, new { @class = "btn btn-primary" })
-</div>
-<div>
-    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList, new { @class = "btn btn-primary" })
+    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList,"Select Student", new { @class = "btn btn-primary" })
 </div>
 
-
-<div>
-    @Html.Label("Course Evaluation",new { @class= "form-control text-danger bg-primary" })
-</div>
-<div>
-    @Html.Label("The Content Of The Course")
-    
-</div>
-<div>
-    @Html.Label("The Content Of The Course")
-    <input id="slider" class="slider" type="text" data-slider-handle="custom"/>
-</div>
-<div>
-    @Html.Label("The Content Of The Course")
-    <input id="slider1" class="slider" type="text" data-slider-handle="custom" />
-</div>
-<div>
-    @Html.Label("The Content Of The Course")
-    <input id="slider2" class="slider" type="text" data-slider-handle="custom" />
-</div>
-<div>
-    @Html.Label("Avarge Evaluation")
-    
-</div>
-<div>
-    @Html.ActionLink("Finish", "", "Student", new { @class = "btn btn-success" })
-</div>
-<div>
-
+<div id="div2">
 
 </div>
+<div>
+    @Html.ActionLink("GO Back", "Go_Back", "Student")
+</div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $("#Student_key").change(function (event) {
+               // alert($(this).val());
+                $("#div2").load("/Student/courses/" + $(this).val());
+            })
+        })
+    </script>
+}
 
 
 

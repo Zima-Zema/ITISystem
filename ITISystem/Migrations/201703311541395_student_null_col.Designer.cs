@@ -7,18 +7,18 @@ namespace ITISystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InstructorFinishedCourse : IMigrationMetadata
+    public sealed partial class student_null_col : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InstructorFinishedCourse));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(student_null_col));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703301216298_InstructorFinishedCourse"; }
+            get { return "201703311541395_student_null_col"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target
