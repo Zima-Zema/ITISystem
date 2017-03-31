@@ -56,6 +56,18 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Excel.Helper, Version=1.0.1.0, Culture=neutral, PublicKeyToken=ab40b1b8217243eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReaderHelper.1.0.3.0\lib\Excel.Helper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -392,6 +404,10 @@
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703300725367_f_edit2.cs" />
+    <Compile Include="Migrations\201703300725367_f_edit2.Designer.cs">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703300755139_last.cs" />
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
@@ -547,6 +563,8 @@
     <Content Include="Views\Course\AssignInstructor.cshtml" />
     <Content Include="Views\Student\courses.cshtml" />
     <Content Include="Views\Student\instr_eval.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -694,6 +712,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300725367_f_edit2.resx">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
