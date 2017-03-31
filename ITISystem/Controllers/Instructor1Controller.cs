@@ -94,13 +94,13 @@ namespace ITISystem.Controllers
             return RedirectToAction("getAll", iti.Instructor);
 
         }
-        [HttpGet]
-        public ActionResult Instructor_Courses()
-        {
-            ViewBag.ins = new SelectList(iti.Instructor, "Instructor_id", "Name");
-            return View();
+        //[HttpGet]
+        //public ActionResult Instructor_Courses()
+        //{
+        //    ViewBag.ins = new SelectList(iti.Instructor, "Instructor_id", "Name");
+        //    return View();
 
-        }
+        //}
 
         public ActionResult Finished_Courses(int id)
         {
@@ -110,6 +110,51 @@ namespace ITISystem.Controllers
 
         }
 
+        //public ActionResult StudentDegreeByInstructor(int insID, int deptID, int crsID)
+        //{
+        //    var studentList = iti.DeptS_CrS_InstrS.Where(i => i.Course_key == crsID && i.Instructor_key == insID && i.Department_key == deptID).Select(i => i.);
+        //}
 
+        public ActionResult ManagerID()
+        {
+            return View();
+
+        }
+
+        public ActionResult DisplayEvaluationOfInstructor(int id)
+        {
+            var mngDept = iti.Departments.Where(d => d.manger_key == id).FirstOrDefault(d => d.Department_Id.HasValue);
+            var InsEva = iti.DeptS_CrS_InstrS.Where(i => i.Department_key == mngDept.Department_Id).ToList();
+            return View(InsEva);
+        }
+
+
+        public ActionResult AllStudent(int id)
+        {
+            List<Student>students = iti.Students.Where(ss => ss.Department_Key== id).ToList();
+            return View(students);
+        }
+
+        public ActionResult crsgradeforStudent(int id)
+        {
+            try
+            {
+                var std_id = iti.StdS_CrS_InstrS.Where(s => s.Student_key == id).ToList();
+                return View(std_id);
+            }
+            catch
+            {
+                return RedirectToAction("getAll");
+            }
+
+        }
+
+        public ActionResult ManagerName()
+        {
+            ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
+
+            return View();
+
+        }
     }
 }

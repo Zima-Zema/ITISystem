@@ -1,0 +1,35 @@
+﻿@using ITISystem.Models;
+@model IEnumerable<ITISystem.Models.Student>
+@{
+    ViewBag.Title = "AllStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AllStudent</h2>
+
+<table class="table table-bordered">
+  
+    @foreach (var models in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(@models.FirstName + " " + @models.LastName, "crsgradeforStudent", new { id = models.Student_Id })
+            </td>
+         <td>@models.BirthDate</td>
+             <td>@models.Email</td>
+           <td>@models.UserName</td>
+         <td>@models.Password</td>
+         <td>@models.Attend_Balance</td>
+              <td>@models.Telephone</td>
+             <td>@models.Address.Street</td>
+            <td>@models.Address.City</td>
+            <td>@models.Address.Country</td>
+          
+                <td>@models.Department.Name</td>
+           </tr>
+    }
+           </table>
+
+
+
+            

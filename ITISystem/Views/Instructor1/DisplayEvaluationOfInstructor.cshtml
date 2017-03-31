@@ -1,0 +1,51 @@
+﻿@model ITISystem.Models.Dept_Crs_Instr
+
+@{
+    ViewBag.Title = "DisplayEvaluationOfInstructor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DisplayEvaluationOfInstructor</h2>
+
+<div>
+    <h4>Dept_Crs_Instr</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Courses.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departments.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departments.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instructors.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instructors.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Full_evaluation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Full_evaluation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -412,6 +412,10 @@
     <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
       <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703311322331_instructorAllStudent.cs" />
+    <Compile Include="Migrations\201703311322331_instructorAllStudent.Designer.cs">
+      <DependentUpon>201703311322331_instructorAllStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -547,6 +551,11 @@
     <Content Include="Views\Course\ins_courses.cshtml" />
     <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
     <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
+    <Content Include="Views\Instructor1\ManagerID.cshtml" />
+    <Content Include="Views\Instructor1\DisplayEvaluationOfInstructor.cshtml" />
+    <Content Include="Views\Instructor1\crsgradeforStudent.cshtml" />
+    <Content Include="Views\Instructor1\ManagerName.cshtml" />
+    <Content Include="Views\Instructor1\AllStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
@@ -708,6 +717,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301528447_FloatFull_evaluation.resx">
       <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311322331_instructorAllStudent.resx">
+      <DependentUpon>201703311322331_instructorAllStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />

@@ -1,0 +1,58 @@
+﻿@using ITISystem.Models;
+@model Department
+@{
+    ViewBag.Title = "ManagerName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ManagerName</h2>
+
+<br />
+<br />
+
+<br />
+
+<br />
+<div class="row form-group">
+    <div class="col-md-12">
+        <div class="input-group">
+            <form method="post" action="AllStudent">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Department_Id, "Select Department")
+                </div>
+
+                <div class="form-group col-lg-offset-4">
+
+                    @Html.DropDownListFor(a => a.Department_Id, ViewBag.dpts as SelectList, new { onchange = "AllStudent(this);", @class = "btn btn-primary form-control" })
+
+                </div>
+                <div id="div1">
+
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+            @*@section scripts{
+                    @Scripts.Render("~/bundles/jqueryval")
+                }*@
+ @section scripts
+ {
+
+                <script>
+                    $(function () {
+                        $("#Department_Id").change(function (event) {
+                            //alert($(this).val());
+                            $("#div1").load("AllStudent" + $(this).val());
+
+
+                        })
+
+                    })
+                </script>
+            }
