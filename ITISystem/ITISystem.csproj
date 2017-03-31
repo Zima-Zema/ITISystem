@@ -408,6 +408,10 @@
     <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
       <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703311541395_student_null_col.cs" />
+    <Compile Include="Migrations\201703311541395_student_null_col.Designer.cs">
+      <DependentUpon>201703311541395_student_null_col.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -541,6 +545,8 @@
     <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\crs_ins.cshtml" />
     <Content Include="Views\Course\AssignInstructor.cshtml" />
+    <Content Include="Views\Student\courses.cshtml" />
+    <Content Include="Views\Student\instr_eval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -700,6 +706,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301528447_FloatFull_evaluation.resx">
       <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311541395_student_null_col.resx">
+      <DependentUpon>201703311541395_student_null_col.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />
