@@ -392,6 +392,10 @@
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703300725367_f_edit2.cs" />
+    <Compile Include="Migrations\201703300725367_f_edit2.Designer.cs">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703300755139_last.cs" />
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
@@ -408,13 +412,13 @@
     <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
       <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.cs" />
-    <Compile Include="Migrations\201703301216298_InstructorFinishedCourse.Designer.cs">
-      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201703311322331_instructorAllStudent.cs" />
     <Compile Include="Migrations\201703311322331_instructorAllStudent.Designer.cs">
       <DependentUpon>201703311322331_instructorAllStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703311541395_student_null_col.cs" />
+    <Compile Include="Migrations\201703311541395_student_null_col.Designer.cs">
+      <DependentUpon>201703311541395_student_null_col.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -556,6 +560,11 @@
     <Content Include="Views\Instructor1\crsgradeforStudent.cshtml" />
     <Content Include="Views\Instructor1\ManagerName.cshtml" />
     <Content Include="Views\Instructor1\AllStudent.cshtml" />
+    <Content Include="Views\Course\AssignInstructor.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Student\courses.cshtml" />
+    <Content Include="Views\Student\instr_eval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
@@ -703,11 +712,11 @@
     <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300725367_f_edit2.resx">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703301216298_InstructorFinishedCourse.resx">
-      <DependentUpon>201703301216298_InstructorFinishedCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
       <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
@@ -720,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703311322331_instructorAllStudent.resx">
       <DependentUpon>201703311322331_instructorAllStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703311541395_student_null_col.resx">
+      <DependentUpon>201703311541395_student_null_col.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />
