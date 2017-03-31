@@ -434,6 +434,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\InstructorViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -545,6 +546,7 @@
     <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\crs_ins.cshtml" />
     <Content Include="Views\Course\AssignInstructor.cshtml" />
+    <Content Include="Views\Instructor1\Add_Degree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity.Validation;
 using System.Data.Entity;
-
+using ITISystem.ViewModel;
 
 namespace ITISystem.Controllers
 {
@@ -115,8 +115,27 @@ namespace ITISystem.Controllers
 
         public ActionResult Add_Degree()
         {
-
+            var dept_Id = iti.Instructor.Single(a => a.Instructor_Id == 2).Department_Key;
+            ViewBag.dept_name = iti.Departments.Single(a=>a.Department_Id==dept_Id).Name;
+            ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
+            ViewBag.students = new SelectList(iti.Students.Where(a=>a.Department_Key==dept_Id), "Student_Id", "FirstName").ToList();
+            
             return View();
+        }
+        [HttpPost]
+        public ActionResult Add_Degree(InstructorViewModel inst)
+        {
+            
+            //int course_id = inst.Courses.Course_Id;
+            //Std_Crs_Instr std_degree = inst.items;
+            ////int ins_id= inst.Instructors.Instructor_Id;
+            ////int course_id = inst.Courses.Course_Id;
+            //foreach (var item in std_degree)
+            //{
+            //    iti.StdS_CrS_InstrS.Add(std_degree);
+            //    iti.SaveChanges();
+            //}       
+            return RedirectToAction("Index");
         }
 
 
