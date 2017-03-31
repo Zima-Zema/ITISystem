@@ -392,6 +392,10 @@
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703300725367_f_edit2.cs" />
+    <Compile Include="Migrations\201703300725367_f_edit2.Designer.cs">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703300755139_last.cs" />
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
@@ -700,6 +704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300725367_f_edit2.resx">
+      <DependentUpon>201703300725367_f_edit2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
