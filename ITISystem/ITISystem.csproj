@@ -344,6 +344,10 @@
     <Compile Include="Migrations\201703272102125_update_DB2.Designer.cs">
       <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703272122374_edit_std.cs" />
+    <Compile Include="Migrations\201703272122374_edit_std.Designer.cs">
+      <DependentUpon>201703272122374_edit_std.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703272350485_update_student_priviledges.cs" />
     <Compile Include="Migrations\201703272350485_update_student_priviledges.Designer.cs">
       <DependentUpon>201703272350485_update_student_priviledges.cs</DependentUpon>
@@ -356,13 +360,33 @@
     <Compile Include="Migrations\201703282102099_stds_crss_instrs.Designer.cs">
       <DependentUpon>201703282102099_stds_crss_instrs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703290337554_deleteAndUpdate_Std.cs" />
+    <Compile Include="Migrations\201703290337554_deleteAndUpdate_Std.Designer.cs">
+      <DependentUpon>201703290337554_deleteAndUpdate_Std.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703290846565_instructoredit.cs" />
     <Compile Include="Migrations\201703290846565_instructoredit.Designer.cs">
       <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703291248462_editcrs.cs" />
+    <Compile Include="Migrations\201703291248462_editcrs.Designer.cs">
+      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703291305062_updateInstructor.cs" />
     <Compile Include="Migrations\201703291305062_updateInstructor.Designer.cs">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291506247_testt.cs" />
+    <Compile Include="Migrations\201703291506247_testt.Designer.cs">
+      <DependentUpon>201703291506247_testt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291516011_ddd.cs" />
+    <Compile Include="Migrations\201703291516011_ddd.Designer.cs">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291622180_f_Edit.cs" />
+    <Compile Include="Migrations\201703291622180_f_Edit.Designer.cs">
+      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.cs" />
     <Compile Include="Migrations\201703291931404_removeInstructorandUI.Designer.cs">
@@ -372,17 +396,17 @@
     <Compile Include="Migrations\201703300755139_last.Designer.cs">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703300851278_Fix_Student_Edit.cs" />
-    <Compile Include="Migrations\201703300851278_Fix_Student_Edit.Designer.cs">
-      <DependentUpon>201703300851278_Fix_Student_Edit.cs</DependentUpon>
+    <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.cs" />
+    <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.Designer.cs">
+      <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703300947290_Delete_Student.cs" />
-    <Compile Include="Migrations\201703300947290_Delete_Student.Designer.cs">
-      <DependentUpon>201703300947290_Delete_Student.cs</DependentUpon>
+    <Compile Include="Migrations\201703301526418_NullableFull_evaluation.cs" />
+    <Compile Include="Migrations\201703301526418_NullableFull_evaluation.Designer.cs">
+      <DependentUpon>201703301526418_NullableFull_evaluation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703301419180_AssignInstructor.cs" />
-    <Compile Include="Migrations\201703301419180_AssignInstructor.Designer.cs">
-      <DependentUpon>201703301419180_AssignInstructor.cs</DependentUpon>
+    <Compile Include="Migrations\201703301528447_FloatFull_evaluation.cs" />
+    <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
+      <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.cs" />
     <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.Designer.cs">
@@ -422,6 +446,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-Darkly.css" />
+    <Content Include="Content\bootstrap-slider.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -523,6 +548,8 @@
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Course\Courses.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
+    <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
+    <Content Include="Views\Instructor1\Instructor_Courses.cshtml" />
     <Content Include="Views\Course\crs_dept.cshtml" />
     <Content Include="Views\Course\crs_ins.cshtml" />
     <Content Include="Views\Course\AssignInstructor.cshtml" />
@@ -638,6 +665,9 @@
     <EmbeddedResource Include="Migrations\201703272102125_update_DB2.resx">
       <DependentUpon>201703272102125_update_DB2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272122374_edit_std.resx">
+      <DependentUpon>201703272122374_edit_std.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703272350485_update_student_priviledges.resx">
       <DependentUpon>201703272350485_update_student_priviledges.cs</DependentUpon>
     </EmbeddedResource>
@@ -647,11 +677,26 @@
     <EmbeddedResource Include="Migrations\201703282102099_stds_crss_instrs.resx">
       <DependentUpon>201703282102099_stds_crss_instrs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703290337554_deleteAndUpdate_Std.resx">
+      <DependentUpon>201703290337554_deleteAndUpdate_Std.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703290846565_instructoredit.resx">
       <DependentUpon>201703290846565_instructoredit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291248462_editcrs.resx">
+      <DependentUpon>201703291248462_editcrs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291305062_updateInstructor.resx">
       <DependentUpon>201703291305062_updateInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291506247_testt.resx">
+      <DependentUpon>201703291506247_testt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291516011_ddd.resx">
+      <DependentUpon>201703291516011_ddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291622180_f_Edit.resx">
+      <DependentUpon>201703291622180_f_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703291931404_removeInstructorandUI.resx">
       <DependentUpon>201703291931404_removeInstructorandUI.cs</DependentUpon>
@@ -659,14 +704,14 @@
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703300851278_Fix_Student_Edit.resx">
-      <DependentUpon>201703300851278_Fix_Student_Edit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
+      <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703300947290_Delete_Student.resx">
-      <DependentUpon>201703300947290_Delete_Student.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703301526418_NullableFull_evaluation.resx">
+      <DependentUpon>201703301526418_NullableFull_evaluation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703301419180_AssignInstructor.resx">
-      <DependentUpon>201703301419180_AssignInstructor.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703301528447_FloatFull_evaluation.resx">
+      <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
       <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
