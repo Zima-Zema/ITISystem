@@ -1,5 +1,10 @@
 ﻿@using ITISystem.Models;
 @model Course
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @using (Ajax.BeginForm("EditCourse", "Course", new AjaxOptions()
 {
     UpdateTargetId = "div1",
@@ -10,7 +15,7 @@
 }))
 {
     <div class="form-horizontal">
-        <h2>Course</h2>
+        <h2>Update Course</h2>
         @Html.HiddenFor(c=>c.Course_Id) 
         <div class="form-group">
             @Html.LabelFor(model=>model.Name,htmlAttributes:new {@class="control-label col-md-2" })
