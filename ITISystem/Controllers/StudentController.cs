@@ -17,6 +17,8 @@ namespace ITISystem.Controllers
         public ActionResult Index()
         {
             var models = iti.Students.Include(ss => ss.Department);
+            
+
             return View(models);
         }
         [HttpGet]
@@ -210,8 +212,9 @@ namespace ITISystem.Controllers
             return PartialView(std);
         }
         [HttpPost]
-        public ActionResult Delete(int Id,Student std)
+        public ActionResult Delete(int Id,ViewModel.StudentViewModel st)
         {
+            Student std = st.Student;
             var removeStd = iti.Students.SingleOrDefault(s => s.Student_Id == Id);
             iti.Students.Remove(removeStd);
             iti.SaveChanges();

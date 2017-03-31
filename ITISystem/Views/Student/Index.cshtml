@@ -1,4 +1,5 @@
-﻿@using ITISystem.Models;
+﻿@*@using ITISystem.ViewModel
+@model StudentViewModel*@
 @model IEnumerable< ITISystem.Models.Student>
 @{
     ViewBag.Title = "Index";
@@ -9,7 +10,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Full Name</th><th>Department</th>
+                <th>Full Name</th><th>Department</th><th>Operations</th>
             </tr>
         </thead>
         @foreach (var models in Model)
@@ -17,19 +18,11 @@
             <tr>
                 <td>
                 @*    @Html.ActionLink()*@
+                   
                 @Html.ActionLink(@models.FirstName+" "+@models.LastName, "details", new { id = models.Student_Id })
                     @*, new { @class = "btn btn-default" }*@
                   </td>
-            @*    <td>@models.LastName</td>*@
-              @*  <td>@models.BirthDate</td>*@
-            @*    <td>@models.Email</td>*@
-              @*  <td>@models.UserName</td>*@
-            @*    <td>@models.Password</td>*@
-             @*   <td>@models.Attend_Balance</td>*@
-          @*      <td>@models.Telephone</td>*@
-             @*   <td>@models.Address.Street</td>*@
-             @*   <td>@models.Address.City</td>*@
-             @*   <td>@models.Address.Country</td>*@
+         
                 @if (models.Department_Key != null)
                 {
                <td>@models.Department.Name</td>
@@ -38,40 +31,42 @@
                 {
                     <td>No Department</td>
                 }
-             @*   <td>@models.Department_Key</td>*@
+             
                 <td>
                     @Ajax.ActionLink("Edit", "Edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
-                 {
-                     UpdateTargetId = "div3",
-                     InsertionMode = InsertionMode.Replace,
-                     HttpMethod = "Get",
-                     OnSuccess = "myfun2()"
+               {
+                   UpdateTargetId = "div3",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun2()"
 
-                 }, new { @class = "btn btn-success" })
-                    @*@Html.ActionLink("Edit", "", "Student", new { id = models.Student_Id }, new { @class = "btn btn-success" })*@
-                </td>
-                <td>
+               }, new { @class = "btn btn-success" }) |
+                    
+
                     @Ajax.ActionLink("Remove", "Delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
-                    {
-                        UpdateTargetId = "div3",
-                        InsertionMode = InsertionMode.Replace,
-                        HttpMethod = "Get",
-                        OnSuccess = "myfun2()"
+               {
+                   UpdateTargetId = "div3",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun2()"
 
-                    }, new { @class = "btn btn-danger" })
-                    @*@Html.ActionLink("Remove", "Delete", "Student", new { id = models.Student_Id }, new { @class = "btn btn-danger" })*@
-                </td>
-                <td>
+               }, new { @class = "btn btn-danger" }) |
+                    
+
+
                     @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
                 </td>
+
             </tr>
         }
 
     </table>
-    @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Mange Department", "Mange_NoDepts", "Student", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Evaluation", "evaluation", "Student", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Mange Department", "Mange_NoDepts", "Student", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Evaluation", "evaluation", "Student", null, new { @class = "btn btn-primary" })
 </div>
+
+
 <div id="div3" class="modal">
 
 </div>

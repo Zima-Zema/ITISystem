@@ -113,8 +113,6 @@ namespace ITISystem.Controllers
 
         {
             List<Department> depts = iti.Departments.Select(d => d).ToList();
-
-
             return View(depts);
         }
 
@@ -217,7 +215,7 @@ namespace ITISystem.Controllers
                 ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
                 ViewBag.inst = new SelectList(iti.Instructor, "Instructor_Id", "Name");
 
- 
+
                 return View();
             }
 
@@ -225,13 +223,15 @@ namespace ITISystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult AssignInstructor(Department dept,Instructor inst,Course course)
+        public ActionResult AssignInstructor(Dept_Crs_Instr data)
         {
             try
             {
-                var std_dpt = dept.Department_Id;
 
-                return View();
+                iti.DeptS_CrS_InstrS.Add(data);
+                iti.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
             catch { return RedirectToAction("Index"); }
