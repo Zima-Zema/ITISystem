@@ -46,7 +46,11 @@
 </div>
 <div>
     @Html.Label("Department")
-    <div class="form-control">@Model.Department.Name</div>  
+    @if (Model.Department_Key == null)
+    { <div class="form-control">No Department</div>}
+    else
+    { <div class="form-control">@Model.Department.Name</div>}
+
 </div>
 <div>
     @Html.ActionLink("GO Back", "Go_Back", "Student")

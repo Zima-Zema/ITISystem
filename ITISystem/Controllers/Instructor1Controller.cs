@@ -111,5 +111,14 @@ namespace ITISystem.Controllers
         }
 
 
+        //C
+
+        public ActionResult Add_Degree()
+        {
+
+            return View();
+        }
+
+
     }
 }
