@@ -412,18 +412,6 @@
     <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
       <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.cs" />
-    <Compile Include="Migrations\201703301520283_AddTwoTablesDB_Major.Designer.cs">
-      <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703301526418_NullableFull_evaluation.cs" />
-    <Compile Include="Migrations\201703301526418_NullableFull_evaluation.Designer.cs">
-      <DependentUpon>201703301526418_NullableFull_evaluation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703301528447_FloatFull_evaluation.cs" />
-    <Compile Include="Migrations\201703301528447_FloatFull_evaluation.Designer.cs">
-      <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -710,15 +698,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300755139_last.resx">
       <DependentUpon>201703300755139_last.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
-      <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703301526418_NullableFull_evaluation.resx">
-      <DependentUpon>201703301526418_NullableFull_evaluation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703301528447_FloatFull_evaluation.resx">
-      <DependentUpon>201703301528447_FloatFull_evaluation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703301520283_AddTwoTablesDB_Major.resx">
       <DependentUpon>201703301520283_AddTwoTablesDB_Major.cs</DependentUpon>
