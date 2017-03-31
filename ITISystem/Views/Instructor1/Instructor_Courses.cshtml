@@ -19,11 +19,7 @@
         @Html.TextBoxFor(model => model.Instructor_Id, "Select Instructor",new { })
         @Html.DropDownListFor(a => a.Instructor_Id, (SelectList)ViewData["ins"], new { @class = "btn btn-default" })
     </div>
-    @*<div class="form-group">
-        <div class="col-md-offest">
-            <input type="submit" value="Add Course to this Department" class="btn btn-primary" />
-        </div>
-    </div>*@
+
     @Html.ActionLink("Back to List", "Finished_Courses")
 
     <div id="div1">
