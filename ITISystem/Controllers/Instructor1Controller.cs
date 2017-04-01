@@ -6,7 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity.Validation;
 using System.Data.Entity;
-
+using ITISystem.ViewModel;
+using System.Web.Script.Serialization;
 
 namespace ITISystem.Controllers
 {
@@ -94,13 +95,13 @@ namespace ITISystem.Controllers
             return RedirectToAction("getAll", iti.Instructor);
 
         }
-        [HttpGet]
-        public ActionResult Instructor_Courses()
-        {
-            ViewBag.ins = new SelectList(iti.Instructor, "Instructor_id", "Name");
-            return View();
+        //[HttpGet]
+        //public ActionResult Instructor_Courses()
+        //{
+        //    ViewBag.ins = new SelectList(iti.Instructor, "Instructor_id", "Name");
+        //    return View();
 
-        }
+        //}
 
         public ActionResult Finished_Courses(int id)
         {
@@ -110,13 +111,76 @@ namespace ITISystem.Controllers
 
         }
 
+        //public ActionResult StudentDegreeByInstructor(int insID, int deptID, int crsID)
+        //{
+        //    var studentList = iti.DeptS_CrS_InstrS.Where(i => i.Course_key == crsID && i.Instructor_key == insID && i.Department_key == deptID).Select(i => i.);
+        //}
 
-        //C
+        public ActionResult ManagerID()
+        {
+            return View();
+
+        }
+
+        public ActionResult DisplayEvaluationOfInstructor(int id)
+        {
+            var mngDept = iti.Departments.Where(d => d.manger_key == id).FirstOrDefault(d => d.Department_Id.HasValue);
+            var InsEva = iti.DeptS_CrS_InstrS.Where(i => i.Department_key == mngDept.Department_Id).ToList();
+            return View(InsEva);
+        }
+
+
 
         public ActionResult Add_Degree()
         {
-
+            var dept_Id = iti.Instructor.Single(a => a.Instructor_Id == 2).Department_Key;
+            ViewBag.dept_name = iti.Departments.Single(a=>a.Department_Id==dept_Id).Name;
+            ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
+            ViewBag.students = new SelectList(iti.Students.Where(a=>a.Department_Key==dept_Id), "Student_Id", "FirstName").ToList();
+            
             return View();
+        }
+        [HttpPost]
+        //public ActionResult Add_Degree(InstructorViewModel inst)
+        //{
+
+        //    int course_id = inst.Courses.Course_Id;
+        //    Std_Crs_Instr std_degree = inst.items;
+        //    //int ins_id= inst.Instructors.Instructor_Id;
+        //    //int course_id = inst.Courses.Course_Id;
+        //    foreach (var item in std_degree)
+        //    {
+        //        iti.StdS_CrS_InstrS.Add(std_degree);
+        //        iti.SaveChanges();
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+        //[HttpGet]
+        
+        [HttpGet]
+        public ActionResult manger_student()
+        {
+               List<Department> depts = iti.Departments.Select(d => d).ToList();
+            return View(depts);
+
+        }
+        [HttpPost]
+        public ActionResult manger_student(int id)
+        {
+            List<Student> students = iti.Students.Where(ss => ss.Department_Key == id).ToList();
+            iti.Configuration.ProxyCreationEnabled = false;
+
+            var cur = new JavaScriptSerializer();
+
+            var obj = cur.Serialize(students);
+            if (students.Count == 0)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
         }
 
 
