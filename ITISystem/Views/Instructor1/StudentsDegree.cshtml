@@ -1,0 +1,23 @@
+﻿@using ITISystem.Models;
+@model Std_Crs_Instr
+@{
+    ViewBag.Title = "StudentsDegree";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StudentsDegree</h2>
+@using (Html.BeginForm("", "", FormMethod.Post, "novalidate"))
+    {
+<div class="col-lg-12">
+
+    @Html.LabelFor(a => a.Student_key, "Students", new { @class = "form-group" })
+
+    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-default" })
+</div>
+
+<div>
+    <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
+}
+
+

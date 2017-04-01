@@ -1,25 +1,40 @@
-﻿@using ITISystem.ViewModel;
-@model InstructorViewModel
+﻿@*@using ITISystem.ViewModel;
+@model InstructorViewModel*@
+@using ITISystem.Models;
+@model Std_Crs_Instr
 @{
     ViewBag.Title = "Add_Degree";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Add_Degree</h2>
+<h2>Instructor</h2>
 
 
-@using (Html.BeginForm("Add_Degree", "Instructor1", FormMethod.Post, "novalidate"))
-{
+@*@using (Html.BeginForm("Add_Degree", "Instructor1", FormMethod.Post, "novalidate"))
+{*@
     <div class="col-lg-12">
-        @Html.Label("DepartmentName:")
-        @*@Html.LabelFor(a => a., "Department", new { @class = "form-group" })*@
-        @ViewBag.dept_name
-        @*@Html.DropDownListFor(a => a.Department_key, ViewBag.dpts as SelectList, new { @class = "btn btn-default" })*@
+        @*@Html.Label("DepartmentName:")*@
+        @Html.LabelFor(a => a.Instructor_key, "Instructor", new { @class = "form-group" })
+        @*@ViewBag.dept_name*@
+        @Html.DropDownListFor(a => a.Instructor_key, ViewBag.insts as SelectList,new { @class = "btn btn-default" })
     </div>
     <br /><br /><br /><br />
+    <div class="col-lg-12" id="divcourse">
 
+    </div>
+    @section scripts
+{
+        <script>
+        $(function () {
+            $("#Instructor_key").change(function (event) {
+                $("#divcourse").load("/Instructor1/Courses/" + $(this).val());
+            })
+        })
+        </script>
+    }
 
-    <div class="col-lg-12">
+    @*<div class="col-lg-12">
         @Html.LabelFor(a => a.Courses.Course_Id, "Course_Id", new { @class = "form-group" })
         @Html.DropDownListFor(a => a.Courses.Course_Id, ViewBag.course as SelectList, new { @class = "btn btn-default" })
     </div>
@@ -58,5 +73,5 @@
     <br /><br /><br /><br />
     <div>
         <input type="submit" value="Submit" class="btn btn-primary" />
-    </div>
-}
+    </div>*@
+@*}*@

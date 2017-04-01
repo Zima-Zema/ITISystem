@@ -231,19 +231,34 @@ namespace ITISystem.Controllers
         {
             try
             {
-                ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
-                ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
-                ViewBag.inst = new SelectList(iti.Instructor, "Instructor_Id", "Name");
-
+                ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");
 
                 return View();
             }
 
             catch { return RedirectToAction("Index"); }
         }
+        [HttpGet]
+        public ActionResult courses(int id)
+        {
+            var crs_list = iti.StdS_CrS_InstrS.Where(s => s.Instructor_key == id).Select(c => c.Courses);
+            TempData["inst_id"] = id;
+            ViewBag.crs = new SelectList(crs_list, "Course_id", "Name");
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Lab_Grade(int course_id)
+        {
+            var inst_id = TempData["inst_id"].ToString();
+            //&& s.Student_key==std_id
+            var stds_list = iti.StdS_CrS_InstrS.Where(s => s.Course_key == course_id&&s.Instructor_key.ToString()==inst_id).Select(c => c.Students);
+            ViewBag.stds = new SelectList(stds_list, "Student_Id", "Name");
+            return View();
+        }
 
         [HttpPost]
-        public ActionResult AssignInstructor(Dept_Crs_Instr data)
+        public ActionResult Lab_Grade(Dept_Crs_Instr data)
         {
             try
             {
