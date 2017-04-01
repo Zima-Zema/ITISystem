@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity.Validation;
 using System.Data.Entity;
 using ITISystem.ViewModel;
+using System.Web.Script.Serialization;
 
 namespace ITISystem.Controllers
 {
@@ -129,11 +130,6 @@ namespace ITISystem.Controllers
         }
 
 
-        public ActionResult AllStudent(int id)
-        {
-            List<Student>students = iti.Students.Where(ss => ss.Department_Key== id).ToList();
-            return View(students);
-        }
 
         public ActionResult Add_Degree()
         {
@@ -145,27 +141,48 @@ namespace ITISystem.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add_Degree(InstructorViewModel inst)
+        //public ActionResult Add_Degree(InstructorViewModel inst)
+        //{
+
+        //    int course_id = inst.Courses.Course_Id;
+        //    Std_Crs_Instr std_degree = inst.items;
+        //    //int ins_id= inst.Instructors.Instructor_Id;
+        //    //int course_id = inst.Courses.Course_Id;
+        //    foreach (var item in std_degree)
+        //    {
+        //        iti.StdS_CrS_InstrS.Add(std_degree);
+        //        iti.SaveChanges();
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+        //[HttpGet]
+        
+        [HttpGet]
+        public ActionResult manger_student()
         {
-            
-            //int course_id = inst.Courses.Course_Id;
-            //Std_Crs_Instr std_degree = inst.items;
-            ////int ins_id= inst.Instructors.Instructor_Id;
-            ////int course_id = inst.Courses.Course_Id;
-            //foreach (var item in std_degree)
-            //{
-            //    iti.StdS_CrS_InstrS.Add(std_degree);
-            //    iti.SaveChanges();
-            //}       
-            return RedirectToAction("Index");
+               List<Department> depts = iti.Departments.Select(d => d).ToList();
+            return View(depts);
+
+        }
+        [HttpPost]
+        public ActionResult manger_student(int id)
+        {
+            List<Student> students = iti.Students.Where(ss => ss.Department_Key == id).ToList();
+            iti.Configuration.ProxyCreationEnabled = false;
+
+            var cur = new JavaScriptSerializer();
+
+            var obj = cur.Serialize(students);
+            if (students.Count == 0)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
         }
 
-        public ActionResult ManagerName()
-        {
-            ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
 
-            return View();
-
-        }
     }
 }
