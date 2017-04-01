@@ -559,6 +559,8 @@
     <Content Include="Views\Course\AssignInstructor.cshtml" />
     <Content Include="Views\Department\Create.cshtml" />
     <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Studentspage.cshtml" />
+    <Content Include="Views\Department\Coursespage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
