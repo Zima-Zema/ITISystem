@@ -95,14 +95,7 @@ namespace ITISystem.Controllers
             return RedirectToAction("getAll", iti.Instructor);
 
         }
-        //[HttpGet]
-        //public ActionResult Instructor_Courses()
-        //{
-        //    ViewBag.ins = new SelectList(iti.Instructor, "Instructor_id", "Name");
-        //    return View();
-
-        //}
-
+       
         public ActionResult Finished_Courses(int id)
         {
             var courseList = iti.StdS_CrS_InstrS.Where(i => i.Instructor_key == id).Select(i => i.Courses).ToList();
@@ -111,22 +104,14 @@ namespace ITISystem.Controllers
 
         }
 
-        //public ActionResult StudentDegreeByInstructor(int insID, int deptID, int crsID)
-        //{
-        //    var studentList = iti.DeptS_CrS_InstrS.Where(i => i.Course_key == crsID && i.Instructor_key == insID && i.Department_key == deptID).Select(i => i.);
-        //}
-
-        public ActionResult ManagerID()
-        {
-            return View();
-
-        }
+  
 
         public ActionResult DisplayEvaluationOfInstructor(int id)
         {
             var mngDept = iti.Departments.Where(d => d.manger_key == id).FirstOrDefault(d => d.Department_Id.HasValue);
-            var InsEva = iti.DeptS_CrS_InstrS.Where(i => i.Department_key == mngDept.Department_Id).ToList();
+            var InsEva = iti.DeptS_CrS_InstrS.Where(i => i.Department_key == mngDept.Department_Id).Include(ss => ss.Instructors).ToList();
             return View(InsEva);
+            
         }
 
 
@@ -140,7 +125,7 @@ namespace ITISystem.Controllers
             
             return View();
         }
-        [HttpPost]
+     
         //public ActionResult Add_Degree(InstructorViewModel inst)
         //{
 
@@ -155,32 +140,26 @@ namespace ITISystem.Controllers
         //    }
         //    return RedirectToAction("Index");
         //}
-        //[HttpGet]
-        
+       
         [HttpGet]
-        public ActionResult manger_student()
+        public ActionResult crs_gradeForStudent(int id)
         {
-               List<Department> depts = iti.Departments.Select(d => d).ToList();
-            return View(depts);
-
+            try
+            {
+                var std_id = iti.StdS_CrS_InstrS.Where(s => s.Student_key == id).ToList();
+                return View(std_id);
+            }
+            catch
+            {
+                return RedirectToAction("ManageStudent");
+            }
         }
-        [HttpPost]
-        public ActionResult manger_student(int id)
+
+        public ActionResult ManageStudent( int id)
         {
-            List<Student> students = iti.Students.Where(ss => ss.Department_Key == id).ToList();
-            iti.Configuration.ProxyCreationEnabled = false;
-
-            var cur = new JavaScriptSerializer();
-
-            var obj = cur.Serialize(students);
-            if (students.Count == 0)
-            {
-                return Json(false, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(obj, JsonRequestBehavior.AllowGet);
-            }
+            var mngstud = iti.Departments.Where(d => d.manger_key == id).FirstOrDefault(d => d.Department_Id.HasValue);
+            var allstud = iti.Students.Where(s => s.Department_Key == mngstud.Department_Id);
+            return View(allstud);
         }
 
 

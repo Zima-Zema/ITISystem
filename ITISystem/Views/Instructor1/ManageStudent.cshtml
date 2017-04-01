@@ -1,0 +1,51 @@
+﻿@*@using ITISystem.ViewModel
+    @model StudentViewModel*@
+@model IEnumerable<ITISystem.Models.Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<br />
+<h2> All Students In Your Department</h2>
+
+    <br />
+    <br />
+    <br />
+
+
+    <div id="div1">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Department</th>
+
+                </tr>
+            </thead>
+            @foreach (var models in Model)
+            {
+                <tr>
+                    <td>
+
+                        @Html.ActionLink(@models.FirstName + " " + @models.LastName, "crs_gradeForStudent", new { id = models.Student_Id })
+                    </td>
+
+                    @if (models.Department_Key != null)
+                {
+                        <td>@models.Department.Name</td>
+                    }
+                    else
+                    {
+                        <td>No Department</td>
+                    }
+
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+
