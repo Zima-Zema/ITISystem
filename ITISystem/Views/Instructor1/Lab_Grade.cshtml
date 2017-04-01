@@ -1,0 +1,15 @@
+﻿@using ITISystem.Models;
+@model Std_Crs_Instr
+@{
+    ViewBag.Title = "Lab_Grade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lab_Grade</h2>
+<div class="col-lg-12">
+
+    @Html.LabelFor(a => a.Student_key, "Student", new { @class = "form-group" })
+
+    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-default" })
+    </div>
+

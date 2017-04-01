@@ -36,10 +36,10 @@
                 <td class="text-center">
                     @Ajax.ActionLink("Edit", "Edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
-                   UpdateTargetId = "div3",
+                   UpdateTargetId = "divedit",
                    InsertionMode = InsertionMode.Replace,
                    HttpMethod = "Get",
-                   OnSuccess = "myfun2()"
+                   OnSuccess = "myfun1()"
 
                }, new { @class = "btn btn-success" }) 
                     
@@ -47,7 +47,7 @@
                 <td class="text-center">
                     @Ajax.ActionLink("Remove", "Delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
-                   UpdateTargetId = "div3",
+                   UpdateTargetId = "divdelete",
                    InsertionMode = InsertionMode.Replace,
                    HttpMethod = "Get",
                    OnSuccess = "myfun2()"
@@ -70,16 +70,22 @@
 </div>
 
 
-<div id="div3" class="modal">
+<div id="divdelete" class="modal"></div>
+<div id="divedit" class="modal"></div>
 
-</div>
-@section Scripts{
+
      
-    <script>
+ <script>
  
-    function myfun2() {
-        $("#div3").modal("toggle");
-    }
-    </script>
-}
+        function myfun2() {
+            $("#divdelete").modal("toggle");
+        }
+        function myfun1() {
+            $("#divedit").modal("toggle");
+        }
+</script>
+<script src="~/Scripts/jquery-2.2.4.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
 

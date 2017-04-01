@@ -52,7 +52,7 @@
                    HttpMethod = "Get",
                    OnSuccess = "fun()"
 
-               })
+               }, new { @class = "btn btn-primary" })
                     ||
                     @Ajax.ActionLink("Delete", "Delete", "Department", new { id = item.Department_Id }, new AjaxOptions()
                {
@@ -60,24 +60,29 @@
                    InsertionMode = InsertionMode.Replace,
                    HttpMethod = "Get",
                    OnSuccess = "fun2()"
-               })
+               }, new { @class = "btn btn-danger" })
                     ||
                     @Ajax.ActionLink("Details", "Details", "Department", new { id = item.Department_Id }, new AjaxOptions()
-            {
-                UpdateTargetId = "divdetails",
-                InsertionMode = InsertionMode.Replace,
-                HttpMethod = "Get",
-                OnSuccess = "fun4()"
-            })
+               {
+                   UpdateTargetId = "divdetails",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "fun4()"
+               }, new { @class = "btn btn-primary" })
                    
                 </td>
             </tr>
         }
 
     </table>
-
+    
+    @Html.ActionLink("Students","Studentspage","Department","", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Instructors", "Instructorspage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Courses", "Coursespage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Manager", "Managerpage", "Department", "", new { @class = "btn btn-primary" })
 </div>
-<div class="modal" id="divedit"></div>
+
+<div id="divedit" class="modal" ></div>
 <div id="divdelete" class="modal"></div>
 <div id="divcreate" class="modal"></div>
 <div id="divdetails" class="modal"></div>
