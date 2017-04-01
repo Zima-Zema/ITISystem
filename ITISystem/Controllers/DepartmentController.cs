@@ -83,5 +83,20 @@ namespace ITISystem.Controllers
             var depts = iti.Departments.Include(dd => dd.instructor_mang).Where(s => s.Department_Id == id).Single();
             return PartialView(depts);
         }
+        public ActionResult Studentspage()
+        {
+            ViewBag.dept = iti.Departments.ToList();
+            return View();
+        }
+        public ActionResult FillCity(int state)
+        {
+            var students = iti.Students.Where(c => c.Department_Key == state).Select(m=>new { name = m.FirstName + " " + m.LastName }).ToList();
+            return Json(students, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Coursespage()
+        {
+            ViewBag.dept = iti.Departments.ToList();
+            return View();
+        }
     }
 }

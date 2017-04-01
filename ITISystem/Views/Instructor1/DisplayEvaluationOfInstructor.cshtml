@@ -1,51 +1,42 @@
-﻿@model ITISystem.Models.Dept_Crs_Instr
-
+﻿
+@model IEnumerable<ITISystem.Models.Dept_Crs_Instr>
 @{
-    ViewBag.Title = "DisplayEvaluationOfInstructor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<br />
 
-<h2>DisplayEvaluationOfInstructor</h2>
+<h1>Evaluation Of All Instructors in Your Department</h1>
 
-<div>
-    <h4>Dept_Crs_Instr</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Courses.Name)
-        </dt>
+<br/>
+<br />
 
-        <dd>
-            @Html.DisplayFor(model => model.Courses.Name)
-        </dd>
+<br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Departments.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Departments.Name)
-        </dd>
-
-        <dt>
+<table class="table table-bordered table-hover col-lg-4">
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.Instructors.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Instructors.Name)
-        </dd>
-
-        <dt>
+           
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Full_evaluation)
-        </dt>
+        </th>
+       
 
-        <dd>
-            @Html.DisplayFor(model => model.Full_evaluation)
-        </dd>
+    </tr>
+    @foreach (var item in Model)
+    {
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        <tr>
+            
+           <td>@Html.DisplayFor(modelItem => @item.Instructors.Name, new { @class = "form-control" })</td>
+            <td>@Html.DisplayFor(modelItem => item.Full_evaluation, new { @class = "form-control" })</td>
+
+           
+        </tr>
+    }
+
+
+</table>

@@ -1,19 +1,24 @@
-﻿@model IEnumerable<ITISystem.Models.Std_Crs_Instr>
-
+﻿@using ITISystem.Models;
+@*@model Std_Crs_Instr*@
+@model IEnumerable<ITISystem.Models.Std_Crs_Instr>
 @{
-    ViewBag.Title = "crsgradeforStudent";
+   
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2 class="col-lg-offset-4">Course Details For Student</h2>
 
-<h2>crsgradeforStudent</h2>
-<h2>Course Details For Student</h2>
+
+<br/>
+<br />
+<br />
+
 <div>
     @foreach (var mod in Model)
     {
         @Html.Label(mod.Students.FirstName + " " + mod.Students.LastName, new { @class = "form-control" })
         break;
     }
-    @Html.Label("Student Grade")
+    @Html.Label("List Of Courses")
     <table class="table table-bordered">
         <thead>
             <tr><th>Course Name</th><th>lab Grade</th><th>Exam Grade</th><th>Total Grade</th></tr>
@@ -32,7 +37,7 @@
                 </td>
                 <td>
                     @{
-                        int labs = models.Labs_Grade;
+                        int labs =(int) models.Labs_Grade;
                         int exam = models.Students.Std_Exams.Select(se => se.Exam_grade).FirstOrDefault();
                         int total = labs + exam;
                     }
@@ -41,5 +46,6 @@
             </tr>
                         }
     </table>
-    
+  
 </div>
+
