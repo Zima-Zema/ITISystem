@@ -21,8 +21,10 @@ namespace ITISystem.Models
         public int Student_Id { get; set; }
         [Required(ErrorMessage ="*")]
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Please Enter Valid Name")]
         public string FirstName { get; set; }
         [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Please Enter Valid Name")]
         public string LastName { get; set; }
         //[DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
         //[RegularExpression("dd/mm/yyyy")]
@@ -30,6 +32,7 @@ namespace ITISystem.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
+        //
         [Required(ErrorMessage ="*")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Enter Valid Email")]
         [EmailAddress]    
@@ -41,7 +44,6 @@ namespace ITISystem.Models
         //
         [Required(ErrorMessage ="*")]
         [DataType(DataType.Password, ErrorMessage = "Please Enter Strong Password ")]
-      // [RegularExpression("[^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$]")]
         public string Password { get; set; }
         //
         [DefaultValue("600")]
@@ -49,9 +51,9 @@ namespace ITISystem.Models
         [Required(ErrorMessage ="*")]
         public int Attend_Balance { get; set; }
         //
-        //
      // [Required(ErrorMessage ="*")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Enter Valid Phone")]
+        [RegularExpression(@"^(\d{11})$", ErrorMessage = "Enter Valid Mobile Phone")]
         public string Telephone { get; set; }
         //
         public FullAddress Address { get; set; }

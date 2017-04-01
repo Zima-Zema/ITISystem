@@ -51,61 +51,53 @@
     @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js");
     @Scripts.Render("~/Scripts/bootstrap-slider.js");
     <script>
-        $(".slider").slider({ step: 1, min: 1, max: 5 });     
-        //$(".slider").each(function () {
-        //    sum += parseInt(this.value)
-        //});
-        var s = 0;
-        $(".slider").change(function () {
-            var sum = 0;
-            $("input[class *= 'slider']").each(function () {
-                sum += +$(this).val();
-            });
-            s = sum;
-        console.log(s)
-        })
+        //$(".slider").slider({ step: 1, min: 1, max: 5 });
+        ////$(".slider").each(function () {
+        ////    sum += parseInt(this.value)
+        ////});
+        //var s = 0;
+        //$(".slider").change(function () {
+        //    var sum = 0;
+        //    $("input[class *= 'slider']").each(function () {
+        //        sum += +$(this).val();
+        //    });
+        //    s = sum;
+        //console.log(s)
+        //})
         //////////////////////////////////////////////
-        $(".sliderCrs").slider({ step: 1, min: 1, max: 5 });
-        //$(".slider").each(function () {
-        //    sum += parseInt(this.value)
-        //});
-        var sCrs = 0;
-        $(".sliderCrs").change(function () {
-            var sumCrs = 0;
-            $("input[class *= 'sliderCrs']").each(function () {
-                sumCrs += +$(this).val();
-            });
-            sCrs = sumCrs;
-            console.log("sCrs = "+sCrs)
-        })
+        //$(".sliderCrs").slider({ step: 1, min: 1, max: 5 });
+        //var sCrs = 0;
+        //$(".sliderCrs").change(function () {
+        //    var sumCrs = 0;
+        //    $("input[class *= 'sliderCrs']").each(function () {
+        //        sumCrs += +$(this).val();
+
+        //    });
+        //    sCrs = sumCrs;
+        //    console.log(sCrs)           
+        //})      
         /////////////////////////////////
-        $(".sliderLec").slider({ step: 1, min: 1, max: 5 });
-        //$(".slider").each(function () {
-        //    sum += parseInt(this.value)
-        //});
-        var sLec = 0;
-        $(".sliderLec").change(function () {
-            var sumLec = 0;
-            $("input[class *= 'sliderLec']").each(function () {
-                sumLec += +$(this).val();
-            });
-            sLec = sumLec;
-            console.log("sLec = " + sLec)
-        })
+        //$(".sliderLec").slider({ step: 1, min: 1, max: 5 });
+        //var sLec = 0;
+        //$(".sliderLec").change(function () {
+        //    var sumLec = 0;
+        //    $("input[class *= 'sliderLec']").each(function () {
+        //        sumLec += +$(this).val();
+        //    });
+        //    sLec = sumLec;
+        //    console.log(sLec)
+        //})
         ////////////////////////////////////////
-        $(".sliderLab").slider({ step: 1, min: 1, max: 5 });
-        //$(".slider").each(function () {
-        //    sum += parseInt(this.value)
-        //});
-        var sLab = 0;
-        $(".sliderLab").change(function () {
-            var sumLab = 0;
-            $("input[class *= 'sliderLab']").each(function () {
-                sumLab += +$(this).val();
-            });
-            sLab = sumLab;
-            console.log("sLab = "+sLab)
-        })
+        //$(".sliderLab").slider({ step: 1, min: 1, max: 5 });
+        //var sLab = 0;
+        //$(".sliderLab").change(function () {
+        //    var sumLab = 0;
+        //    $("input[class *= 'sliderLab']").each(function () {
+        //        sumLab += +$(this).val();
+        //    });
+        //    sLab = sumLab;
+        //    console.log("sLab = "+sLab)
+        //})
 
     </script>
     @Scripts.Render("~/Scripts/jquery.validate.min.js")

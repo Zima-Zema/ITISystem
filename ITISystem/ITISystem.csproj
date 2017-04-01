@@ -480,6 +480,7 @@
     <Content Include="obj\Debug\ITISystem.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ITISystem.dll" />
     <Content Include="obj\Debug\ITISystem.pdb" />
+    <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
@@ -565,6 +566,10 @@
     <Content Include="Views\Student\instr_eval.cshtml" />
     <Content Include="Views\Department\Create.cshtml" />
     <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Student\course_eval.cshtml" />
+    <Content Include="Views\Student\instructor_eval.cshtml" />
+    <Content Include="Views\Student\calculate_eval.cshtml" />
+    <Content Include="Views\Student\calculate_eval_instructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

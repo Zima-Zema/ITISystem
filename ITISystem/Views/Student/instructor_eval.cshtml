@@ -1,0 +1,128 @@
+﻿@using ITISystem.Models;
+@model Std_Crs_Instr
+@{
+    ViewBag.Title = "instructor_eval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @Html.Label("Course Evaluation", new { @class = "form-control text-danger bg-primary" })
+</div>
+<table class="table table-bordered">
+    <tr>
+        <td>@Html.Label("The course (or section) was effectively organized")</td>
+        <td><input id="slider" class="sliderCrs" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The course (or section) provided a mixture of explanation and practice")</td>
+        <td><input id="slider1" class="sliderCrs" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The course (or section) was appropriate for the stated level of the class")</td>
+        <td><input id="slider2" class="sliderCrs" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The course (or section) work helped me understand concepts more clearly")</td>
+        <td><input id="slider3" class="sliderCrs" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The course (or section) provided an appropriate balance between instruction and practice")</td>
+        <td><input id="slider4" class="sliderCrs" type="text" data-slider-handle="custom" /></td>
+    </tr>
+</table>
+<label id="course" hidden="hidden">
+
+</label>
+<div>
+    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList, new { @class = "btn btn-primary" })
+</div>
+<div>
+    @Html.Label("Instructor Lecture Evaluation", new { @class = "form-control text-danger bg-primary" })
+</div>
+<table class="table table-bordered">
+    <tr>
+        <td>@Html.Label("The instructor (or GSI) presented content in an organized manner")</td>
+        <td><input id="slider" class="sliderLec" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The instructor (or GSI) explained concepts clearly")</td>
+        <td><input id="slider1" class="sliderLec" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The instructor (or GSI) provided guidance for understanding course exercises")</td>
+        <td><input id="slider2" class="sliderLec" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The instructor (or GSI) effectively presented the tools (e.g. materials, skills, and techniques) needed")</td>
+        <td><input id="slider3" class="sliderLec" type="text" data-slider-handle="custom" /></td>
+    </tr>
+    <tr>
+        <td>@Html.Label("The instructor (or GSI) helped me achieve my goals")</td>
+        <td><input id="slider4" class="sliderLec" type="text" data-slider-handle="custom" /></td>
+    </tr>
+</table>
+<label id="Instructor">
+
+</label>
+
+@******************************************************************************@
+@*<div>
+    @Html.Label("Instructor Lab Evaluation", new { @class = "form-control text-danger bg-primary" })
+</div>
+<div>
+    @Html.Label("The Content Of The Course")
+    <input id="slider" class="sliderLab" type="text" data-slider-handle="custom" />
+</div>
+<div>
+    @Html.Label("The Content Of The Course")
+    <input id="slider1" class="sliderLab" type="text" data-slider-handle="custom" />
+</div>
+<div>
+    @Html.Label("The Content Of The Course")
+    <input id="slider2" class="sliderLab" type="text" data-slider-handle="custom" />
+</div>
+<div>
+    @Html.Label("Avarge Evaluation")
+</div>*@
+
+
+<div>
+   @* <input type="submit" value="Finish" class="btn btn-success" id="fnsh" />*@
+    @Html.ActionLink("Finish", "calculate_eval", "Student",null,new { id="fnsh"})
+</div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $(".sliderCrs").slider({ step: 1, min: 1, max: 5 });
+            $(".sliderLec").slider({ step: 1, min: 1, max: 5 });
+            var sCrs = 0;
+            var sLec = 0;
+            $(".sliderCrs").change(function () {
+                var sumCrs = 0;
+                $("input[class *= 'sliderCrs']").each(function () {
+                    sumCrs += +$(this).val();
+                });
+                sCrs = sumCrs;
+                console.log(sCrs)
+                $("#fnsh").click(function () {
+                    $("#course").load("/Student/calculate_eval/" + sCrs);
+                });
+            });
+            ////////
+            $(".sliderLec").change(function (event) {
+                    var sumLec = 0;
+                    $("input[class *= 'sliderLec']").each(function () {
+                        sumLec += +$(this).val();
+                    });
+                    sLec = sumLec;
+                    console.log(sLec)
+                    $("#fnsh").click(function () {
+                        $("#course").load("/Student/calculate_eval_instructor/" + sLec);
+                    })
+                });
+        });
+    </script>
+}
+
