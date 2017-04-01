@@ -493,6 +493,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Instructor1\manger_student.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -558,13 +559,13 @@
     <Content Include="Views\Instructor1\ManagerID.cshtml" />
     <Content Include="Views\Instructor1\DisplayEvaluationOfInstructor.cshtml" />
     <Content Include="Views\Instructor1\crsgradeforStudent.cshtml" />
-    <Content Include="Views\Instructor1\ManagerName.cshtml" />
     <Content Include="Views\Instructor1\AllStudent.cshtml" />
     <Content Include="Views\Course\AssignInstructor.cshtml" />
     <Content Include="Views\Department\Create.cshtml" />
     <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\Student\courses.cshtml" />
     <Content Include="Views\Student\instr_eval.cshtml" />
+    <Content Include="Views\Instructor1\Add_Degree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
