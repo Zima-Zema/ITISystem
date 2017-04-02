@@ -9,14 +9,15 @@
 <div id="div1">
     <table class="table table-bordered">
         <thead>
-            <tr>
-                <th>Full Name</th><th>Department</th><th>Operations</th>
+            <tr >
+                <th class="text-center">Full Name</th><th class="text-center">Department</th><th colspan="3" class="text-center">Operations</th>
+                @*<th>Operations</th>*@
             </tr>
         </thead>
         @foreach (var models in Model)
             {
             <tr>
-                <td>
+                <td >
                 @*    @Html.ActionLink()*@
                    
                 @Html.ActionLink(@models.FirstName+" "+@models.LastName, "details", new { id = models.Student_Id })
@@ -32,7 +33,7 @@
                     <td>No Department</td>
                 }
              
-                <td>
+                <td class="text-center">
                     @Ajax.ActionLink("Edit", "Edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
                    UpdateTargetId = "divedit",
@@ -40,9 +41,10 @@
                    HttpMethod = "Get",
                    OnSuccess = "myfun1()"
 
-               }, new { @class = "btn btn-success" }) |
+               }, new { @class = "btn btn-success" }) 
                     
-
+                    </td>
+                <td class="text-center">
                     @Ajax.ActionLink("Remove", "Delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
                    UpdateTargetId = "divdelete",
@@ -50,9 +52,10 @@
                    HttpMethod = "Get",
                    OnSuccess = "myfun2()"
 
-               }, new { @class = "btn btn-danger" }) |
+               }, new { @class = "btn btn-danger" }) 
                     
-
+                    </td>
+                <td class="text-center">
 
                     @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
                 </td>

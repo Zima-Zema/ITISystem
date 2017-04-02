@@ -4,7 +4,6 @@
     ViewBag.Title = "instr_eval";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div>
     @Html.Label("Course Evaluation", new { @class = "form-control text-danger bg-primary" })
 </div>
@@ -23,9 +22,9 @@
 <div>
     @Html.Label("Avarge Evaluation")
 </div>
-
 <div>
-    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList,new { @class = "btn btn-primary" })
+    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList, new { @class = "btn btn-primary" })
+ @*  @Html.Label(@TempData["instr_name"].ToString())*@
 </div>
 @*************************************************************************@
 <div>
@@ -45,11 +44,8 @@
 </div>
 <div>
     @Html.Label("Avarge Evaluation")
-
 </div>
-
 @******************************************************************************@
-
 <div>
     @Html.Label("Instructor Lab Evaluation", new { @class = "form-control text-danger bg-primary" })
 </div>
@@ -68,8 +64,13 @@
 <div>
     @Html.Label("Avarge Evaluation")
 </div>
+
+
 <div>
-    @Html.ActionLink("Finish", "instr_eval", "Student", new { @class = "btn btn-success" })
+   @* <input type="submit" value="Finish" class="btn btn-success" />*@
+    <div>
+        @Html.ActionLink("Finish", "Index", "Student")
+    </div>
 </div>
 
 

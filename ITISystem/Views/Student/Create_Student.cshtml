@@ -6,30 +6,35 @@
 }
 
 <h2>Create New Student</h2>
+
 @using (Html.BeginForm("Create_Student", "Student", FormMethod.Post, "novalidate"))
 {
     if(ViewData["message"]!=null)
     {
-        <div>This Email Exists Before!!!</div>
+        <div class="text-danger">This Email Exists Before!!!</div>
+    }
+    if (ViewData["message_username"] != null)
+    {
+        <div class="text-danger">Please Change User Name, It Exists Before.</div>
     }
     <div class="col-lg-12">
-        @Html.HiddenFor(a => a.Student_Id, new { @class = "form-group" })
+        @Html.HiddenFor(a => a.Student_Id, new { @class = "form-control" })
     </div>
 
     <div class="col-lg-12">
         @Html.LabelFor(a => a.FirstName, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.FirstName, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.FirstName)
+        @Html.EditorFor(model => model.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.FirstName ,"", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
         @Html.LabelFor(a => a.LastName, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.LastName, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.LastName)
+        @Html.EditorFor(model => model.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.LastName, "", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
@@ -46,24 +51,24 @@
       @Html.LabelFor(a => a.Email, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.Email, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.Email)
+        @Html.EditorFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
       @Html.LabelFor(a => a.UserName, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.UserName, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.UserName)
+        @Html.EditorFor(model => model.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
        @Html.LabelFor(a => a.Password, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.Password, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.Password)
+        @Html.EditorFor(model => model.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
@@ -71,51 +76,53 @@
         
     </div>
     <div class="col-lg-12">
-        @*disabled = "disabled", @readonly = "readonly" ,*@
         @Html.TextBoxFor(a => a.Attend_Balance, new { @Value = "600", @readonly = "readonly" })
-       @* @Html.EditorFor(model => model.Attend_Balance, new { @class = "form-group" })*@
-        @Html.ValidationMessageFor(a => a.Attend_Balance)
+        @Html.ValidationMessageFor(a => a.Attend_Balance, "", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
         @Html.LabelFor(a => a.Telephone, new { @class = "form-group" })      
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.Telephone, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.Telephone)
+        @Html.EditorFor(model => model.Telephone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Telephone, "", new { @class = "text-danger" })
     </div>
 
     <div class="col-lg-12">
         @Html.LabelFor(a => a.Address.City, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.Address.City, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.Address.City)
+        @Html.EditorFor(model => model.Address.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Address.City, "", new { @class = "text-danger" })
     </div>
     <div class="col-lg-12">
         @Html.LabelFor(a => a.Address.Country, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model => model.Address.Country, new { @class = "form-group" })
-        @Html.ValidationMessageFor(a => a.Address.Country)
+        @Html.EditorFor(model => model.Address.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Address.Country, "", new { @class = "text-danger" })
     </div>
     <div class="col-lg-12">
        @Html.LabelFor(a => a.Address.Street, new { @class = "form-group" })
     </div>
     <div class="col-lg-12">
-        @Html.EditorFor(model=>model.Address.Street, new { @class = "form-group" })
+        @Html.EditorFor(model=>model.Address.Street, new { @class = "form-control" })
       @*  @Html.ValidationMessageFor(a => a.Address.Street)*@
     </div>
     <div class="col-lg-12">
         @Html.LabelFor(a => a.Department_Key, "Department_Id", new { @class = "form-group" })   
     </div>
     <div class="col-lg-12">
-        @Html.DropDownListFor( a => a.Department_Key, ViewBag.dpts as SelectList, new { @class = "btn btn-primary" })
-      @*  @Html.ValidationMessageFor(a => a.Department_Key)*@
+        @Html.DropDownListFor( a => a.Department_Key, ViewBag.dpts as SelectList,new { @class = "btn btn-primary" })
      </div>
     <br />
     <br />
-    <input type="submit" value="Save" class="btn btn-success col-md-3 " />
+    <div>
+        <input type="submit" value="Save" class="btn btn-success col-md-3 " />
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 }
 
 
