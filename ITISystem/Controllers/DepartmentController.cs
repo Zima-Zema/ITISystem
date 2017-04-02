@@ -16,7 +16,7 @@ namespace ITISystem.Controllers
         // GET: Department
         public ActionResult Index()
         {
-            var depts = iti.Departments.Include(dd => dd.instructor_mang);
+            var depts = iti.Departments.Include(de=>de.instructor_mang);
             return View(depts.ToList());
         }
         [HttpGet]
@@ -42,7 +42,7 @@ namespace ITISystem.Controllers
             //}
             var depts = iti.Departments.Include(dd => dd.instructor_mang).ToList();
 
-            return View("Index", depts);
+            return PartialView( "Edittable",depts);
 
         }
         [HttpGet]
@@ -59,7 +59,7 @@ namespace ITISystem.Controllers
             iti.SaveChanges();
             var depts = iti.Departments.Include(dd => dd.instructor_mang).ToList();
 
-            return View("Index", depts);
+            return PartialView("Edittable", depts);
         }
         [HttpGet]
         public ActionResult Create()
@@ -75,13 +75,51 @@ namespace ITISystem.Controllers
             iti.Departments.Add(dept);
             iti.SaveChanges();
             var deptss = iti.Departments.Include(dd => dd.instructor_mang).ToList();
-            return View("Index", deptss);
+            return PartialView("Edittable", deptss);
         }
         [HttpGet]
         public ActionResult Details(int id)
         {
             var depts = iti.Departments.Include(dd => dd.instructor_mang).Where(s => s.Department_Id == id).Single();
             return PartialView(depts);
+        }
+        public ActionResult Studentspage()
+      {
+            ViewBag.dept = iti.Departments.ToList();
+            return View();
+        }
+        public ActionResult Fillstudent(int state)
+        {
+            var students = iti.Students.Where(c => c.Department_Key == state).Select(m=>new { name = m.FirstName + " " + m.LastName }).ToList();
+            return Json(students, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Coursespage()
+        {
+            ViewBag.dept = iti.Departments.ToList();
+            return View();
+        }
+        public ActionResult Fillcourse(int state)
+        {
+            // var students = iti.Students.Where(c => c.Department_Key == state).Select(m => new { name = m.FirstName + " " + m.LastName }).ToList();
+            var courses = iti.Departments.SingleOrDefault(m => m.Department_Id == state).Courses.Select(m => new { name = m.Name }).ToList();
+            return Json(courses, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Instructorspage()
+        {
+            ViewBag.dept = iti.Departments.ToList();
+            return View();
+        }
+        public ActionResult Fillinstructor(string Dept)
+        {
+            int ID = int.Parse(Dept);
+            List<Instructor>instructors = iti.Departments.SingleOrDefault(m => m.Department_Id == ID).Instructors.ToList();
+            ViewBag.manager = iti.Departments.SingleOrDefault(m => m.Department_Id == ID).manger_key;
+            return PartialView(instructors);
+    
+        }
+        public ActionResult Exelpage()
+        {
+            return View();
         }
     }
 }

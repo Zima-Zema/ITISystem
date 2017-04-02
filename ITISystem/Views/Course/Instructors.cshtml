@@ -1,0 +1,21 @@
+﻿@using ITISystem.Models;
+@model Dept_Crs_Instr
+@{
+    ViewBag.Title = "Instructors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Instructors</h2>
+
+    @Html.LabelFor(a => a.Instructor_key, "Instructor", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.insts as SelectList, "Select Instructor", new { @class = "btn btn-default" })
+
+<br /><br /><br /><br />
+<div>
+    <input type="submit" value="Save" />
+</div>
+
+
+
+
+

@@ -1,20 +1,6 @@
 ﻿@model IEnumerable<ITISystem.Models.Department>
 @using ITISystem.Models
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<p>
-    @Ajax.ActionLink("Create New", "Create", "Department", new AjaxOptions()
-{
-    UpdateTargetId = "divcreate",
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "Get",
-    OnSuccess = "fun3()"
-}, new { @class = "btn btn-primary" })
-</p>
 <div id="divtable">
     <table class="table table-hover table-bordered">
         <thead>
@@ -27,7 +13,7 @@
                 </th>
                 <th>
                     Manager
-                 
+
                 </th>
                 <th></th>
             </tr>
@@ -69,30 +55,16 @@
                    HttpMethod = "Get",
                    OnSuccess = "fun4()"
                }, new { @class = "btn btn-primary" })
-                   
+
                 </td>
             </tr>
         }
 
     </table>
-    
-    @Html.ActionLink("Students","Studentspage","Department","", new { @class = "btn btn-primary" })
+
+    @Html.ActionLink("Students", "Studentspage", "Department", "", new { @class = "btn btn-primary" })
     @Html.ActionLink("Instructors", "Instructorspage", "Department", "", new { @class = "btn btn-primary" })
     @Html.ActionLink("Courses", "Coursespage", "Department", "", new { @class = "btn btn-primary" })
     @Html.ActionLink("Manager", "Managerpage", "Department", "", new { @class = "btn btn-primary" })
     @Html.ActionLink("Import.FROM.EXEL", "Exelpage", "Department", "", new { @class = "btn btn-primary" })
 </div>
-
-<div id="divedit" class="modal" ></div>
-<div id="divdelete" class="modal"></div>
-<div id="divcreate" class="modal"></div>
-<div id="divdetails" class="modal"></div>
-<script>
-    function fun() {$("#divedit").modal("show");}
-    function fun2() { $("#divdelete").modal("show"); }
-    function fun3() { $("#divcreate").modal("show"); }
-    function fun4() { $("#divdetails").modal("show"); }
-</script>
-<script src="~/Scripts/jquery-2.2.4.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
