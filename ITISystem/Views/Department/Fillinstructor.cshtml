@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ITISystem.Models.Instructor>
+    <table class="table table-hover table-bordered" >
+    <tr>
+        <th>
+            NAME
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (ViewBag.manager == item.Instructor_Id)
+        {
+            <tr style="background-color:green">
+                <td >
+                    @Html.DisplayFor(s => item.Name)
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(s => item.Name)
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+

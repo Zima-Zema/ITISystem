@@ -35,12 +35,12 @@
 
         </dl>
 
-        @using (Ajax.BeginForm("Delete", "Department", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divtable", HttpMethod = "Post", OnSuccess = "fun2()" }))
+        @using (Ajax.BeginForm("Delete", "Department", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divtable", HttpMethod = "Post" }))
             {
             @Html.AntiForgeryToken()
             @Html.HiddenFor(model => model.Department_Id)
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
+                <input type="submit" value="Delete" class="btn btn-default" onclick="funy2()" /> |
 
             </div>
         }
@@ -49,3 +49,10 @@
         @Html.ActionLink("Cancel", "Index")
     </div>
 </div>
+<script>
+    function funy2()
+    {
+
+         { $("#divdelete").modal("hide"); }
+    }
+</script>

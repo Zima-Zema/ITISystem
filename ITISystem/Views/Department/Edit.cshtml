@@ -1,6 +1,6 @@
 ﻿@model ITISystem.Models.Department
 
-@using (Ajax.BeginForm("Edit","Department",new AjaxOptions() { InsertionMode=InsertionMode.Replace,UpdateTargetId= "divtable" ,HttpMethod="Post",OnSuccess="fun()"}))
+@using (Ajax.BeginForm("Edit","Department",new AjaxOptions() { InsertionMode=InsertionMode.Replace,UpdateTargetId= "divtable" ,HttpMethod="Post"}))
 {
     @*@Html.AntiForgeryToken()*@
     
@@ -40,7 +40,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Update" class="btn btn-default" @*onclick="fun()"*@ />
+                    <input type="submit" value="Update" class="btn btn-default" onclick="funy()" />
                 </div>
             </div>
         </div>
@@ -50,3 +50,10 @@
 <div class="modal-footer">
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    function funy()
+    {
+       
+        $("#divedit").modal("hide");
+    }
+</script>
