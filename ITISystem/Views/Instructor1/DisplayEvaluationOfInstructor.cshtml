@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<ITISystem.Models.Dept_Crs_Instr>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+
+<h1>Evaluation Of All Instructors in Your Department</h1>
+
+<br/>
+<br />
+
+<br />
+
+<table class="table table-bordered table-hover col-lg-4">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Instructors.Name)
+
+           
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Full_evaluation)
+        </th>
+       
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            
+           <td>@Html.DisplayFor(modelItem => @item.Instructors.Name, new { @class = "form-control" })</td>
+            <td>@Html.DisplayFor(modelItem => item.Full_evaluation, new { @class = "form-control" })</td>
+
+           
+        </tr>
+    }
+
+
+</table>

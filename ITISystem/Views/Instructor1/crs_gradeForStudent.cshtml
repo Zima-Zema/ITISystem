@@ -2,10 +2,16 @@
 @*@model Std_Crs_Instr*@
 @model IEnumerable<ITISystem.Models.Std_Crs_Instr>
 @{
-    ViewBag.Title = "crs_grade";
+   
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Course Details For Student</h2>
+<h2 class="col-lg-offset-4">Course Details For Student</h2>
+
+
+<br/>
+<br />
+<br />
+
 <div>
     @foreach (var mod in Model)
     {
@@ -31,18 +37,15 @@
                 </td>
                 <td>
                     @{
-                        int? labs = models.Labs_Grade;
+                        int labs =(int) models.Labs_Grade;
                         int exam = models.Students.Std_Exams.Select(se => se.Exam_grade).FirstOrDefault();
-                        int? total = labs + exam;
+                        int total = labs + exam;
                     }
                     @Html.Label(total.ToString(), new { @class = "form-control" })
                 </td>
             </tr>
-            }
+                        }
     </table>
-    <div>
-       @Html.ActionLink("GO Back", "Go_Back", "Student")
-      @*  <input type="submit" value="GO Back" />*@
-    </div>
+  
 </div>
 

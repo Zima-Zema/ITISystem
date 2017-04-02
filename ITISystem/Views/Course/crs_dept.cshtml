@@ -3,56 +3,44 @@
 @{
     ViewBag.Title = "crs_dept";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
-   
+} 
   
-    <br/>
+ <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
     <div class="row form-group">
-    <div class="col-md-12">
-        <div class="input-group">
-
-
-
-            <select id="ddlDept" class="dropdown-header">
-                <option>select dept</option>
+    <div class="col-md-12">        
+            <select id="ddlDept" class="btn btn-success">
+                <option>Select Department</option>
                 @foreach (var item in Model)
                 {
                     <option value="@item.Department_Id">@item.Name</option>
                 }
             </select>
 
+            <table class="table table-bordered table-hover table-striped" id="tb1">
+                <thead>
+                    <tr>
+
+
+                        <th>Course Name</th>
+                        <th>Select Course</th>
+
+                    </tr>
+                </thead>
+                <tbody id="body"></tbody>
+            </table>
+
+
+            <div id="div1" class="col-md-10">
+
+            </div>
+</div>
+        
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.ActionLink("Back To List", "index", null, new { @class = "btn btn-success" })
+            </div>
         </div>
-
-    </div>
-
-    @*@Ajax.ActionLink("asd", "crs_dept", null, new AjaxOptions()
-         {
-             UpdateTargetId = "",
-             InsertionMode = InsertionMode.Replace,
-         }, new { @class = "btn" })*@
-    <div id="table1">
-        <table class="table table-bordered" id="tb1">
-            <thead>
-                <tr>
-                    <th>Course Name</th>
-                    <th>Select Course</th>
-                </tr>
-            </thead>
-            <tbody id="body"></tbody>
-        </table>
-
-        <div id="div1" class="col-md-10">
-
-        </div>
-    </div>
 </div>
 @section scripts{
 <script>
@@ -68,11 +56,13 @@
                     url: "crs_dept/" + $("#ddlDept").val(),
                     contentType: 'application/json; charset=utf-8',
                     success: function (res) {
-                        alert(res)
+
                         asd = JSON.parse(res);
                         for (var i = 0; i < asd.length; i++) {
                             $("#body").append("<tr><td>" + asd[i].Name + "</td><td><input type='checkbox' name='text' onchange='myFunction(this);' value=" + asd[i].Course_Id + " /></td></tr>")
+
                         }
+
                     }
                 })
             });
@@ -86,6 +76,7 @@
                 var Department_Id = $("#ddlDept").val();
                 $("#div1").load('/Course/AddCoursesToDept?Department_Id=' + Department_Id + '&Course_Id=' + Course_Id);
             }
+        
         }
 </script>
 

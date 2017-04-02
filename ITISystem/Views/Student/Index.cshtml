@@ -9,14 +9,15 @@
 <div id="div1">
     <table id="students" class="table table-bordered">
         <thead>
-            <tr>
-                <th>Full Name</th><th>Department</th><th>Operations</th>
+            <tr >
+                <th class="text-center">Full Name</th><th class="text-center">Department</th><th colspan="3" class="text-center">Operations</th>
+                @*<th>Operations</th>*@
             </tr>
         </thead>
         @foreach (var models in Model)
             {
             <tr>
-                <td>
+                <td >
                 @*    @Html.ActionLink()*@
                    
                 @Html.ActionLink(@models.FirstName+" "+@models.LastName, "details", new { id = models.Student_Id })
@@ -32,27 +33,29 @@
                     <td>No Department</td>
                 }
              
-                <td>
+                <td class="text-center">
                     @Ajax.ActionLink("Edit", "Edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
-                   UpdateTargetId = "div3",
+                   UpdateTargetId = "divedit",
                    InsertionMode = InsertionMode.Replace,
                    HttpMethod = "Get",
-                   OnSuccess = "myfun2()"
+                   OnSuccess = "myfun1()"
 
-               }, new { @class = "btn btn-success" }) |
+               }, new { @class = "btn btn-success" }) 
                     
-
+                    </td>
+                <td class="text-center">
                     @Ajax.ActionLink("Remove", "Delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
                {
-                   UpdateTargetId = "div3",
+                   UpdateTargetId = "divdelete",
                    InsertionMode = InsertionMode.Replace,
                    HttpMethod = "Get",
                    OnSuccess = "myfun2()"
 
-               }, new { @class = "btn btn-danger" }) |
+               }, new { @class = "btn btn-danger" }) 
                     
-
+                    </td>
+                <td class="text-center">
 
                     @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
                 </td>
@@ -67,10 +70,10 @@
 </div>
 
 
-<div id="div3" class="modal">
+<div id="divdelete" class="modal"></div>
+<div id="divedit" class="modal"></div>
 
-</div>
-@section Scripts{
+
      
     <script>
         $(document).ready(function () {
@@ -83,4 +86,17 @@
     }
     </script>
 }
+ <script>
+ 
+        function myfun2() {
+            $("#divdelete").modal("toggle");
+        }
+        function myfun1() {
+            $("#divedit").modal("toggle");
+        }
+</script>
+<script src="~/Scripts/jquery-2.2.4.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
 

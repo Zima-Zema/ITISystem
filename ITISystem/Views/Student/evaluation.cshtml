@@ -1,17 +1,16 @@
-﻿@Styles.Render("~/Content/css")
+﻿@*@Styles.Render("~/Content/css")*@
 @using ITISystem.Models;
 @model Std_Crs_Instr
 @{
     ViewBag.Title = "evaluation";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
 }
 <h2>Evaluation</h2>
 <div>
     @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList,"Select Student", new { @class = "btn btn-primary" })
 </div>
 
-<div id="div2">
+<div id="div1">
 
 </div>
 <div>
@@ -23,8 +22,7 @@
     <script>
         $(function () {
             $("#Student_key").change(function (event) {
-               // alert($(this).val());
-                $("#div2").load("/Student/courses/" + $(this).val());
+                $("#div1").load("/Student/course_eval/" + $(this).val());
             })
         })
     </script>

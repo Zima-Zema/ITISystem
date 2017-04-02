@@ -1,0 +1,77 @@
+﻿@*@using ITISystem.ViewModel;
+@model InstructorViewModel*@
+@using ITISystem.Models;
+@model Std_Crs_Instr
+@{
+    ViewBag.Title = "Add_Degree";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add_Degree</h2>
+<h2>Instructor</h2>
+
+
+@*@using (Html.BeginForm("Add_Degree", "Instructor1", FormMethod.Post, "novalidate"))
+{*@
+    <div class="col-lg-12">
+        @*@Html.Label("DepartmentName:")*@
+        @Html.LabelFor(a => a.Instructor_key, "Instructor", new { @class = "form-group" })
+        @*@ViewBag.dept_name*@
+        @Html.DropDownListFor(a => a.Instructor_key, ViewBag.insts as SelectList,new { @class = "btn btn-default" })
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-lg-12" id="divcourse">
+
+    </div>
+    @section scripts
+{
+        <script>
+        $(function () {
+            $("#Instructor_key").change(function (event) {
+                $("#divcourse").load("/Instructor1/Courses/" + $(this).val());
+            })
+        })
+        </script>
+    }
+
+    @*<div class="col-lg-12">
+        @Html.LabelFor(a => a.Courses.Course_Id, "Course_Id", new { @class = "form-group" })
+        @Html.DropDownListFor(a => a.Courses.Course_Id, ViewBag.course as SelectList, new { @class = "btn btn-default" })
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Degree</th>
+                    
+                </tr>
+            </thead>
+            @foreach (var models in ViewBag.students)
+            {
+                <tr>
+                    <td>
+                       @models
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.items.Labs_Grade, new { @class = "form-group" })
+                        @Html.ValidationMessageFor(a => a.items.Labs_Grade)
+                    </td>
+
+
+
+                </tr>
+            }
+
+        </table>
+
+
+
+
+    </div>
+    <br /><br /><br /><br />
+    <div>
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>*@
+@*}*@
