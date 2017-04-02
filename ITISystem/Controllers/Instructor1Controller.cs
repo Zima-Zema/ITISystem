@@ -198,33 +198,47 @@ namespace ITISystem.Controllers
             return View(allstud);
         }
 
-        public ActionResult Give_Premision()
-        {
-            List<Instructor> insts = new List<Instructor>();
-            var mange_id = iti.Departments.Select(a => a.manger_key);
-            foreach (var item in mange_id)
-            {
-                var mangers = iti.Instructor.Single(a => a.Instructor_Id == item);
-                insts.Add(mangers);
-            }
-
-            ViewBag.mngs = new SelectList(insts, "Instructor_Id", "Name");
-
-            return View();
-        }
-        [HttpGet]
-        public ActionResult display_stds(int id)
-        {
-            
-            var dept_id = iti.Departments.Single(a => a.manger_key == id).Department_Id;
-            var stds = iti.Students.Where(a => a.Department_Key == dept_id);
-            ViewBag.stds = new SelectList(stds, "Student_Id", "FirstName");
-            return View();
-        }
+        //give_premission
         [HttpPost]
-        public ActionResult display_stds(Permisions per_std)
-        {
 
+        public ActionResult Give_Premision(int Id)
+        {
+            var dept_id = iti.Instructor.Single(a => a.Instructor_Id == Id).Department_Key;
+            var students = iti.Students.Where(a => a.Department_Key == dept_id);
+            //var courses = iti.DeptS_CrS_InstrS.Where(a => a.Instructor_key == inst_id && a.Department_key == dept_id).Select(a=>a.Courses);
+            //List<Instructor> insts = new List<Instructor>();
+            //var mange_id = iti.Departments.Select(a => a.manger_key);
+            //foreach (var item in mange_id)
+            //{
+            //    Instructor mangers = iti.Instructor.Where(a => a.Instructor_Id == item).Single();
+            //    insts.Add(mangers);
+            //}
+
+            //ViewBag.courses = new SelectList(courses, "Course_Id", "Name");
+            ViewBag.stds = new SelectList(students, "Student_Id", "FirstName");
+
+
+            return View();
+        }
+        //[HttpGet]
+        //public ActionResult display_stds(int id)
+        //{
+            
+        //    var dept_id = iti.Departments.Single(a => a.manger_key == id).Department_Id;
+        //    var stds = iti.Students.Where(a => a.Department_Key == dept_id);
+        //    ViewBag.stds = new SelectList(stds, "Student_Id", "FirstName");
+        //    return View();
+        //}
+        [HttpPost]
+        public ActionResult Give_Premision(Permisions per_std,bool chk)
+        {
+            if (chk == true)
+            {
+                per_std.Type = premission.allow;
+            }
+            else {
+                per_std.Type = premission.reject;
+            }
             iti.Premissions.Add(per_std);
             iti.SaveChanges();
             return RedirectToAction("Index");

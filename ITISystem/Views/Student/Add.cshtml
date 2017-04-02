@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ITISystem.Models.Student>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Full Name</th>
+            <th class="text-center">Department</th>
+            <th colspan="3" class="text-center">Operations</th>
+            @*<th>Operations</th>*@
+        </tr>
+    </thead>
+    @foreach (var models in Model)
+            {
+        <tr>
+            <td>
+                @*    @Html.ActionLink()*@
+
+                @Html.ActionLink(@models.FirstName + " " + @models.LastName, "details", new { id = models.Student_Id })
+                @*, new { @class = "btn btn-default" }*@
+            </td>
+
+            @if (models.Department_Key != null)
+                {
+                <td>@models.Department.Name</td>
+            }
+            else
+            {
+                <td>No Department</td>
+            }
+
+            <td class="text-center">
+                @Ajax.ActionLink("Edit", "Edit", "Student", new { Id = models.Student_Id }, new AjaxOptions()
+               {
+                   UpdateTargetId = "divedit",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun1()"
+
+               }, new { @class = "btn btn-success" })
+
+            </td>
+            <td class="text-center">
+                @Ajax.ActionLink("Remove", "Delete", "Student", new { Id = models.Student_Id }, new AjaxOptions()
+               {
+                   UpdateTargetId = "divdelete",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun2()"
+
+               }, new { @class = "btn btn-danger" })
+
+            </td>
+            <td class="text-center">
+
+                @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
+            </td>
+
+        </tr>
+    }
+
+</table>
+

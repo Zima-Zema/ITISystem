@@ -6,12 +6,27 @@
 }
 
 <h2>Give_Premision</h2>
+@using (Html.BeginForm("Give_Premision", "Instructor", FormMethod.Post, "novalidate"))
+{
 <div>
-    @Html.LabelFor(a => a.Instructor_key, "Manger", new { @class = "form-group" })
+    @Html.LabelFor(a => a.Student_key, "Student", new { @class = "form-group" })
 
-        @Html.DropDownListFor(a => a.Instructor_key, ViewBag.mngs as SelectList, new { @class = "btn btn-default" })
+        @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-default" })
 </div>
-<div class="col-lg-12" id="divstds">
+<br /><br /><br /><br />
+    <div>       
+        @Html.CheckBox("chk")
+        @Html.Label("Give Premission")
+    </div>
+<div>    
+        <input type="submit" value="Save" class="btn btn-success col-md-3 " />    
+</div>
+
+}
+
+
+
+@*<div class="col-lg-12" id="divstds">
 
 </div>
 @section scripts
@@ -22,6 +37,6 @@
                 $("#divstds").load("/Instructor1/display_stds/" + $(this).val());
             })
         })
-    </script>
+    </script>*@
 }
 

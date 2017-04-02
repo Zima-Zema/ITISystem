@@ -557,7 +557,6 @@
     <Content Include="Views\Student\edit.cshtml" />
     <Content Include="Views\Course\crs_ins.cshtml" />
     <Content Include="Views\Course\crs_dept.cshtml" />
-    <Content Include="Views\Course\Courses.cshtml" />
     <Content Include="Views\Course\ins_courses.cshtml" />
     <Content Include="Views\Instructor1\Finished_Courses.cshtml" />
     <Content Include="Views\Instructor1\DisplayEvaluationOfInstructor.cshtml" />
@@ -583,6 +582,9 @@
     <Content Include="Views\Instructor1\StudentsDegree.cshtml" />
     <Content Include="Views\Instructor1\Give_Premision.cshtml" />
     <Content Include="Views\Instructor1\display_stds.cshtml" />
+    <Content Include="Views\Student\Add.cshtml" />
+    <Content Include="Views\Course\courses.cshtml" />
+    <Content Include="Views\Course\Instructors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

@@ -231,7 +231,8 @@ namespace ITISystem.Controllers
         {
             try
             {
-                ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");
+                var depts = iti.Departments.Select(a=>a);
+                ViewBag.depts = new SelectList(depts, "Department_Id", "Name");
 
                 return View();
             }
@@ -241,30 +242,33 @@ namespace ITISystem.Controllers
         [HttpGet]
         public ActionResult courses(int id)
         {
-            var crs_list = iti.StdS_CrS_InstrS.Where(s => s.Instructor_key == id).Select(c => c.Courses);
-            TempData["inst_id"] = id;
+
+            //var dept_list = iti.Courses.Select(a=>a.Departments);
+            var crs_list = iti.Departments.Where(a => a.Department_Id == id).SelectMany(a=>a.Courses).ToList();
+            TempData["dept_id"] = id;
             ViewBag.crs = new SelectList(crs_list, "Course_id", "Name");
-            return View();
+            return PartialView();
         }
 
         [HttpGet]
-        public ActionResult Lab_Grade(int course_id)
+        public ActionResult Instructors(int id)
         {
-            var inst_id = TempData["inst_id"].ToString();
+            var dept_id = TempData["dept_id"].ToString();
+            TempData["course_id"] = id;
             //&& s.Student_key==std_id
-            var stds_list = iti.StdS_CrS_InstrS.Where(s => s.Course_key == course_id&&s.Instructor_key.ToString()==inst_id).Select(c => c.Students);
-            ViewBag.stds = new SelectList(stds_list, "Student_Id", "Name");
-            return View();
+            var insts_list = iti.DeptS_CrS_InstrS.Where(s => s.Course_key == id&&s.Department_key.ToString()==dept_id).Select(c => c.Instructors);
+            ViewBag.insts = new SelectList(insts_list, "Student_Id", "Name");
+            return PartialView();
         }
 
         [HttpPost]
-        public ActionResult Lab_Grade(Dept_Crs_Instr data)
+        public ActionResult Add_Instructors(int Id)
         {
             try
             {
 
-                iti.DeptS_CrS_InstrS.Add(data);
-                iti.SaveChanges();
+                //iti.DeptS_CrS_InstrS.Add(data);
+                //iti.SaveChanges();
 
                 return RedirectToAction("Index");
             }
