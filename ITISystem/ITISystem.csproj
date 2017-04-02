@@ -566,6 +566,8 @@
     <Content Include="Views\Student\courses.cshtml" />
     <Content Include="Views\Student\instr_eval.cshtml" />
     <Content Include="Views\Instructor1\Add_Degree.cshtml" />
+    <Content Include="Views\Course\del_crs_dept.cshtml" />
+    <Content Include="Views\Course\del_crs_ins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

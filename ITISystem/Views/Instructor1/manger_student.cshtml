@@ -61,7 +61,7 @@
                     url: "ManagerName/" + $("#ddlDept").val(),
                     contentType: 'application/json; charset=utf-8',
                     success: function (res) {
-
+                        alert(asd);
                         asd = JSON.parse(res);
                         for (var i = 0; i < asd.length; i++) {
                             $("#body").append("<tr><td>" + asd[i].FirstName + "</td> <td>" + asd[i].LastName + "</td><td>" + asd[i].BirthDate + "</td>" + asd[i].Email + "<td><td>" + asd[i].Attendance_Balance + "</td><td>" + asd[i].Telephone + "</td></tr>")
@@ -76,3 +76,4 @@
         });
 
     </script>
+    }

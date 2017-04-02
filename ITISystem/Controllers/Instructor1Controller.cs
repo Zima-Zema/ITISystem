@@ -140,7 +140,7 @@ namespace ITISystem.Controllers
             
             return View();
         }
-        [HttpPost]
+     //   [HttpPost]
         //public ActionResult Add_Degree(InstructorViewModel inst)
         //{
 
