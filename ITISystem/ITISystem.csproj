@@ -703,16 +703,12 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\ITISystem.csproj.GenerateResource.Cache" />
-    <None Include="Scripts\jquery-2.2.4-vsdoc.js" />
     <Content Include="obj\Debug\ITISystem.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ITISystem.dll" />
     <Content Include="obj\Debug\ITISystem.pdb" />
     <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-2.2.4.js" />
-    <Content Include="Scripts\jquery-2.2.4.min.js" />
-    <Content Include="Scripts\jquery-2.2.4.min.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
