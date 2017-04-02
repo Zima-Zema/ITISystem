@@ -1,7 +1,7 @@
 ﻿@model ITISystem.Models.Department
 
 
-@using (Ajax.BeginForm("Create", "Department", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divtable", HttpMethod = "Post", OnSuccess = "fun3()" }))
+@using (Ajax.BeginForm("Create", "Department", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divtable", HttpMethod = "Post" }))
 {
     @Html.AntiForgeryToken()
     
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default" onclick="funy3()" />
                 </div>
             </div>
         </div>
@@ -49,8 +49,15 @@
 <div class="modal-footer">
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    function funy3()
+    {
 
+         $("#divcreate").modal("hide");
+    }
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
  
+
 }

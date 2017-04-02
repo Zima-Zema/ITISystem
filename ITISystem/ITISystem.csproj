@@ -574,6 +574,10 @@
     <Content Include="Views\Student\calculate_eval.cshtml" />
     <Content Include="Views\Student\calculate_eval_instructor.cshtml" />
     <Content Include="Views\Instructor1\Add_Degree.cshtml" />
+    <Content Include="Views\Department\Instructorspage.cshtml" />
+    <Content Include="Views\Department\Fillinstructor.cshtml" />
+    <Content Include="Views\Department\Exelpage.cshtml" />
+    <Content Include="Views\Department\Edittable.cshtml" />
     <Content Include="Views\Instructor1\crs_gradeForStudent.cshtml" />
     <Content Include="Views\Instructor1\ManageStudent.cshtml" />
     <Content Include="Views\Instructor1\Lab_Grade.cshtml" />
