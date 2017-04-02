@@ -119,13 +119,7 @@ namespace ITISystem.Controllers
         public ActionResult Add_Degree()
         {
             
-            ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");
-
-            //var dept_Id = iti.Instructor.Single(a => a.Instructor_Id == 2).Department_Key;
-            //ViewBag.dept_name = iti.Departments.Single(a=>a.Department_Id==dept_Id).Name;
-            //ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
-            //ViewBag.students = new SelectList(iti.Students.Where(a=>a.Department_Key==dept_Id), "Student_Id", "FirstName").ToList();
-            
+            ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");  
             return View();
         }
 
@@ -141,7 +135,6 @@ namespace ITISystem.Controllers
         public ActionResult Lab_Grade(int course_id)
         {
             var inst_id = TempData["inst_id"].ToString();
-            //&& s.Student_key==std_id
             var stds_list = iti.StdS_CrS_InstrS.Where(s => s.Course_key == course_id && s.Instructor_key.ToString() == inst_id).Select(c => c.Students);
             ViewBag.stds = new SelectList(stds_list, "Student_Id", "Name");
             return View();
@@ -205,6 +198,36 @@ namespace ITISystem.Controllers
             return View(allstud);
         }
 
+        public ActionResult Give_Premision()
+        {
+            List<Instructor> insts = new List<Instructor>();
+            var mange_id = iti.Departments.Select(a => a.manger_key);
+            foreach (var item in mange_id)
+            {
+                var mangers = iti.Instructor.Single(a => a.Instructor_Id == item);
+                insts.Add(mangers);
+            }
 
+            ViewBag.mngs = new SelectList(insts, "Instructor_Id", "Name");
+
+            return View();
+        }
+        [HttpGet]
+        public ActionResult display_stds(int id)
+        {
+            
+            var dept_id = iti.Departments.Single(a => a.manger_key == id).Department_Id;
+            var stds = iti.Students.Where(a => a.Department_Key == dept_id);
+            ViewBag.stds = new SelectList(stds, "Student_Id", "FirstName");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult display_stds(Permisions per_std)
+        {
+
+            iti.Premissions.Add(per_std);
+            iti.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,27 @@
+﻿@using ITISystem.Models;
+@model Permisions
+@{
+    ViewBag.Title = "Give_Premision";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Give_Premision</h2>
+<div>
+    @Html.LabelFor(a => a.Instructor_key, "Manger", new { @class = "form-group" })
+
+        @Html.DropDownListFor(a => a.Instructor_key, ViewBag.mngs as SelectList, new { @class = "btn btn-default" })
+</div>
+<div class="col-lg-12" id="divstds">
+
+</div>
+@section scripts
+{
+    <script>
+        $(function () {
+            $("#Instructor_key").change(function (event) {
+                $("#divstds").load("/Instructor1/display_stds/" + $(this).val());
+            })
+        })
+    </script>
+}
+

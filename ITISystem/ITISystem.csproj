@@ -570,6 +570,12 @@
     <Content Include="Views\Instructor1\Add_Degree.cshtml" />
     <Content Include="Views\Instructor1\crs_gradeForStudent.cshtml" />
     <Content Include="Views\Instructor1\ManageStudent.cshtml" />
+    <Content Include="Views\Instructor1\Lab_Grade.cshtml" />
+    <Content Include="Views\Instructor1\Courses.cshtml" />
+    <Content Include="Views\Instructor1\Departs.cshtml" />
+    <Content Include="Views\Instructor1\StudentsDegree.cshtml" />
+    <Content Include="Views\Instructor1\Give_Premision.cshtml" />
+    <Content Include="Views\Instructor1\display_stds.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
