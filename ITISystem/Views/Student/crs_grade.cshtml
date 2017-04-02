@@ -31,9 +31,9 @@
                 </td>
                 <td>
                     @{
-                        int labs = models.Labs_Grade;
+                        int? labs = models.Labs_Grade;
                         int exam = models.Students.Std_Exams.Select(se => se.Exam_grade).FirstOrDefault();
-                        int total = labs + exam;
+                        int? total = labs + exam;
                     }
                     @Html.Label(total.ToString(), new { @class = "form-control" })
                 </td>

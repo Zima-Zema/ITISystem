@@ -1,0 +1,34 @@
+﻿@using ITISystem.Models;
+@model Permisions
+@{
+    ViewBag.Title = "display_stds";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>display_stds</h2>
+@using (Html.BeginForm("display_stds", "Instructor1", FormMethod.Post, "novalidate"))
+{
+@Html.HiddenFor(a => a.Instructor_key)
+<div class="col-lg-12">
+    @*@Html.Label("DepartmentName:")*@
+    @Html.LabelFor(a => a.Student_key, "Student", new { @class = "form-group" })
+    @*@ViewBag.dept_name*@
+    @Html.DropDownListFor(a => a.Student_key, ViewBag.insts as SelectList, new { @class = "btn btn-default" })
+</div>
+<div class="col-lg-12">
+    @*   @Html.TextBoxFor(a => a.BirthDate, new { @class = "form-group" })*@
+    @*@Html.TextBoxFor(a => a.BirthDate, new { Value = Model.BirthDate.ToString("MM-dd-yyyy"), id = "MySuperId" });*@
+    @Html.EditorFor(a => a.Date, new { @type = "date" })
+    @*  @Html.ValidationMessageFor(a => a.BirthDate)*@
+</div>
+<div>
+    @Html.LabelFor(a => a.Type, "Student", new { @class = "form-group" })
+    @Html.CheckBox("chk")
+        @*@Html.CheckBoxFor(a => a.Type, "chx")*@
+</div>
+<div>
+    <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
+}
+
+

@@ -19,7 +19,7 @@
             </div>
             <div>
               @*  @Html.ListBoxFor(a => a.FirstName, (SelectList)ViewData["stds"], new { @class = "btn btn-default" })*@
-                @Html.DropDownListFor(a => a.Student_Id, ViewBag.stds as SelectList, new { @class = "btn btn-default" })          
+                @Html.DropDownListFor(a => a.Student_Id, ViewBag.stds as SelectList, "select Student",new { @class = "btn btn-default" })          
              </div>
              <div>
                  @Html.Label("Enroll Student To Department")

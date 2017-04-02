@@ -1,28 +1,27 @@
 ﻿@using ITISystem.Models;
 @model Std_Crs_Instr
 @{
-    ViewBag.Title = "courses";
+    ViewBag.Title = "course_eval";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>course</h2>
+<h2>Course Evaluation</h2>
 <div>
-    @Html.DropDownListFor(a => a.Course_key, ViewBag.crs as SelectList,"Select Course", new { @class = "btn btn-primary" })
+   @Html.DropDownListFor(a=>a.Course_key, ViewBag.crs as SelectList,"Select Course",new { @class= "btn btn-primary" })
 </div>
 
-<div id="div4">
+<div id="div2">
 
 </div>
+
 @section scripts
 {
     <script>
         $(function () {
             $("#Course_key").change(function (event) {
-                $("#div4").load("/Student/instr_eval/" + $(this).val());
+                $("#div2").load("/Student/instructor_eval/" + $(this).val());
             })
         })
     </script>
 }
-
-
 
