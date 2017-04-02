@@ -7,7 +7,7 @@
 }
 <h2>Index</h2>
 <div id="div1">
-    <table class="table table-bordered">
+    <table id="students" class="table table-bordered">
         <thead>
             <tr>
                 <th>Full Name</th><th>Department</th><th>Operations</th>
@@ -73,7 +73,11 @@
 @section Scripts{
      
     <script>
- 
+        $(document).ready(function () {
+            $("#students").DataTable();
+
+
+        })
     function myfun2() {
         $("#div3").modal("toggle");
     }

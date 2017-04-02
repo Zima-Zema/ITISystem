@@ -16,7 +16,7 @@
 
     <br />
 
-    <table class="table table-bordered table-hover col-lg-4">
+    <table id="instructor" class="table table-bordered table-hover col-lg-4">
         <tr>
 
             <th>
@@ -112,7 +112,12 @@
     </div>
 
 </div>
-<script>
+
+
+@section scripts
+{
+        <script>
+          
         function myfun2()
         {
             $("#div2").modal("toggle");
@@ -121,3 +126,6 @@
             $("#div3").modal("toggle");
         }
 </script>
+    
+    
+}
