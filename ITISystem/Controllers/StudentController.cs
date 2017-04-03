@@ -171,7 +171,8 @@ namespace ITISystem.Controllers
         public ActionResult course_eval(int id)
         {
             var crs_list = iti.StdS_CrS_InstrS.Where(s => s.Student_key == id).Select(c => c.Courses);
-            ViewBag.crs = new SelectList(crs_list, "Course_id", "Name");
+            var courses_list = crs_list.Where(c=>c.Status==CourseStatus.Finish);
+            ViewBag.crs = new SelectList(courses_list, "Course_id", "Name");
             TempData["Id_Instructor"] = id;
             return View();
         }
