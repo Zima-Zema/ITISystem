@@ -199,10 +199,11 @@ namespace ITISystem.Controllers
         }
 
         //give_premission
-        [HttpPost]
+        
 
         public ActionResult Give_Premision(int Id)
         {
+            TempData["inst_id"] = Id;
             var dept_id = iti.Instructor.Single(a => a.Instructor_Id == Id).Department_Key;
             var students = iti.Students.Where(a => a.Department_Key == dept_id);
             //var courses = iti.DeptS_CrS_InstrS.Where(a => a.Instructor_key == inst_id && a.Department_key == dept_id).Select(a=>a.Courses);
@@ -232,11 +233,15 @@ namespace ITISystem.Controllers
         [HttpPost]
         public ActionResult Give_Premision(Permisions per_std,bool chk)
         {
+            var ins_id = int.Parse(TempData["inst_id"].ToString());
+            
             if (chk == true)
             {
+                per_std.Instructor_key = ins_id;
                 per_std.Type = premission.allow;
             }
             else {
+                per_std.Instructor_key = ins_id;
                 per_std.Type = premission.reject;
             }
             iti.Premissions.Add(per_std);
