@@ -1,5 +1,5 @@
 ﻿@using ITISystem.Models;
-@model Std_Crs_Instr
+@model Dept_Crs_Instr
 @{
     ViewBag.Title = "AssignInstructor";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,22 +7,31 @@
 
 <h2>AssignInstructor</h2>
 <div class="col-lg-12">
-    @Html.LabelFor(a => a.Instructor_key, "Instructor", new { @class = "form-group" })
-    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.insts as SelectList,"Select Instructor", new { @class = "btn btn-default" })
+   @Html.LabelFor(a=>a.Department_key, "Department", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Department_key, ViewBag.depts as SelectList,"Select Department", new { @class = "btn btn-default" })
 </div>
     <br /><br /><br /><br />
 
 
-<div class="col-lg-12" id="div2">
+<div class="col-lg-12" id="course">
 </div>
 <br /><br /><br /><br />
+<div class="col-lg-12" id="instructor">
+    
+</div>
+<div id="submit">
+
+</div>
+
+
 
 @section scripts
 {
     <script>
         $(function () {
-            $("#Instructor_key").change(function (event) {
-                $("#div2").load("/Course/courses/" + $(this).val());
+            $("#Department_key").change(function (event) {
+               
+                $("#course").load("/Course/courses/" + $(this).val());
             })
         })
     </script>

@@ -119,13 +119,7 @@ namespace ITISystem.Controllers
         public ActionResult Add_Degree()
         {
             
-            ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");
-
-            //var dept_Id = iti.Instructor.Single(a => a.Instructor_Id == 2).Department_Key;
-            //ViewBag.dept_name = iti.Departments.Single(a=>a.Department_Id==dept_Id).Name;
-            //ViewBag.course = new SelectList(iti.Courses, "Course_Id", "Name");
-            //ViewBag.students = new SelectList(iti.Students.Where(a=>a.Department_Key==dept_Id), "Student_Id", "FirstName").ToList();
-            
+            ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");  
             return View();
         }
 
@@ -141,7 +135,6 @@ namespace ITISystem.Controllers
         public ActionResult Lab_Grade(int course_id)
         {
             var inst_id = TempData["inst_id"].ToString();
-            //&& s.Student_key==std_id
             var stds_list = iti.StdS_CrS_InstrS.Where(s => s.Course_key == course_id && s.Instructor_key.ToString() == inst_id).Select(c => c.Students);
             ViewBag.stds = new SelectList(stds_list, "Student_Id", "Name");
             return View();
@@ -205,6 +198,50 @@ namespace ITISystem.Controllers
             return View(allstud);
         }
 
+        //give_premission
+        [HttpPost]
 
+        public ActionResult Give_Premision(int Id)
+        {
+            var dept_id = iti.Instructor.Single(a => a.Instructor_Id == Id).Department_Key;
+            var students = iti.Students.Where(a => a.Department_Key == dept_id);
+            //var courses = iti.DeptS_CrS_InstrS.Where(a => a.Instructor_key == inst_id && a.Department_key == dept_id).Select(a=>a.Courses);
+            //List<Instructor> insts = new List<Instructor>();
+            //var mange_id = iti.Departments.Select(a => a.manger_key);
+            //foreach (var item in mange_id)
+            //{
+            //    Instructor mangers = iti.Instructor.Where(a => a.Instructor_Id == item).Single();
+            //    insts.Add(mangers);
+            //}
+
+            //ViewBag.courses = new SelectList(courses, "Course_Id", "Name");
+            ViewBag.stds = new SelectList(students, "Student_Id", "FirstName");
+
+
+            return View();
+        }
+        //[HttpGet]
+        //public ActionResult display_stds(int id)
+        //{
+            
+        //    var dept_id = iti.Departments.Single(a => a.manger_key == id).Department_Id;
+        //    var stds = iti.Students.Where(a => a.Department_Key == dept_id);
+        //    ViewBag.stds = new SelectList(stds, "Student_Id", "FirstName");
+        //    return View();
+        //}
+        [HttpPost]
+        public ActionResult Give_Premision(Permisions per_std,bool chk)
+        {
+            if (chk == true)
+            {
+                per_std.Type = premission.allow;
+            }
+            else {
+                per_std.Type = premission.reject;
+            }
+            iti.Premissions.Add(per_std);
+            iti.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

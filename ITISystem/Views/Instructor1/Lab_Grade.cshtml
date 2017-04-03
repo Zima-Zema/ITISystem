@@ -6,10 +6,43 @@
 }
 
 <h2>Lab_Grade</h2>
-<div class="col-lg-12">
 
-    @Html.LabelFor(a => a.Student_key, "Student", new { @class = "form-group" })
 
-    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-default" })
-    </div>
+    @*@Html.LabelFor(a => a.Student_key, "Student", new { @class = "form-group" })
+
+    @Html.DropDownListFor(a => a.Student_key, ViewBag.stds as SelectList, new { @class = "btn btn-default" })*@
+
+
+
+
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Degree</th>
+
+                </tr>
+            </thead>
+            @foreach (var models in ViewBag.stds)
+            {
+                <tr>
+                    <td>
+                        @models
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Labs_Grade, new { @class = "form-group" })
+                        @Html.ValidationMessageFor(a => a.Labs_Grade)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    <br /><br /><br /><br />
+        <div>
+            @Html.ActionLink("Finish", "Lab_Grade", "Instructor1", new { @class = "btn btn-success" })
+        </div>
+    
+</div>
+
 

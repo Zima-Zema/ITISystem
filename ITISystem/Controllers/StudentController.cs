@@ -253,11 +253,31 @@ namespace ITISystem.Controllers
         public ActionResult Edit(ViewModel.StudentViewModel st)
         {
             Student std_new = st.Student;
-            int? selected_dept = std_new.Department_Key;
-            int cap = iti.Departments.Single(d => d.Department_Id == selected_dept).Capacity;
-            int real_cap = cap - 1;
-            int count_std = iti.Students.Where(s => s.Department_Key == selected_dept).Count();
             Student std_old = iti.Students.SingleOrDefault(a => a.Student_Id == std_new.Student_Id);
+            int? selected_dept = std_new.Department_Key;
+            if (selected_dept == null)
+            {
+                std_new.Department_Key = null;
+            }
+            else {
+
+                int cap = iti.Departments.Single(d => d.Department_Id == selected_dept).Capacity;
+                int real_cap = cap - 1;
+                int count_std = iti.Students.Where(s => s.Department_Key == selected_dept).Count();
+                if (count_std <= real_cap)
+                {
+                    std_old.Department_Key = std_new.Department_Key;
+                }
+                else if (count_std > real_cap)
+                {
+                    std_new.Department_Key = null;
+                }
+
+            }
+            //int cap = iti.Departments.Single(d => d.Department_Id == selected_dept).Capacity;
+            //int real_cap = cap - 1;
+            //int count_std = iti.Students.Where(s => s.Department_Key == selected_dept).Count();
+            //Student std_old = iti.Students.SingleOrDefault(a => a.Student_Id == std_new.Student_Id);
             std_old.FirstName = std_new.FirstName;
             std_old.LastName = std_new.LastName;
             std_old.Password = std_new.Password;
@@ -270,16 +290,20 @@ namespace ITISystem.Controllers
             std_old.Address.Country = std_new.Address.Country;
             std_old.Address.Street = std_new.Address.Street;
 
-            if (count_std <= real_cap)
-            {
-                std_old.Department_Key = std_new.Department_Key;
-            }
-            else if (count_std > real_cap)
-            {
-                std_new.Department_Key = null;
-            }
+           
+
+            //if (count_std <= real_cap)
+            //{
+            //    std_old.Department_Key = std_new.Department_Key;
+            //}
+            //else if (count_std > real_cap)
+            //{
+            //    std_new.Department_Key = null;
+            //}
             iti.SaveChanges();
-            return RedirectToAction("Index");
+            List<Student> stds = iti.Students.Select(s => s).ToList();
+            return PartialView("Add", stds);
+
         }
 
         [HttpGet]
@@ -295,7 +319,8 @@ namespace ITISystem.Controllers
             var removeStd = iti.Students.SingleOrDefault(s => s.Student_Id == Id);
             iti.Students.Remove(removeStd);
             iti.SaveChanges();
-            return RedirectToAction("Index");
+            List<Student> stds = iti.Students.Select(s => s).ToList();
+            return PartialView("Add",stds);
         }
     }
 }

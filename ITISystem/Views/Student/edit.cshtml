@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Ajax.BeginForm("edit", "Student", new AjaxOptions()
+@using (Ajax.BeginForm("edit", "Student", new { Id = Model.Student.Student_Id }, new AjaxOptions()
 {
 
     UpdateTargetId = "div1",
     InsertionMode = InsertionMode.Replace,
     HttpMethod = "Post",
-    OnSuccess = "myfun2()"
+    OnSuccess = "myfun1()"
 
 }))
 {
@@ -105,7 +105,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Edit" class="btn btn-primary" />
             </div>
         </div>
     </div>

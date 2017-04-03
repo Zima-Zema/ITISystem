@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ITISystem.Models.Department>
+@using ITISystem.Models
+
+<div id="divtable">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Capacity)
+                </th>
+                <th>
+                    Manager
+
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.instructor_mang.Name)
+                </td>
+                <td>
+                    @Ajax.ActionLink("Edit", "Edit", "Department", new { id = item.Department_Id }, new AjaxOptions()
+               {
+                   UpdateTargetId = "divedit",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "fun()"
+
+               }, new { @class = "btn btn-primary" })
+                    ||
+                    @Ajax.ActionLink("Delete", "Delete", "Department", new { id = item.Department_Id }, new AjaxOptions()
+               {
+                   UpdateTargetId = "divdelete",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "fun2()"
+               }, new { @class = "btn btn-danger" })
+                    ||
+                    @Ajax.ActionLink("Details", "Details", "Department", new { id = item.Department_Id }, new AjaxOptions()
+               {
+                   UpdateTargetId = "divdetails",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "fun4()"
+               }, new { @class = "btn btn-primary" })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.ActionLink("Students", "Studentspage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Instructors", "Instructorspage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Courses", "Coursespage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Manager", "Managerpage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Import.FROM.EXEL", "Exelpage", "Department", "", new { @class = "btn btn-primary" })
+</div>

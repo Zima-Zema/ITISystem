@@ -5,5 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Coursespage</h2>
+<div class="form-group">
+    <br /><br /><br />
+    @Html.LabelFor(model => model.Name, "Department", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @*@Html.DropDownListFor(model => model.Department_Id, ViewBag.dept as SelectList, new { @class = "btn btn-primary", @onchange = "Fillstudent()" })*@
+        @Html.DropDownListFor(m => m.Department_Id, new SelectList(ViewBag.dept, "Department_Id", "Name"), "Select Department", new { @class = "btn btn-primary", onchange = "Fillcourse()" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+</div>
+<br /><br />
+<div id="divcourse">
 
+</div>
+@section Scripts {
+    <script>
+  function Fillcourse() {
+      var deptId = $('#Department_Id').val();
+
+      alert(deptId);
+    $.ajax({
+        url: '/Department/Fillcourse',
+        type: "GET",
+        dataType: "JSON",
+        contentType: 'application/json; charset=utf-8',
+        data: { state: deptId },
+        success: function (courses) {
+            $("#divcourse").html("");
+            $("#divcourse").append($('<h3></h3>').text("course NAMES"));
+
+            $.each(courses, function (i, course) {
+                    $("#divcourse").append(
+                        $('<h3></h3>').text((i+1) +" - "+ course.name));
+                    i++;
+            });
+        },
+        error: function() {
+        alert("There was an error fetching events!")
+    }
+    });
+  }
+    </script>
+}

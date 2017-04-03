@@ -80,6 +80,7 @@
     @Html.ActionLink("Instructors", "Instructorspage", "Department", "", new { @class = "btn btn-primary" })
     @Html.ActionLink("Courses", "Coursespage", "Department", "", new { @class = "btn btn-primary" })
     @Html.ActionLink("Manager", "Managerpage", "Department", "", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Import.FROM.EXEL", "Exelpage", "Department", "", new { @class = "btn btn-primary" })
 </div>
 
 <div id="divedit" class="modal" ></div>
@@ -87,10 +88,10 @@
 <div id="divcreate" class="modal"></div>
 <div id="divdetails" class="modal"></div>
 <script>
-    function fun() {$("#divedit").modal("toggle");}
-    function fun2() {$("#divdelete").modal("toggle");}
-    function fun3() {$("#divcreate").modal("toggle");}
-    function fun4() { $("#divdetails").modal("toggle"); }
+    function fun() {$("#divedit").modal("show");}
+    function fun2() { $("#divdelete").modal("show"); }
+    function fun3() { $("#divcreate").modal("show"); }
+    function fun4() { $("#divdetails").modal("show"); }
 </script>
 <script src="~/Scripts/jquery-2.2.4.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
