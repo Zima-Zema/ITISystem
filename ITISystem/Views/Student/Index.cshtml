@@ -52,31 +52,21 @@
                    HttpMethod = "Get",
                    OnSuccess = "myfun2()"
 
-               }, new { @class = "btn btn-danger" }) 
-                    
+               }, new { @class = "btn btn-danger" })                   
                     </td>
                 <td class="text-center">
-
                     @Html.ActionLink("Course Details", "crs_grade", "Student", new { id = models.Student_Id }, new { @class = "btn btn-primary" })
                 </td>
-
             </tr>
         }
-
     </table>
     @Html.ActionLink("ADD", "Create_Student", "Student", null, new { @class = "btn btn-primary" })
     @Html.ActionLink("Mange Department", "Mange_NoDepts", "Student", null, new { @class = "btn btn-primary" })
     @Html.ActionLink("Evaluation", "evaluation", "Student", null, new { @class = "btn btn-primary" })
 </div>
-
-
 <div id="divdelete" class="modal"></div>
-<div id="divedit" class="modal"></div>
-
-
-     
+<div id="divedit" class="modal"></div>   
  <script>
- 
         function myfun2() {
             $("#divdelete").modal("toggle");
         }
