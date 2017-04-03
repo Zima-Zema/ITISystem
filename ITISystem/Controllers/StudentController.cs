@@ -85,10 +85,16 @@ namespace ITISystem.Controllers
         {
             try
             {
+                var viewModel = new StudentViewModel()
+                {
+                    DepartmentList = iti.Departments.ToList(),
+                    StudentList = iti.Students.Where(s => s.Department_Key == null).Select(s => new { full_name = s.FirstName + " " + s.LastName }).ToList() as IEnumerable<Student>
+                };
                 ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
                 var std_no = iti.Students.Where(s => s.Department_Key == null).ToList();
-               // var full_n = iti.Students.Where(s => s.Department_Key == null).Select(s => new { full_name = s.FirstName + " "+ s.LastName });
+                //var full_n = iti.Students.Where(s => s.Department_Key == null).Select(s => new { full_name = s.FirstName + " " + s.LastName }).ToList();
                 ViewBag.stds = new SelectList(std_no, "Student_Id", "FirstName");
+
                 //
                 // ViewData["stds"] = stds;
                 return View();

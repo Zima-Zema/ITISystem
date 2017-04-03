@@ -7,7 +7,7 @@
 }
 <h2>Index</h2>
 <div id="div1">
-    <table class="table table-bordered">
+    <table id="students" class="table table-bordered">
         <thead>
             <tr >
                 <th class="text-center">Full Name</th><th class="text-center">Department</th><th colspan="3" class="text-center">Operations</th>
@@ -75,6 +75,17 @@
 
 
      
+    <script>
+        $(document).ready(function () {
+            $("#students").DataTable();
+
+
+        })
+    function myfun2() {
+        $("#div3").modal("toggle");
+    }
+    </script>
+}
  <script>
  
         function myfun2() {
