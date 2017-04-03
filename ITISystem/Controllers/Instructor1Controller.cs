@@ -115,35 +115,30 @@ namespace ITISystem.Controllers
         }
 
 
+
+        //Add_Degree
+
         [HttpGet]
-        public ActionResult Add_Degree()
+        public ActionResult Add_Degree(int id)
         {
-            
-            ViewBag.insts = new SelectList(iti.Instructor, "Instructor_Id", "Name");  
+
+            TempData["inst_id"] = id;
+            var dept_id = iti.Instructor.Single(a => a.Instructor_Id == id).Department_Key;
+            var courses = iti.DeptS_CrS_InstrS.Where(a => a.Department_key == dept_id&&a.Instructor_key==id).Select(a=>a.Courses);
+            var students = iti.Students.Where(a => a.Department_Key == dept_id);
+            ViewBag.stds = new SelectList(students, "Student_Id", "FirstName");
+            ViewBag.cors = new SelectList(courses, "Course_Id", "Name");
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Courses(int id)
-        {
-            var crs_list = iti.StdS_CrS_InstrS.Where(s => s.Instructor_key == id).Select(c => c.Courses);
-            TempData["inst_id"] = id;
-            ViewBag.crs = new SelectList(crs_list, "Course_id", "Name");
-            return View();          
-        }
-        [HttpGet]
-        public ActionResult Lab_Grade(int course_id)
-        {
-            var inst_id = TempData["inst_id"].ToString();
-            var stds_list = iti.StdS_CrS_InstrS.Where(s => s.Course_key == course_id && s.Instructor_key.ToString() == inst_id).Select(c => c.Students);
-            ViewBag.stds = new SelectList(stds_list, "Student_Id", "Name");
-            return View();
-        }
         [HttpPost]
-        public ActionResult Lab_Grade(Std_Crs_Instr item)
+        public ActionResult Add_Degree(Std_Crs_Instr item)
         {
-           
-            return View();
+            var inst_id = int.Parse(TempData["inst_id"].ToString());
+            item.Instructor_key = inst_id;
+            iti.StdS_CrS_InstrS.Add(item);
+            iti.SaveChanges();
+            return View("getAll");
         }
         //[HttpGet]
         //public ActionResult Departs(int id)
@@ -206,30 +201,13 @@ namespace ITISystem.Controllers
             TempData["inst_id"] = Id;
             var dept_id = iti.Instructor.Single(a => a.Instructor_Id == Id).Department_Key;
             var students = iti.Students.Where(a => a.Department_Key == dept_id);
-            //var courses = iti.DeptS_CrS_InstrS.Where(a => a.Instructor_key == inst_id && a.Department_key == dept_id).Select(a=>a.Courses);
-            //List<Instructor> insts = new List<Instructor>();
-            //var mange_id = iti.Departments.Select(a => a.manger_key);
-            //foreach (var item in mange_id)
-            //{
-            //    Instructor mangers = iti.Instructor.Where(a => a.Instructor_Id == item).Single();
-            //    insts.Add(mangers);
-            //}
-
-            //ViewBag.courses = new SelectList(courses, "Course_Id", "Name");
             ViewBag.stds = new SelectList(students, "Student_Id", "FirstName");
 
 
             return View();
         }
-        //[HttpGet]
-        //public ActionResult display_stds(int id)
-        //{
-            
-        //    var dept_id = iti.Departments.Single(a => a.manger_key == id).Department_Id;
-        //    var stds = iti.Students.Where(a => a.Department_Key == dept_id);
-        //    ViewBag.stds = new SelectList(stds, "Student_Id", "FirstName");
-        //    return View();
-        //}
+     
+          
         [HttpPost]
         public ActionResult Give_Premision(Permisions per_std,bool chk)
         {
@@ -246,7 +224,7 @@ namespace ITISystem.Controllers
             }
             iti.Premissions.Add(per_std);
             iti.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("getAll");
         }
     }
 }

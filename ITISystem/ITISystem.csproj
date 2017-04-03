@@ -810,7 +810,6 @@
     <Content Include="Views\Instructor1\crs_gradeForStudent.cshtml" />
     <Content Include="Views\Instructor1\ManageStudent.cshtml" />
     <Content Include="Views\Instructor1\Lab_Grade.cshtml" />
-    <Content Include="Views\Instructor1\Courses.cshtml" />
     <Content Include="Views\Instructor1\Departs.cshtml" />
     <Content Include="Views\Instructor1\StudentsDegree.cshtml" />
     <Content Include="Views\Instructor1\Give_Premision.cshtml" />
@@ -818,6 +817,9 @@
     <Content Include="Views\Student\Add.cshtml" />
     <Content Include="Views\Course\courses.cshtml" />
     <Content Include="Views\Course\Instructors.cshtml" />
+    <Content Include="Views\Instructor1\manger_student.cshtml" />
+    <Content Include="Views\Course\del_crs_dept.cshtml" />
+    <Content Include="Views\Course\del_crs_ins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
