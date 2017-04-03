@@ -447,6 +447,10 @@
     <Compile Include="Migrations\201704011837363_ManageStudentandcrs_gradeForStudentandDisplayEvaluationOfInstructor.Designer.cs">
       <DependentUpon>201704011837363_ManageStudentandcrs_gradeForStudentandDisplayEvaluationOfInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704031309585_unique.cs" />
+    <Compile Include="Migrations\201704031309585_unique.Designer.cs">
+      <DependentUpon>201704031309585_unique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -1014,6 +1018,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704011837363_ManageStudentandcrs_gradeForStudentandDisplayEvaluationOfInstructor.resx">
       <DependentUpon>201704011837363_ManageStudentandcrs_gradeForStudentandDisplayEvaluationOfInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031309585_unique.resx">
+      <DependentUpon>201704031309585_unique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
     <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />

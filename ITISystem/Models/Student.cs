@@ -40,6 +40,7 @@ namespace ITISystem.Models
         //
         [Required(ErrorMessage ="*")]
         [Index(IsUnique = true)]
+        [MaxLength(50)]
         public string UserName { get; set; }
         //
         [Required(ErrorMessage ="*")]
