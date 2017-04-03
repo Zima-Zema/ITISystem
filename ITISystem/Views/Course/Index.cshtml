@@ -53,12 +53,12 @@
                         @Html.DisplayFor(modelItem => item.Duration)
                     </td>
                     <td>
-                        @Ajax.ActionLink("Edit","EditCourse","Course",new { Id=item.Course_Id},new AjaxOptions()
+                        @Ajax.ActionLink("Edit", "EditCourse", "Course", new { Id = item.Course_Id }, new AjaxOptions()
                    {
-                       UpdateTargetId="div2",
-                       InsertionMode=InsertionMode.Replace,
-                       HttpMethod="Get",
-                       OnSuccess="myfun2()"
+                       UpdateTargetId = "div2",
+                       InsertionMode = InsertionMode.Replace,
+                       HttpMethod = "Get",
+                       OnSuccess = "myfun2()"
                    }, new { @class = "btn btn-danger" })
                         |
                         @Ajax.ActionLink("Delete", "DeleteCourse", "Course", new { Id = item.Course_Id }, new AjaxOptions()
@@ -67,44 +67,47 @@
                        InsertionMode = InsertionMode.Replace,
                        HttpMethod = "Get",
                        OnSuccess = "myfun3()"
-                   }, new {@class="btn btn-success" }
+                   }, new { @class = "btn btn-success" }
                       )
-                        
-                       @*@Ajax.ActionLink("Delete","DeleteCourse", "Course", new { Id = item.Course_Id })*@
-                       
-                          
+
+                        @*@Ajax.ActionLink("Delete","DeleteCourse", "Course", new { Id = item.Course_Id })*@
+
+
                     </td>
                 </tr>
             }
         </table>
     </div>
     @*<div>
-        @Html.ActionLink("AddCourse", "Addcourse")
-    </div>*@
+            @Html.ActionLink("AddCourse", "Addcourse")
+        </div>*@
     <div class="form-group">
         <div class="col-md-12">
             @Html.ActionLink("AddCourse", "Addcourse", null, new { @class = "btn btn-success" })
             @Html.ActionLink("AddCourseToDepartment", "crs_dept", null, new { @class = "btn btn-primary" })
-            @Html.ActionLink("AddCourseToInstructor", "crs_ins", null, new { @class = "btn btn-danger" })
-            @Html.ActionLink("Assign Instructor", "AssignInstructor", null, new { @class="btn btn-default"})
+            @Html.ActionLink("DeleteCourseFromDepartment", "del_crs_dept", null, new { @class = "btn btn-danger" })
+            @Html.ActionLink("AddCourseToInstructor", "crs_ins", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("DeleteCourseFromIns", "del_crs_ins", null, new { @class = "btn btn-danger" })
+
 
 
 
         </div>
     </div>
+   
+
     <div id="div2" class="modal">
 
     </div>
     <div id="div3" class="modal">
-    
+
 
     </div>
 
-   
+
     <script>
 
-        function myfun2()
-        {
+        function myfun2() {
             $("#div2").modal("toggle");
         }
         function myfun3() {
@@ -112,6 +115,7 @@
         }
     </script>
 </body>
+
 </html>
 
 

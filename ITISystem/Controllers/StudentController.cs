@@ -85,10 +85,16 @@ namespace ITISystem.Controllers
         {
             try
             {
+                var viewModel = new StudentViewModel()
+                {
+                    DepartmentList = iti.Departments.ToList(),
+                    StudentList = iti.Students.Where(s => s.Department_Key == null).Select(s => new { full_name = s.FirstName + " " + s.LastName }).ToList() as IEnumerable<Student>
+                };
                 ViewBag.dpts = new SelectList(iti.Departments, "Department_id", "Name");
                 var std_no = iti.Students.Where(s => s.Department_Key == null).ToList();
-               // var full_n = iti.Students.Where(s => s.Department_Key == null).Select(s => new { full_name = s.FirstName + " "+ s.LastName });
+                //var full_n = iti.Students.Where(s => s.Department_Key == null).Select(s => new { full_name = s.FirstName + " " + s.LastName }).ToList();
                 ViewBag.stds = new SelectList(std_no, "Student_Id", "FirstName");
+
                 //
                 // ViewData["stds"] = stds;
                 return View();
@@ -165,7 +171,8 @@ namespace ITISystem.Controllers
         public ActionResult course_eval(int id)
         {
             var crs_list = iti.StdS_CrS_InstrS.Where(s => s.Student_key == id).Select(c => c.Courses);
-            ViewBag.crs = new SelectList(crs_list, "Course_id", "Name");
+            var courses_list = crs_list.Where(c=>c.Status==CourseStatus.Finish);
+            ViewBag.crs = new SelectList(courses_list, "Course_id", "Name");
             TempData["Id_Instructor"] = id;
             return View();
         }
