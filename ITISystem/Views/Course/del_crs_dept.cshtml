@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ITISystem.Models.Department>
+
+@{
+    ViewBag.Title = "del_crs_dept";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<div class="row form-group">
+    <div class="col-md-12">
+        <select id="ddlDept" class="btn btn-success">
+            <option>Select Department</option>
+            @foreach (var item in Model)
+            {
+                <option value="@item.Department_Id">@item.Name</option>
+            }
+        </select>
+
+        <table class="table table-bordered table-hover table-striped" id="tb1">
+            <thead>
+                <tr>
+
+
+                    <th>Course Name</th>
+                    <th>Select Course</th>
+
+                </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
+
+
+        <div id="div1" class="col-md-10">
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            @Html.ActionLink("Back To List", "index", null, new { @class = "btn btn-success" })
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var asd;
+        var x;
+        $(function () {
+            $("#ddlDept").on('change', function () {
+                $("#body").empty();
+
+                $.ajax({
+                    cashe: false,
+                    type: "Post",
+                    url: "del_crs_dept/" + $("#ddlDept").val(),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (res) {
+
+                        asd = JSON.parse(res);
+                        for (var i = 0; i < asd.length; i++) {
+                            $("#body").append("<tr><td>" + asd[i].Name + "</td><td><input type='checkbox' name='text' onchange='myFunction(this);' value=" + asd[i].Course_Id + " /></td></tr>")
+
+                        }
+
+                    }
+                })
+            });
+
+
+        });
+        function myFunction(elem) {
+            if (elem.checked) {
+                x = elem;
+                var Course_Id = x.value;
+                var Department_Id = $("#ddlDept").val();
+                $("#div1").load('/Course/DeleteCrsFromDept?Department_Id=' + Department_Id + '&Course_Id=' + Course_Id);
+            }
+
+        }
+    </script>
+
+}
+
+
+
+
