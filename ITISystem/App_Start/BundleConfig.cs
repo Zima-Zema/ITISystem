@@ -16,6 +16,7 @@ namespace ITISystem
 
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery.unobtrusive-ajax.js",
                         "~/Scripts/bootstrap.js",
                         "~/scripts/bootbox.js",
                         "~/Scripts/respond.js",
