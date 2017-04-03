@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ITISystem.Models.Instructor>
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>
+            NAME
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (ViewBag.manager == item.Instructor_Id)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(s => item.Name)
+                </td>
+                <td>
+                <input type="radio" name="check" checked="checked" value="@item.Instructor_Id" />
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(s => item.Name)
+
+                </td>
+                <td>
+                    <input type="radio"  name="check"  value="@item.Instructor_Id" />
+                </td>
+            </tr>
+        }
+    }
+</table>
+<input type="button" value="change-manager" onclick="changemanager()" class="btn btn-primary" />
+<div id="divstatus"></div>
+<script>
+    function changemanager() {
+        var deptId = $('input[name=check]:checked').val();
+
+      alert(deptId);
+    $.ajax({
+        url: '/Department/changes',
+        type: "GET",
+        dataType: "JSON",
+        contentType: 'application/json; charset=utf-8',
+        data: { state: deptId },
+        success: function (str) {
+            $("#divstatus").html("");
+            $("#divstatus").append($('<h3></h3>').text("Manager change")).addClass("btn btn-primary")
+
+           alert("change success")
+        },
+        error: function() {
+        alert("There was an error fetching events!")
+    }
+    });
+  }
+</script>

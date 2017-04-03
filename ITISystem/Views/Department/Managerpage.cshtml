@@ -1,0 +1,34 @@
+﻿@model ITISystem.Models.Department
+@{
+    ViewBag.Title = "Managerpage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="form-group">
+    @using (Ajax.BeginForm("selectinstructor", "Department", new AjaxOptions() { UpdateTargetId = "divinstructor", InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+    {
+        <br /><br /><br />
+        @Html.LabelFor(model => model.Name, "Department", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.DropDownListFor(model => model.Department_Id, ViewBag.dept as SelectList, new { @class = "btn btn-primary", @onchange = "Fillstudent()" })*@
+            @Html.DropDownList("Dept", new SelectList(ViewBag.dept, "Department_Id", "Name"), "Select Department", new { @class = "btn btn-primary", onchange = "$(this.form).submit()" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+<br /><br />
+
+<div id="divinstructor">
+
+</div>
+@section Scripts {
+    <script src="~/Scripts/jquery-2.2.4.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+}
+
+
+
+
