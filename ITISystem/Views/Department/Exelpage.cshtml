@@ -7,12 +7,12 @@
 @model System.Data.DataTable
 @using System.Data
 
-<
+
 @using (Html.BeginForm("Exelpage", "Department", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken();
     @Html.ValidationSummary();
-
+    <br /><br /><br />
     <label class="text-info">Upload Excel File</label>
     <input type="file" class="form-control" name="uploadfile" id="uploadfile" />
     <input type="submit" value="submit" class="btn btn-default" />

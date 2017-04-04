@@ -10,11 +10,11 @@ namespace ITISystem.Models
     public class Attendance
     {
         [Key]
-       // [Column("Student_Id", Order = 1)]
+        //[Column("Student_Id", Order = 1)]
         [ForeignKey("Student")]   
         public int Student_key { get; set; }
-     //   [Key]
-     //   [Column(Order = 2)]
+        //[Key]
+        //[Column(Order = 2)]
         [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
         public DateTime Date { get; set; }
         //

@@ -6,21 +6,23 @@
 }
 
 <h2>courses</h2>
-
-    @Html.LabelFor(a => a.Course_key, "Course", new { @class = "form-group" })
-    @Html.DropDownListFor(a => a.Course_key, ViewBag.crs as SelectList, "Select Course", new { @class = "btn btn-default",id="ddl_course" })
-
-@section scripts
+@using (Html.BeginForm("AssignInstructor", "Course", FormMethod.Post, "novalidate"))
 {
-    <script>
-        $(function () {
-            $("#Course_key").change(function (event) {
-
-                $("#course").load("/Course/Instructors/" + $(this).val());
-            })
-        })
-    </script>
+<div>
+    @Html.LabelFor(a => a.Course_key, "Course", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Course_key, ViewBag.crs as SelectList, "Select Course", new { @class = "btn btn-default", id = "ddl_course" })
+</div>
+<h2>Instructors</h2>
+<div>
+    @Html.LabelFor(a => a.Instructor_key, "Instructor", new { @class = "form-group" })
+    @Html.DropDownListFor(a => a.Instructor_key, ViewBag.inst as SelectList, "Select Instructor", new { @class = "btn btn-default" })
+</div>
+<div>
+    <input type="submit" value="Add" class="btn btn-success col-md-3 " /> 
+</div>
 }
+
+
 
 
 
