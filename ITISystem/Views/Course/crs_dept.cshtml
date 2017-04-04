@@ -75,6 +75,7 @@
                 var Course_Id = x.value;
                 var Department_Id = $("#ddlDept").val();
                 $("#div1").load('/Course/AddCoursesToDept?Department_Id=' + Department_Id + '&Course_Id=' + Course_Id);
+                elem.disabled = true;
             }
         
         }

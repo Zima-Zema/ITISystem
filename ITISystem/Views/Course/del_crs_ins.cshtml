@@ -70,6 +70,7 @@
                 var Course_Id = x.value;
                 var Instructor_Id = $("#ddlins").val();
                 $("#div1").load('/Course/DeleteCrsFromIns?Instructor_Id=' + Instructor_Id + '&Course_Id=' + Course_Id);
+                elem.disabled = true;
             }
 
 
