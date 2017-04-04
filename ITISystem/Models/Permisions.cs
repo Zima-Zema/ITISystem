@@ -22,8 +22,8 @@ namespace ITISystem.Models
         [ForeignKey("Instructors")]
         public int Instructor_key { get; set; }
         //
-        [Key]
-        [Column(Order = 3)]
+        //[Key]
+        //[Column(Order = 3)]
         [DataType(DataType.Date, ErrorMessage = "Enter Valid Date")]
         [RegularExpression("dd/mm/yyyy")]
         public DateTime Date { get; set; }
