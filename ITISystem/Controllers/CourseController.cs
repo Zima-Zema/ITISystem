@@ -99,18 +99,18 @@ namespace ITISystem.Controllers
                 if (crss.Status == CourseStatus.Finish)
             {
                 iti.Courses.Remove(crss);
-               // try
-             //   {
+               try
+               {
                 iti.SaveChanges();
                 return RedirectToAction("Index", iti.Courses);
-              //  }
-               // catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
-               //{
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+               {
 
-               //     ViewData["message"] = "you can't delete this course";
-               //     return View(crs);
+                    ViewData["message"] = "you can't delete this course";
+                    return View(crs);
 
-               // }
+                }
             }
 
             else
