@@ -469,6 +469,10 @@
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-ITISystem-20170322093412.mdf" />
+    <Content Include="App_Data\aspnet-ITISystem-20170322093412_log.ldf">
+      <DependentUpon>aspnet-ITISystem-20170322093412.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-Darkly.css" />
     <Content Include="Content\bootstrap-slider.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -843,7 +847,6 @@
     <Content Include="Views\Course\del_crs_ins.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
