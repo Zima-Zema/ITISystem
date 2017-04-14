@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<ITISystem.Models.Course>
-  
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -63,12 +63,13 @@
                         |
                         @Ajax.ActionLink("Delete", "DeleteCourse", "Course", new { Id = item.Course_Id }, new AjaxOptions()
                    {
-                       UpdateTargetId = "div3",
+                       UpdateTargetId = "DeleteAjaxDiv",
                        InsertionMode = InsertionMode.Replace,
                        HttpMethod = "Get",
-                    
-                      OnSuccess = "myfun3()"
-                   }, new { @class = "btn btn-success" }
+
+
+                       OnSuccess = "myfun3()"
+                   }, new { @class = "btn btn-success", Onclick = "DeleteModal()" }
                       )
 
                         @*@Ajax.ActionLink("Delete","DeleteCourse", "Course", new { Id = item.Course_Id })*@
@@ -78,45 +79,73 @@
                 </tr>
             }
         </table>
-    </div>
-    @*<div>
-            @Html.ActionLink("AddCourse", "Addcourse")
-        </div>*@
-    <div class="form-group">
-        <div class="col-md-12">
-            @Html.ActionLink("AddCourse", "Addcourse", null, new { @class = "btn btn-success" })
-            @Html.ActionLink("AddCourseToDepartment", "crs_dept", null, new { @class = "btn btn-primary" })
-            @Html.ActionLink("DeleteCourseFromDepartment", "del_crs_dept", null, new { @class = "btn btn-danger" })
-            @Html.ActionLink("AddCourseToInstructor", "crs_ins", null, new { @class = "btn btn-primary" })
-            @Html.ActionLink("DeleteCourseFromIns", "del_crs_ins", null, new { @class = "btn btn-danger" })
+        @*<div>
+                @Html.ActionLink("AddCourse", "Addcourse")
+            </div>*@
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.ActionLink("AddCourse", "Addcourse", null, new { @class = "btn btn-success" })
+                @Html.ActionLink("AddCourseToDepartment", "crs_dept", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("DeleteCourseFromDepartment", "del_crs_dept", null, new { @class = "btn btn-danger" })
+                @Html.ActionLink("AddCourseToInstructor", "crs_ins", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("DeleteCourseFromIns", "del_crs_ins", null, new { @class = "btn btn-danger" })
 
 
 
 
+            </div>
         </div>
     </div>
-   
+
 
     <div id="div2" class="modal">
 
     </div>
-    <div id="div3" class="modal">
+    <div id="DeleteAjaxDiv" class="modal">
 
 
     </div>
 
+    <!-- Modal Delete -->
+    @*<div class="modal fade" id="DeleteModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Student</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="DeleteAjaxDiv" class="text-center">
+                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+</body>
+</html>
 
+
+@section scripts{ 
     <script>
 
         function myfun2() {
             $("#div2").modal("toggle");
         }
+        //function myfun3() {
+        //    $("#div3").modal("toggle");
+        //}
+
         function myfun3() {
-            $("#div3").modal("toggle");
-        }
+            $("#DeleteAjaxDiv").modal("toggle");
+            
+
+        };
     </script>
-</body>
-
-</html>
 
 
+}

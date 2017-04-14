@@ -38,7 +38,7 @@ namespace ITISystem.Controllers
                         iti.SaveChanges();
                         return RedirectToAction("Index");
                     }
-                     catch(DbEntityValidationException ex)
+                    catch (DbEntityValidationException ex)
                     {
                         var errorMessages = ex.EntityValidationErrors
                            .SelectMany(x => x.ValidationErrors)
@@ -46,15 +46,15 @@ namespace ITISystem.Controllers
                         var fullErrorMessage = string.Join("; ", errorMessages);
                         var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
                         throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
-                    
+
                     }
                 }
-            
-               else
-               {
-                ViewData["message"] = "This Course is exist";
-                return View(crs);
-               }
+
+                else
+                {
+                    ViewData["message"] = "This Course is exist";
+                    return View(crs);
+                }
             }
             else
             {
@@ -90,51 +90,65 @@ namespace ITISystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteCourse(int Id, Course crs)
-
+        public ActionResult DeleteCourse(int Id, int? page)
         {
-           // List<Course> css = iti.Courses.Where(c => c.Status == CourseStatus.Finish).ToList();
+            
+        
+            Course crs = iti.Courses.Where(a => a.Course_Id == Id).FirstOrDefault();
+            int asd = 0;
+          
 
-            Course crss = iti.Courses.FirstOrDefault(cs => cs.Course_Id == crs.Course_Id);
-                if (crss.Status == CourseStatus.Finish)
+            Std_Crs_Instr std_cors = iti.StdS_CrS_InstrS.Where(a => a.Course_key == crs.Course_Id).FirstOrDefault();
+            Dept_Crs_Instr dept_crs
+                = iti.DeptS_CrS_InstrS.Where(a => a.Course_key == crs.Course_Id).FirstOrDefault();
+            if (crs != null)
             {
-                iti.Courses.Remove(crss);
-               try
-               {
-                iti.SaveChanges();
-                return RedirectToAction("Index", iti.Courses);
-                }
-                catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
-               {
+                asd++;
+                if (asd == 1)
+                {
+                    try
+                    {
 
-                    ViewData["message"] = "you can't delete this course";
-                    return View(crs);
+                        if (/*crs.Status == CourseStatus.Finish ||*/ std_cors == null || crs.Departments.Count == 0)
+                        {
+                            iti.Courses.Remove(crs);
+                            iti.SaveChanges();
+                        }
 
+                        else
+                        {
+                            ViewData["message"] = "you can't delete this course";
+                            // return View(crs);
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
+            return RedirectToAction("index", iti.Courses);
 
-            else
-            {
-                ViewData["message"] = "you can't delete this course";
-                return View(crs);
-            }
         }
-    
+
         //b)
-       
+
         [HttpGet]
         public ActionResult crs_dept()
-        {           
+        {
             List<Department> depts = iti.Departments.Select(d => d).ToList();
             return View(depts);
         }
 
         [HttpPost]
-        public ActionResult crs_dept( int id)
+        public ActionResult crs_dept(int id)
         {
             List<Course> course = new List<Course>();
             var crs = iti.Courses.Select(c => c).ToList();
-            List<Course> crs2 = iti.Departments.Single(c => c.Department_Id == id).Courses.ToList();          
+            List<Course> crs2 = iti.Departments.Single(c => c.Department_Id == id).Courses.ToList();
             foreach (var item in crs)
             {
                 if (crs2.FirstOrDefault(k => k.Course_Id == item.Course_Id) == null)
@@ -146,7 +160,7 @@ namespace ITISystem.Controllers
             iti.Configuration.ProxyCreationEnabled = false;
 
             var cur = new JavaScriptSerializer();
-          
+
             var obj = cur.Serialize(course);
             if (course.Count == 0)
             {
@@ -165,12 +179,12 @@ namespace ITISystem.Controllers
             Department dept = iti.Departments.SingleOrDefault(d => d.Department_Id == Department_Id);
             dept.Courses.Add(cors);
             iti.SaveChanges();
-         
+
         }
-/// <summary>
-/// //////////////////////////////////////////////
-/// </summary>
-/// <returns></returns>
+        /// <summary>
+        /// //////////////////////////////////////////////
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult del_crs_dept()
         {
@@ -183,15 +197,15 @@ namespace ITISystem.Controllers
         [HttpPost]
         public ActionResult del_crs_dept(int id)
         {
-           List<Course> course = new List<Course>();
-           // var crs = iti.Courses.Select(c => c).ToList();
+            List<Course> course = new List<Course>();
+            // var crs = iti.Courses.Select(c => c).ToList();
             List<Course> crs2 = iti.Departments.Single(c => c.Department_Id == id).Courses.ToList();
             foreach (var item in crs2)
             {
                 if (crs2.FirstOrDefault(k => k.Course_Id == item.Course_Id) != null)
-               {
+                {
                     course.Add(new Course() { Course_Id = item.Course_Id, Name = item.Name });
-              }
+                }
 
             }
             iti.Configuration.ProxyCreationEnabled = false;
@@ -272,12 +286,12 @@ namespace ITISystem.Controllers
         /// ///////////////////////////////////////////////
         /// </summary>
         /// <returns></returns>
-              [HttpGet]
-               public ActionResult del_crs_ins()
-              {
-                   List<Instructor> ins = iti.Instructor.Select(d => d).ToList();
-                 return View(ins);
-              }
+        [HttpGet]
+        public ActionResult del_crs_ins()
+        {
+            List<Instructor> ins = iti.Instructor.Select(d => d).ToList();
+            return View(ins);
+        }
 
         [HttpPost]
         public ActionResult del_crs_ins(int id)
@@ -311,7 +325,7 @@ namespace ITISystem.Controllers
         {
             var cors = iti.Courses.SingleOrDefault(c => c.Course_Id == Course_Id);
             var crss = iti.Instructor.Single(c => c.Instructor_Id == Instructor_Id).Courses.ToList();
-            Instructor  ins = iti.Instructor.SingleOrDefault(d => d.Instructor_Id == Instructor_Id);
+            Instructor ins = iti.Instructor.SingleOrDefault(d => d.Instructor_Id == Instructor_Id);
             ins.Courses.Remove(cors);
             iti.SaveChanges();
 
@@ -330,7 +344,7 @@ namespace ITISystem.Controllers
         {
             try
             {
-                var depts = iti.Departments.Select(a=>a);
+                var depts = iti.Departments.Select(a => a);
                 ViewBag.depts = new SelectList(depts, "Department_Id", "Name");
 
                 return View();
@@ -377,4 +391,3 @@ namespace ITISystem.Controllers
 
 
 }
-    

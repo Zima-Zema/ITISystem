@@ -1,98 +1,93 @@
 ﻿@model ITISystem.Models.Course
-
-@{
+    @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+ 
+                              
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h2>Are you sure you want to delete?</h2>
+            <h2>Are You Sure You Want to Delete??</h2>
         </div>
-        
         <div class="modal-body">
-
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Name)
-                    @if (ViewData["message"] != null)
-                    {
-                        @Html.Label("you can't delete this course", new { @class = " text-danger" });
-                    }
-
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Lec_Duration)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Lec_Duration)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Lab_Duration)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Lab_Duration)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Status)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Status)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Duration)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Duration)
-                </dd>
-
-
-
-                <dt>
-                </dt>
-
-            </dl>
-        </div>
-        <div>
-            @using (Ajax.BeginForm("DeleteCourse", "Course", new AjaxOptions()
+            @using (Ajax.BeginForm("DeleteCourse", "Course", new { ID = Model.Course_Id, crs = Model }, new AjaxOptions()
             {
                 UpdateTargetId = "div1",
                 InsertionMode = InsertionMode.Replace,
-                HttpMethod = "Post",
-                OnSuccess = "myfun3()"
-
-            }))
+                OnSuccess = "DeleteModal()"
+            }, new { @class = "form-horizontal", method = "Post" }))
             {
+                
+            <div class="form-horizontal">
+
                 @Html.HiddenFor(a => a.Course_Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Name, new { @class = "col-md-2 control-label", style = "text-align: right;" })
+                    <div class="col-md-6">
+                        <label class="col-md-6 control-label" style="text-align: left;">@Model.Name</label>
+                        <div>
+                        @if (ViewData["message"] != null)
+                        {
+                            @Html.Label("you can't delete this course", new { @class = " text-danger" });
+                        }
+                       </div> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Lec_Duration, new { @class = "col-md-2 control-label", style = "text-align: right;" })
+                    <div class="col-md-6">
+                        <label class="col-md-6 control-label" style="text-align: left;">@Model.Lec_Duration</label>
+                    </div>
+                </div>
 
 
                 <div class="form-group">
-                    <div class="col-md-offest">
-                        <input type="submit" value="Delete" class="btn btn-primary" />
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
-
-
+                    @Html.LabelFor(a => a.Lab_Duration, new { @class = "col-md-2 control-label", style = "text-align: right;" })
+                    <div class="col-md-6">
+                        <label class="col-md-6 control-label" style="text-align: left;">@Model.Lab_Duration</label>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Status, new { @class = "col-md-2 control-label", style = "text-align: right;" })
+                    <div class="col-md-6">
+                        <label class="col-md-6 control-label" style="text-align: left;">@Model.Status</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Duration, new { @class = "col-md-2 control-label", style = "text-align: right;" })
+                    <div class="col-md-6">
+                        <label class="col-md-6 control-label" style="text-align: left;">@Model.Duration</label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <input type="submit" value="Delete" class="btn btn-primary"  />
+                    </div>
+                    @*<div class="col-sm-offset-2 col-sm-4">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+
+                    </div>*@
+                </div>
+            </div>
             }
         </div>
-
-</div>
+        <div class="modal-footer">
+        @Html.ActionLink("Back To List", "index", null, new { @class = "btn btn-primary" })
     </div>
+</div>
+ </div>  
 
+ 
+    
 
 
 
