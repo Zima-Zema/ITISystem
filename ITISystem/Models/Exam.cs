@@ -29,6 +29,10 @@ namespace ITISystem.Models
         //
         [DataType(DataType.DateTime, ErrorMessage = "Enter Valid DateTime")]
         public DateTime to { get; set; }
+
+        [Range(1,20)]
+        public int? NumberOfQuestion { get; set; }
+
         //
         [ForeignKey("Courses")]
         public int Course_key { get; set; }
