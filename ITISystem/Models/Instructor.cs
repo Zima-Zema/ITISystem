@@ -18,7 +18,6 @@ namespace ITISystem.Models
         {
             InstrDeptCrs = new List<Dept_Crs_Instr>();
             Std_Crs_Instr = new List<Models.Std_Crs_Instr>();
-            Courses = new List<Course>();
         }
         [Key]
         public int Instructor_Id { get; set; }

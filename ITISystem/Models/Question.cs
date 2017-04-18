@@ -22,31 +22,25 @@ namespace ITISystem.Models
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string Body { get; set; }
         //
-        [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")][Display(Name ="A")]
+        [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string Answer_A { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        [Display(Name = "B")]
         public string Answer_B { get; set; }
         //
-        [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        [Display(Name = "C")]
+        [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string Answer_C { get; set; }
         //
-        [DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        [Display(Name = "D")]
+        [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
         public string Answer_D { get; set; }
         //
         [Required][DataType(DataType.Text, ErrorMessage = "Please enter valid Name")]
-        [Display(Name = "Answer Model")]
         public string Answer_Model { get; set; }
         //
         [Required][Range(0, 50, ErrorMessage = "Please enter valid Number")]
         public double Grade { get; set; }
-    
         //
         [ForeignKey("Courses")]
-        [Display(Name = "Course")]
         public int Course_key { get; set; }
         public virtual Course Courses { get; set; }
         public virtual List<Exam> Exams { get; set; }

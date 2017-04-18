@@ -26,32 +26,25 @@ namespace ITISystem.Controllers
         {
             var depts = iti.Departments.Include(dd => dd.instructor_mang).Where(s => s.Department_Id == id).Single();
             var ins = iti.Instructor.ToList();
+                //.Instructors.ToList();
             ViewBag.ins = new SelectList(ins, "Instructor_Id", "Name", depts.manger_key);
             return PartialView(depts);
         }
         [HttpPost]
         public ActionResult Edit(Department dept)
         {
-            //var depts = iti.Departments.Include(dd => dd.instructor_mang).ToList();
-            var depts = iti.Departments.Include(dd => dd.instructor_mang).Where(s => s.Department_Id == dept.Department_Id).Single();
-
-            var ins = iti.Instructor.ToList();
-
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var deptsold = iti.Departments.SingleOrDefault(s=>s.Department_Id==dept.Department_Id);
                 deptsold.Name = dept.Name;
                 deptsold.Capacity = dept.Capacity;
                 deptsold.manger_key = dept.manger_key;
                 iti.SaveChanges();
-                var deptList = iti.Departments.Include(dd => dd.instructor_mang).ToList();
+                
+            //}
+            var depts = iti.Departments.Include(dd => dd.instructor_mang).ToList();
 
-                return PartialView("Edittable", deptList);
-            }
-            ViewBag.ins = new SelectList(ins, "Instructor_Id", "Name", depts.manger_key);
-
-            return PartialView(depts);
-
+            return PartialView( "Edittable",depts);
 
         }
         [HttpGet]
@@ -81,19 +74,10 @@ namespace ITISystem.Controllers
         [HttpPost]
         public ActionResult Create(Department dept)
         {
+            iti.Departments.Add(dept);
+            iti.SaveChanges();
             var deptss = iti.Departments.Include(dd => dd.instructor_mang).ToList();
-            if (ModelState.IsValid)
-            {
-                iti.Departments.Add(dept);
-                iti.SaveChanges();
-               
-                return PartialView("Edittable", deptss);
-
-            }
-            var ins = iti.Instructor.ToList();
-
-            ViewBag.ins = new SelectList(ins, "Instructor_Id", "Name", 1);
-            return PartialView();
+            return PartialView("Edittable", deptss);
         }
         [HttpGet]
         public ActionResult Details(int id)

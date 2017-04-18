@@ -1,117 +1,112 @@
 ﻿@model IEnumerable<ITISystem.Models.Instructor>
-
+-
 @{
     //ViewBag.Title = "getAll";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-
-<h2>All Instructor</h2>
-
-<p>
-    @Html.ActionLink("Create", "createInstructor", null, new { @class = "btn btn-primary" })
-</p>
-
-
-
-
 <div>
 
+    <br />
+    <br />
+
+    <br />
+    <h2 class="col-lg-offset-4">All Instructor</h2>
+    <br />
+
+    <br />
+
     <table id="instructor" class="table table-bordered table-hover col-lg-4">
-        <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Graduation_Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work_Status)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model=>model.Department_Key)
+            </th>
+            
+
+        </tr>
+        @foreach (var item in Model)
+        {
+
             <tr>
+                @*<td>@Html.DisplayFor(modelItem => item.Name)</td>*@
+                <td>@Html.ActionLink(item.Name.ToString(), "Finished_Courses",new { id= item.Instructor_Id })</td>
+                <td>@Html.DisplayFor(modelItem => item.BirthDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Degree)</td>
+                <td>@Html.DisplayFor(modelItem => item.Graduation_Year)</td>
+                <td>@Html.DisplayFor(modelItem => item.Work_Status)</td>
+                @if (item.Department_Key != null)
+                {
+                    <td>@item.Department.Name</td>
+                }
+                else
+                {
+                    <td>No Department</td>
+                }
+                
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BirthDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Degree)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Graduation_Year)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Work_Status)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Department_Key)
-                </th>
-                <th>Operations</th>
+               <td>
+                    @Ajax.ActionLink("Edit", "Edit", "Instructor1", new { id = item.Instructor_Id }, new AjaxOptions()
+               {
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun2()"
+               })
+                </td>
 
-
+                <td>
+                    @Ajax.ActionLink("Remove", "Remove", "Instructor1", new { id = item.Instructor_Id }, new AjaxOptions()
+               {
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "Get",
+                   OnSuccess = "myfun3()"
+               })
+                </td>
 
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-
-                <tr>
-                    @*<td>@Html.DisplayFor(modelItem => item.Name)</td>*@
-                    <td>@Html.ActionLink(item.Name.ToString(), "Finished_Courses", new { id = item.Instructor_Id })</td>
-                    <td>@Html.DisplayFor(modelItem => item.BirthDate)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Degree)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Graduation_Year)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Work_Status)</td>
-                    @if (item.Department_Key != null)
-                {
-                        <td>@item.Department.Name</td>
-                    }
-                    else
-                    {
-                        <td>No Department</td>
-                    }
+        }
 
 
-                    <td>
-                        @Ajax.ActionLink("Edit", "Edit", "Instructor1", new { id = item.Instructor_Id }, new AjaxOptions()
-                   {
-                       UpdateTargetId = "div3",
-                       InsertionMode = InsertionMode.Replace,
-                       HttpMethod = "Get",
-                       OnSuccess = "myfun2()"
-                   })
-                        |
-
-                        <button class="btn btn-danger btn-xs js-delete" data-instractor-id="@item.Instructor_Id">Remove</button>
-
-
-                        @*@Ajax.ActionLink("Remove", "Remove", "Instructor1", new { id = item.Instructor_Id }, new AjaxOptions()
-                   {
-                       UpdateTargetId = "div3",
-                       InsertionMode = InsertionMode.Replace,
-                       HttpMethod = "Get",
-                       OnSuccess = "myfun3()"
-                   })*@
-                    </td>
-
-                </tr>
-            }
-
-        </tbody>
     </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="form-group col-lg col-lg-offset-4">
 
-    <div id="div3" class="modal">
+        @Html.ActionLink("Create", "createInstructor")
+    </div>
+    <div id="div3">
 
     </div>
     <div>
 
         @*@using (Ajax.BeginForm("Edit", "Edit", "Instructor1",new AjaxOptions()
-            {
-                UpdateTargetId = "div3",
-                InsertionMode = InsertionMode.Replace,
+        {
+            UpdateTargetId = "div3",
+            InsertionMode = InsertionMode.Replace,
 
 
-            }))
-            {
+        }))
+        {
 
 
-            }*@
+        }*@
 
 
     </div>
@@ -121,49 +116,16 @@
 
 @section scripts
 {
-    <script>
-
-
-
-        function myfun2() {
-            $("#div3").modal("toggle");
+        <script>
+          
+        function myfun2()
+        {
+            $("#div2").modal("toggle");
         }
         function myfun3() {
             $("#div3").modal("toggle");
         }
-
-        $(function () {
-            var table=$("#instructor").DataTable();
-            $("#instructor").on("click", ".js-delete", function () {
-                var delbutton = $(this);
-                bootbox.confirm("Are You Sure To Delete This Instructor And Its All Data?!", function (result) {
-                    if (result) {
-                        $.ajax({
-                            url: "/api/Instructors/" + delbutton.attr("data-instractor-id"),
-                            method: "DELETE",
-                            success: function () {
-                                table.row(delbutton.parents("tr")).remove().draw();
-                            },
-                            error: function () {
-
-                            }
-
-
-                        });
-
-                    }
-
-
-                })
-
-            });
-
-
-
-
-        });
-
-    </script>
-
-
+</script>
+    
+    
 }

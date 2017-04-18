@@ -89,7 +89,7 @@ namespace ITISystem.Controllers
         [HttpPost]
         public ActionResult Remove(int id, Instructor inst)
         {
-            Instructor ins = iti.Instructor.SingleOrDefault(i => i.Instructor_Id == id);
+            Instructor ins = iti.Instructor.FirstOrDefault(i => i.Instructor_Id == inst.Instructor_Id);
             iti.Instructor.Remove(ins);
             iti.SaveChanges();
             return RedirectToAction("getAll", iti.Instructor);
