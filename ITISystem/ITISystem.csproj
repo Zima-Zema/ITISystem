@@ -100,8 +100,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
@@ -119,12 +119,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -221,12 +233,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\InstructorsController.cs" />
+    <Compile Include="Controllers\API\QuestionsController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\ExamsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Instructor1Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -443,6 +460,22 @@
     <Compile Include="Migrations\201703311541395_student_null_col.Designer.cs">
       <DependentUpon>201703311541395_student_null_col.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704171538497_addNumberOfQuestionToExam.cs" />
+    <Compile Include="Migrations\201704171538497_addNumberOfQuestionToExam.Designer.cs">
+      <DependentUpon>201704171538497_addNumberOfQuestionToExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172305238_AddAnswerCols.cs" />
+    <Compile Include="Migrations\201704172305238_AddAnswerCols.Designer.cs">
+      <DependentUpon>201704172305238_AddAnswerCols.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704172310259_AddAnswer.cs" />
+    <Compile Include="Migrations\201704172310259_AddAnswer.Designer.cs">
+      <DependentUpon>201704172310259_AddAnswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704182047554_SomeEditsQuestion.cs" />
+    <Compile Include="Migrations\201704182047554_SomeEditsQuestion.Designer.cs">
+      <DependentUpon>201704182047554_SomeEditsQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -460,19 +493,14 @@
     <Compile Include="Models\Std_Exam.cs" />
     <Compile Include="Models\Std_Exam_Quest.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Models\UniqueDetartmentName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\InstructorViewModel.cs" />
+    <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-ITISystem-20170322093412.mdf" />
-    <Content Include="App_Data\aspnet-ITISystem-20170322093412_log.ldf">
-      <DependentUpon>aspnet-ITISystem-20170322093412.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-Darkly.css" />
     <Content Include="Content\bootstrap-slider.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -631,14 +659,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\ITISystem.csproj.GenerateResource.Cache" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
-    <Content Include="obj\Debug\ITISystem.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\ITISystem.dll" />
-    <Content Include="obj\Debug\ITISystem.pdb" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -724,11 +749,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\ITISystem.csproj.GenerateResource.Cache" />
-    <Content Include="obj\Debug\ITISystem.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\ITISystem.dll" />
-    <Content Include="obj\Debug\ITISystem.pdb" />
     <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -845,9 +865,13 @@
     <Content Include="Views\Instructor1\manger_student.cshtml" />
     <Content Include="Views\Course\del_crs_dept.cshtml" />
     <Content Include="Views\Course\del_crs_ins.cshtml" />
+    <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Questions\New.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Exams\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1013,47 +1037,18 @@
     <EmbeddedResource Include="Migrations\201703311541395_student_null_col.resx">
       <DependentUpon>201703311541395_student_null_col.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addExamWithCrs.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionExam.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.addQuestionWithCrs.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.AddStudentandDepartment.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.AddStudentandDepartment2.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.ADD_Std_Exam.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Attendance_std.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.CourseAndInstructor.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.DepartmentNameIndex.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.DeptCrsInstr.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Fix4.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Fix5.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.FixDepartment.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.FixDepartment2.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.FixDepartment3.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.FixDepartment4.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.FixInst_and_Stud.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.FixValidation.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.InitialCreation.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.instructoredit.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.last.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.mange_std_dprt.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.permissionUpdate.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.relationBetweenInsrtDprt.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.removeInstructorandUI.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.stds_crss_instrs.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Std_Crs_Instr.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Std_Exam_Quest.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.test.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Update1.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.update2.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.updateDepartment.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.updateInstructor.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.updates.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.update_DB2.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.update_inDB.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.Update_inst_deparatment.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.update_phone.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.update_phone2.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.update_student_priviledges.resources" />
-    <EmbeddedResource Include="obj\Debug\ITISystem.Migrations.updDptInstr.resources" />
+    <EmbeddedResource Include="Migrations\201704171538497_addNumberOfQuestionToExam.resx">
+      <DependentUpon>201704171538497_addNumberOfQuestionToExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172305238_AddAnswerCols.resx">
+      <DependentUpon>201704172305238_AddAnswerCols.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704172310259_AddAnswer.resx">
+      <DependentUpon>201704172310259_AddAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704182047554_SomeEditsQuestion.resx">
+      <DependentUpon>201704182047554_SomeEditsQuestion.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
